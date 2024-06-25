@@ -4,23 +4,24 @@
 
 using UnityEngine;
 
+using SingletonsCollection;
 using MyCampusStory.InputSystem;
-using MyCampusStory.ResourceSystem;
 
-namespace MyCampusStory
+namespace MyCampusStory.StandaloneManager
 {
     /// <summary>
     /// Class summary
     /// </summary>
-    public class GameManager : SingletonMonoBehaviour<GameManager>
-    {
-        [field:SerializeField]
-        public ResourceManager ResourceManager { get; private set; }
-        
+    [DefaultExecutionOrder(-2)]
+    public class GameManager : DontDestroyOnLoadSingletonMonoBehaviour<GameManager>
+    {   
         [field:SerializeField]
         public InputManager InputManager { get; private set; }
 
         [field:SerializeField]
         public AudioManager AudioManager { get; private set; }
+
+        [field:SerializeField]
+        public SceneHandler SceneHandler { get; private set; }
     }
 }

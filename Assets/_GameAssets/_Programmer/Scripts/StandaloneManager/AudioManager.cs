@@ -4,7 +4,7 @@
 
 using UnityEngine;
 
-namespace MyCampusStory
+namespace MyCampusStory.StandaloneManager
 {
     /// <summary>
     /// Class for managing audio in game

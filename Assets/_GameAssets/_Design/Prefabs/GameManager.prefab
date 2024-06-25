@@ -125,8 +125,8 @@ Transform:
   - {fileID: 5318866698875233846}
   - {fileID: 4564551764523009136}
   - {fileID: 5433916131512251574}
-  - {fileID: 7969919027554073501}
   - {fileID: 4231482090591381727}
+  - {fileID: 8271035206370094776}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-6321685192454864710
@@ -141,9 +141,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e809ac39c75eeaa49bcb9325ce022f9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ResourceManager>k__BackingField: {fileID: 7721100675705671389}
   <InputManager>k__BackingField: {fileID: 4008965953378274730}
-  <AudioManager>k__BackingField: {fileID: 0}
+  <AudioManager>k__BackingField: {fileID: 5001587130999930176}
+  <SceneHandler>k__BackingField: {fileID: 19637564984259921}
 --- !u!1 &3853001453476967425
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,7 +530,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &9016627375518259033
+--- !u!1 &5971707304746849579
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -538,22 +538,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7969919027554073501}
-  - component: {fileID: 7721100675705671389}
+  - component: {fileID: 8271035206370094776}
+  - component: {fileID: 19637564984259921}
   m_Layer: 0
-  m_Name: ResourceManager
+  m_Name: SceneHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7969919027554073501
+--- !u!4 &8271035206370094776
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9016627375518259033}
+  m_GameObject: {fileID: 5971707304746849579}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -562,16 +562,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4570762967444965964}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7721100675705671389
+--- !u!114 &19637564984259921
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9016627375518259033}
+  m_GameObject: {fileID: 5971707304746849579}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2fe2ae22aea3d2418698a1d06cb39c4, type: 3}
+  m_Script: {fileID: 11500000, guid: 921edd5d5887c0b46abffe358ffd1193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _resourceSOList: []
+  _sceneTransitionAnimator: {fileID: 0}

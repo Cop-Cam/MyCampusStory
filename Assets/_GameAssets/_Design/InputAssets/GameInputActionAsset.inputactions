@@ -6,27 +6,18 @@
             "id": "fefac3f6-38a0-4135-b773-3917f9b856f6",
             "actions": [
                 {
-                    "name": "ClickOrPress",
+                    "name": "TouchPress",
                     "type": "Button",
-                    "id": "ea46d66c-f786-499a-9c03-fe0f324ecc22",
+                    "id": "46e0c3f3-83f3-4cc9-ab78-632776fe01ff",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "ScrollOrPinch",
-                    "type": "Value",
-                    "id": "ea6d2cb3-7756-4a04-b884-5c84fedd6de7",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "initialStateCheck": true
                 },
                 {
-                    "name": "DragOrSwipe",
+                    "name": "TouchPosition",
                     "type": "Value",
-                    "id": "a6e307e7-8651-4ecf-8c23-330bb3b45a94",
+                    "id": "17ee38e7-bd8d-4477-86ba-7ea8dbb888fb",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -36,146 +27,47 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "272494c0-8870-4991-9f54-fe4a1f96bcd9",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ClickOrPress",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e19280d2-e55f-4edc-9a45-bae379b892f9",
-                    "path": "<Touchscreen>/Press",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ClickOrPress",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "576432ba-f296-46e0-8aac-2f591a87cc07",
-                    "path": "<Mouse>/scroll",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ScrollOrPinch",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "Pinch",
-                    "id": "3753f225-ee91-42ef-9098-9fc1b7160222",
-                    "path": "TwoModifiers",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ScrollOrPinch",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "modifier1",
-                    "id": "7a6d8201-dcff-45cb-b7b9-18c380def8d7",
+                    "id": "0b3ff4dd-24ed-455d-b8b8-f45aae64f751",
                     "path": "<Touchscreen>/primaryTouch/press",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ScrollOrPinch",
+                    "action": "TouchPress",
                     "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "modifier2",
-                    "id": "c3f825fc-f669-4fb6-ac82-302ddd1172c8",
-                    "path": "<Touchscreen>/touch1/press",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ScrollOrPinch",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "binding",
-                    "id": "17d35e2e-ab3c-43d4-98f6-7e6e5df47323",
-                    "path": "<Touchscreen>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ScrollOrPinch",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Mouse",
-                    "id": "99c39b81-61d9-46c0-ab36-81906ff6646f",
-                    "path": "OneModifier",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "DragOrSwipe",
-                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Modifier",
-                    "id": "0fd3cea5-0b56-468d-80a8-b4055e4a3f3b",
-                    "path": "<Mouse>/rightButton",
+                    "name": "",
+                    "id": "ad31ed99-cd1d-40c1-9e4d-67dc1a482003",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "DragOrSwipe",
+                    "action": "TouchPress",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
-                    "name": "Binding",
-                    "id": "6bd30538-2206-408b-803f-fec61219ff87",
+                    "name": "",
+                    "id": "6e54addf-f4a7-4791-8cdd-3575d98cdbf0",
+                    "path": "<Touchscreen>/primaryTouch/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TouchPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b9d96ff7-f6d3-4981-9488-0655e63d07fe",
                     "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "DragOrSwipe",
+                    "action": "TouchPosition",
                     "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Touch",
-                    "id": "060b6161-ed37-4f9c-b3f8-f11d828764c5",
-                    "path": "OneModifier",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "DragOrSwipe",
-                    "isComposite": true,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "Modifier",
-                    "id": "4722b12c-4d1b-4e79-9a6d-1a4d5e543f2f",
-                    "path": "<Touchscreen>/touch0/press",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "DragOrSwipe",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Binding",
-                    "id": "9d2f8f14-a65b-4e12-a136-8f5754a6c541",
-                    "path": "<Touchscreen>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "DragOrSwipe",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 }
             ]
         },

@@ -5,6 +5,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using MyCampusStory.StandaloneManager;
 using MyCampusStory.DataPersistenceSystem;
 using MyCampusStory.ResourceSystem;
 
@@ -62,7 +63,7 @@ namespace MyCampusStory.BuildingSystem
                 return;
             }
 
-            if(!_buildingUpgradeManager.TryUpgradingBuilding(_buildingStatsPerLevelDictionary, _currentBuildingStat, _currentBuildingLevel, GameManager.Instance.ResourceManager))
+            if(!_buildingUpgradeManager.TryUpgradingBuilding(_buildingStatsPerLevelDictionary, _currentBuildingStat, _currentBuildingLevel, LevelManager.Instance.ResourceManager))
             {
                 Debug.Log("Not enough resources to upgrade");
                 return;

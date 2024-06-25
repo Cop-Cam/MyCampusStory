@@ -197,6 +197,12 @@ namespace MyCampusStory.DataPersistenceSystem
 
         private void LoadState()
         {
+            // return right away if data persistence is disabled
+            if (_disableDataPersistence) 
+            {
+                return;
+            }
+            
             // push the loaded data to all other scripts that need it
             foreach (IDataPersistence dataPersistenceObj in _dataPersistenceObjects) 
             {
