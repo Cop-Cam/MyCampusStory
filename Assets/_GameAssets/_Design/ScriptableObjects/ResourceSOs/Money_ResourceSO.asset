@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c01af3d02aacfe04492c5db3f4364069, type: 3}
-  m_Name: ChangeStat_
+  m_Script: {fileID: 11500000, guid: 6c2aef0f9eec32c44b7e548d0c0a6066, type: 3}
+  m_Name: Money_ResourceSO
   m_EditorClassIdentifier: 
-  _effectId: 
-  _effectName: 
-  _changeValue: 0
+  ResourceId: RSCMONEY
+  ResourceName: Money
+  UpperLimit: 2147483647
+  LowerLimit: 0

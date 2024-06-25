@@ -122,8 +122,14 @@ namespace MyCampusStory.CameraSystem
                 return;
             }
 
-            IInteractable interactedObj = hit.collider.gameObject.GetComponent<IInteractable>();
-            interactedObj.Interact();
+            // IInteractable interactedObj = hit.collider.gameObject.GetComponent<IInteractable>();
+            // interactedObj.Interact();
+            
+            IInteractable[] interactableObjects = hit.collider.gameObject.GetComponents<IInteractable>();
+            foreach (var interactableObject in interactableObjects)
+            {
+                interactableObject.Interact();
+            }
         }
     }
 }

@@ -65,12 +65,17 @@ namespace MyCampusStory.ResourceSystem
     /// <summary>
     /// Resource scriptableobject for defining purposes only
     /// </summary>
-    [CreateAssetMenu(fileName = "Resource_Name", menuName = "ScriptableObjects/Resource")]
+    [CreateAssetMenu(fileName = "Name_ResourceSO", menuName = "ScriptableObjects/ResourceSO")]
     public class ResourceSO : ScriptableObject
     {
         public string ResourceId;
         public string ResourceName;
         public int UpperLimit = int.MaxValue;
         public int LowerLimit = 0;
+
+        private void OnValidate()
+        {
+            ResourceId = "RSC" + ResourceName.ToUpper();
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace MyCampusStory.StandaloneManager
     {
         private GameManager _gameManager;
 
-        [SerializeField] private GameObject _cnvQuitGameMenuObj;
+        [SerializeField] private Canvas _cnvQuitGameMenu;
 
         [SerializeField] AudioClip _mainMenuMusic;
 
@@ -40,7 +40,7 @@ namespace MyCampusStory.StandaloneManager
 
         public void QuitGameMenu(bool isOpened)
         {
-            _cnvQuitGameMenuObj.SetActive(isOpened);
+            _cnvQuitGameMenu.enabled = isOpened;
         }
         
         public void QuitGame()

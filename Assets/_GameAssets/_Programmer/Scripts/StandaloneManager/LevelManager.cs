@@ -3,9 +3,9 @@
 //----------------------------------------------------------------------
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 using SingletonsCollection;
-using MyCampusStory.InputSystem;
 using MyCampusStory.ResourceSystem;
 
 namespace MyCampusStory.StandaloneManager
@@ -25,11 +25,15 @@ namespace MyCampusStory.StandaloneManager
         [Header("LEVEL PROPERTIES")]
         [SerializeField] AudioClip _levelMusic;
 
+        [SerializeField] private Scene _levelUIScene;
+
         public bool IsGamePaused { get; private set; }
 
         protected override void Awake()
         {
             GameManager = GameManager.Instance;
+
+            GameManager.SceneHandler.LoadSceneAdditive("LevelGameplayUI");
         }
 
         private void Start()

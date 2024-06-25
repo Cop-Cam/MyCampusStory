@@ -14,17 +14,24 @@ namespace MyCampusStory.ResourceSystem
     /// </summary>
     public class ResourceManager : MonoBehaviour, IDataPersistence
     {
-        [SerializeField] private List<ResourceSO> _resourceSOList;
+        [SerializeField] private ResourceSO[] _resourceSOs;
         private Dictionary<string, Resource> _resourcesDictionary;
 
         private void Awake()
         {
             _resourcesDictionary = new Dictionary<string, Resource>();
 
-            foreach (var resourceSO in _resourceSOList)
+            foreach (var resourceSO in _resourceSOs)
             {
                 var newResource = new Resource(resourceSO);
-                _resourcesDictionary.Add(resourceSO.ResourceName.ToUpper(), newResource);
+                if(!_resourcesDictionary.ContainsKey(resourceSO.ResourceId))
+                {
+                    _resourcesDictionary.Add(resourceSO.ResourceId, newResource);
+                }
+                else
+                {
+                    Debug.LogWarning("There are resources with same id found: " + resourceSO.ResourceId);
+                }
             }
         }
 
