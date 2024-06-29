@@ -30,15 +30,15 @@ namespace MyCampusStory.StandaloneManager
 
         public void NewGame()
         {
-            
+            Debug.Log("New Game");
         }
 
         public void LoadGame()
         {
-               
+            Debug.Log("Load Game");
         }
 
-        public void QuitGameMenu(bool isOpened)
+        public void OpenQuitGameMenu(bool isOpened)
         {
             _cnvQuitGameMenu.enabled = isOpened;
         }

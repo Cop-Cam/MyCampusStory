@@ -7,6 +7,8 @@
 /// </summary>
 public interface IInteractable
 {
-    void Interact();
+    void OnInteract();
+
+    void OnStopInteract();
 }
 

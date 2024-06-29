@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
@@ -11,124 +13,135 @@ namespace MyCampusStory.CameraSystem
         [SerializeField] private LayerMask _interactableLayerMask;
         [SerializeField] private CinemachineVirtualCamera _virtualCam;
 
-        private InputManager _inputManager;
-        private Camera _mainCamera;
+        private LevelManager _levelManager;
+
         private Vector2 _lastTouchPressPosition;
+        private bool _isPressing = false;
         private bool _isSwiping = false;
-        private Vector2 _deltaSwipePosition;
-        [SerializeField] private float _swipeSpeed = 8f;
-        [SerializeField] private float _swipeLerpingTime = .1f;
+        [SerializeField] private float _minimumDeltaPositionForSwipe = 1f;
+        [SerializeField] private float _swipeSpeed = 3f;
+        [SerializeField] private float _dampTime = .3f;
+        private Vector3 _smoothVelocity = Vector3.zero;
         [SerializeField] private bool enableSwipeHorizontally = true; //in case we will want to have swipe in other direction
 
+        [SerializeField] private List<IInteractable> _lastInteractedObjects;
+
+        private Coroutine MoveCameraCoroutine;
+        
 
         private void Awake()
         {
-            _inputManager = GameManager.Instance.InputManager;
-            _mainCamera = Camera.main;
-        }
-
-        private void Start()
-        {
+            _levelManager = LevelManager.Instance;
         }
 
         private void OnEnable()
         {
-            Debug.Log("CameraController OnEnable");
+            InputManager.OnTouchPositionEvent += TouchPositionMethodHandler;
 
-            _inputManager.OnTouchPositionEvent += SwippingMethodHandler;
-
-            _inputManager.OnTouchPressStartedEvent += TouchPressStartedMethodHandler;
-            _inputManager.OnTouchPressPerformedEvent += TouchPressPerformedMethodHandler;
-            _inputManager.OnTouchPressCanceledEvent += TouchPressCanceledMethodHandler;
+            InputManager.OnTouchPressPerformedEvent += TouchPressPerformedMethodHandler;
+            InputManager.OnTouchPressCanceledEvent += TouchPressCanceledMethodHandler;
         }
 
         private void OnDisable()
         {
-            Debug.Log("CameraController OnDisable");
+            InputManager.OnTouchPositionEvent -= TouchPositionMethodHandler;
 
-            _inputManager.OnTouchPositionEvent -= SwippingMethodHandler;
-
-            _inputManager.OnTouchPressStartedEvent -= TouchPressStartedMethodHandler;
-            _inputManager.OnTouchPressPerformedEvent -= TouchPressPerformedMethodHandler;
-            _inputManager.OnTouchPressCanceledEvent -= TouchPressCanceledMethodHandler;
+            InputManager.OnTouchPressPerformedEvent -= TouchPressPerformedMethodHandler;
+            InputManager.OnTouchPressCanceledEvent -= TouchPressCanceledMethodHandler;
         }
 
-        private void SwippingMethodHandler(Vector2 position)
+
+        private void TouchPositionMethodHandler(Vector2 position)
         {
-            if(!_isSwiping) return;
+            if(!_isPressing) 
+                return;
+
+            if((_lastTouchPressPosition - position).sqrMagnitude <= _minimumDeltaPositionForSwipe) 
+                return;
+
+            _isSwiping = true;
 
             Vector3 newCameraReversePosition = new Vector3(_virtualCam.transform.position.x, _virtualCam.transform.position.y, _virtualCam.transform.position.z);
 
+            Vector2 deltaSwipePosition = position - _lastTouchPressPosition;
+
             if(enableSwipeHorizontally)
-            {
-                _deltaSwipePosition = position - _lastTouchPressPosition;
-                
-                var x = _virtualCam.transform.position.x - _deltaSwipePosition.x * _swipeSpeed * Time.deltaTime;
+            {    
+                var x = _virtualCam.transform.position.x - deltaSwipePosition.x * _swipeSpeed * Time.deltaTime;
                 // var xClamped = Mathf.Clamp(x, -10f, 10f);
 
                 newCameraReversePosition = new Vector3(x, _virtualCam.transform.position.y, _virtualCam.transform.position.z);
             }
 
-            _virtualCam.transform.position = Vector3.Lerp(_virtualCam.transform.position, newCameraReversePosition, _swipeLerpingTime);
+            if(MoveCameraCoroutine != null)
+                StopCoroutine(MoveCameraCoroutine);
+
+            MoveCameraCoroutine = StartCoroutine(MoveCamera(newCameraReversePosition));
 
             _lastTouchPressPosition = position;
         }
 
-
-        private void TouchPressStartedMethodHandler(Vector2 touchPosition)
+        private IEnumerator MoveCamera(Vector3 targetPos)
         {
-            Debug.Log("TouchEvent Started");
-            _lastTouchPressPosition = touchPosition;
-            _isSwiping = true;
-        }
-
-        private void TouchPressPerformedMethodHandler(Vector2 touchPosition)
-        {
-            Debug.Log("TouchEvent Performed");
-        }
-
-        private void TouchPressCanceledMethodHandler(Vector2 touchPosition)
-        {
-            Debug.Log("TouchEvent Canceled");
-            _isSwiping = false;
-
-            //Check if it wasn't a swipe
-            if(_lastTouchPressPosition == touchPosition)
+            while(_virtualCam.transform.position != targetPos)
             {
-                DrawRayAndTryToInteract(_lastTouchPressPosition);
+                _virtualCam.transform.position = Vector3.SmoothDamp(_virtualCam.transform.position, targetPos, ref _smoothVelocity, _dampTime);
+
+                yield return new WaitForEndOfFrame();
+            }
+        }
+
+        private void TouchPressPerformedMethodHandler(Vector2 position)
+        {
+            _lastTouchPressPosition = position;
+
+            _isPressing = true;
+        }
+
+        private void TouchPressCanceledMethodHandler(Vector2 position)
+        {
+            _isPressing = false;
+            
+            if(!_isSwiping)
+            {
+                if(_lastInteractedObjects != null)
+                {
+                    foreach (var interactableObject in _lastInteractedObjects)
+                    {
+                        interactableObject.OnStopInteract();
+                    }
+                    _lastInteractedObjects = null;
+                }
+
+                DrawRayAndTryToInteract(position);
+            }
+            else
+            {
+                _isSwiping = false;
             }
         }
 
         private void DrawRayAndTryToInteract(Vector2 drawPosition)
         {
-            Ray ray = _mainCamera.ScreenPointToRay(drawPosition);
+            Camera mainCamera = _levelManager.CameraManager.MainCamera;
+            Ray ray = mainCamera.ScreenPointToRay(drawPosition);
             
             // Raycast methods can't differentiate between maxDistance and layerMask args
             RaycastHit hit;
-            if(!Physics.Raycast(ray, out hit, _mainCamera.farClipPlane, _interactableLayerMask))
+            if(!Physics.Raycast(ray, out hit, mainCamera.farClipPlane, _interactableLayerMask) ||
+                hit.collider == null || hit.collider.gameObject.GetComponent<IInteractable>() == null)
             {
-                return;
-            }
-
-            if(hit.collider == null)
-            {
-                Debug.LogWarning("The interactable object is detected but doesn't have a collider!");
-                return;
-            }
-
-            if(hit.collider.gameObject.GetComponent<IInteractable>() == null)
-            {
-                Debug.LogWarning("The interactable object is detected but doesn't have an IInteractable script!");
                 return;
             }
 
             // IInteractable interactedObj = hit.collider.gameObject.GetComponent<IInteractable>();
             // interactedObj.Interact();
             
-            IInteractable[] interactableObjects = hit.collider.gameObject.GetComponents<IInteractable>();
-            foreach (var interactableObject in interactableObjects)
+            // IInteractable[] interactableObjects = hit.collider.gameObject.GetComponents<IInteractable>();
+            _lastInteractedObjects = new (hit.collider.gameObject.GetComponents<IInteractable>());
+            foreach (var interactableObject in _lastInteractedObjects)
             {
-                interactableObject.Interact();
+                interactableObject.OnInteract();
             }
         }
     }

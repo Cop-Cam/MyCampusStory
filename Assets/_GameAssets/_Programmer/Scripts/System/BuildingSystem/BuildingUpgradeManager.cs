@@ -11,9 +11,29 @@ namespace MyCampusStory.BuildingSystem
 {
     public class BuildingUpgradeManager
     {
-        public bool TryUpgradingBuilding(Dictionary<int, BuildingStat> buildingStatsPerLevelDictionary, BuildingStat currentBuildingStat, 
-        int currentBuildingLevel, ResourceManager resourceManager)
+        public void TryUpgradingBuilding(Building building, BuildingStat currentBuildingStat, ResourceManager resourceManager)
         {
+            //Check if there is a building stat for the next level
+            if(building.BuildingStatsPerLevelDictionary.ContainsKey(building.CurrentBuildingLevel + 1))
+            {
+                currentBuildingStat = building.BuildingStatsPerLevelDictionary[building.CurrentBuildingLevel + 1];
+            }
+            else //If there is none, assign stat using the formula
+            {
+                // currentBuildingStat = GetNewBuildingStatByFormula();
+            }
+        }
+
+        public bool CheckUpgradeEligibility(Building building, ResourceManager resourceManager)
+        {
+            // Check if the building is at max level
+            if(building.CurrentBuildingLevel >= building.BuildingDataSO.MaxBuildingLevel)
+            {
+                return false;
+            }
+
+            var currentBuildingStat = building.CurrentBuildingStat;
+
             //Check if the resource is enough to upgrade the building
             foreach (var buildingUpgradeRequirement in currentBuildingStat.BuildingUpgradeRequirements)
             {
@@ -21,16 +41,6 @@ namespace MyCampusStory.BuildingSystem
                 {
                     return false;
                 }
-            }
-            
-            //Check if there is a building stat for the next level
-            if(buildingStatsPerLevelDictionary.ContainsKey(currentBuildingLevel + 1))
-            {
-                currentBuildingStat = buildingStatsPerLevelDictionary[currentBuildingLevel + 1];
-            }
-            else //If there is none, assign stat using the formula
-            {
-                // currentBuildingStat = GetNewBuildingStatByFormula();
             }
 
             return true;

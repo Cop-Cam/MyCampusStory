@@ -7,17 +7,20 @@ using UnityEngine;
 using TMPro;
 
 using MyCampusStory.ResourceSystem;
+using SingletonsCollection;
+using MyCampusStory.BuildingSystem;
 
 namespace MyCampusStory.StandaloneManager
 {
     /// <summary>
     /// Class for managing UI
     /// </summary>
-    public class UIManager : MonoBehaviour
+    public class UIGameplayManager : DestroyOnLoadSingletonMonoBehaviour<UIGameplayManager>
     {
         LevelManager _levelManager;
 
-        [SerializeField] ResourceUI[] _resourceUIs;
+        [field:SerializeField] public BuildingUIManager BuildingUIManager { get; private set; }
+        
         
         [System.Serializable]
         public struct ResourceUI
@@ -25,9 +28,12 @@ namespace MyCampusStory.StandaloneManager
             public ResourceSO ResourceSO;
             public TextMeshProUGUI ResourceText;
         }
+        [SerializeField] private ResourceUI[] _resourceUIs;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+
             _levelManager = LevelManager.Instance;
         }
 

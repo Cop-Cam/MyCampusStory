@@ -6,6 +6,7 @@ using UnityEngine;
 
 using SingletonsCollection;
 using MyCampusStory.InputSystem;
+using System.Collections.Generic;
 
 namespace MyCampusStory.StandaloneManager
 {
@@ -23,5 +24,26 @@ namespace MyCampusStory.StandaloneManager
 
         [field:SerializeField]
         public SceneHandler SceneHandler { get; private set; }
+
+        protected override void Awake()
+        {
+            base.Awake();
+
+            SetFrameRate();
+        }
+
+        private void SetFrameRate()
+        {
+            // Get the refresh rate of the display using refreshRateRatio
+            double refreshRate = Screen.currentResolution.refreshRateRatio.value;
+
+            // Set the target frame rate to the refresh rate of the phone's display
+            Application.targetFrameRate = Mathf.RoundToInt((float)refreshRate);
+
+            // Optionally, set the fixed delta time for physics updates
+            Time.fixedDeltaTime = 1.0f / (float)refreshRate;
+
+            Debug.Log("Setting target frame rate to: " + Mathf.RoundToInt((float)refreshRate));
+        }
     }
 }

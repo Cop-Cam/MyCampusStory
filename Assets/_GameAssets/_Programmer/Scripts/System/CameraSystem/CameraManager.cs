@@ -15,11 +15,17 @@ namespace MyCampusStory.CameraSystem
     {
         private HashSet<CinemachineVirtualCamera> _virtualCameras = new HashSet<CinemachineVirtualCamera>();
         
-        [SerializeField] private CinemachineBrain cinemachineBrain;
+        private CinemachineBrain cinemachineBrain;
+        
+        public Camera MainCamera { get; private set; }
         public ICinemachineCamera ActiveVirtualCamera { get; private set; } = null;
 
         private void Awake()
         {
+            MainCamera = Camera.main;
+
+            cinemachineBrain = MainCamera.transform.GetComponent<CinemachineBrain>();
+
             // Get all virtual cameras
             CinemachineVirtualCamera[] cinemachineVirtualCameras = FindObjectsOfType<CinemachineVirtualCamera>();
 

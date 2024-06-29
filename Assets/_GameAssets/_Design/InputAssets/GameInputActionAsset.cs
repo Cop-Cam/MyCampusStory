@@ -33,8 +33,8 @@ public partial class @GameInputActionAsset: IInputActionCollection2, IDisposable
                     ""id"": ""46e0c3f3-83f3-4cc9-ab78-632776fe01ff"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press(behavior=2)"",
-                    ""initialStateCheck"": true
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""TouchPosition"",

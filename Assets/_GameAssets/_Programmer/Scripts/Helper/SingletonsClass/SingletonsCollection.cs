@@ -18,21 +18,16 @@ namespace SingletonsCollection
         {
             get
             {
-                // if instance is null
                 if (_instance == null)
                 {
-                    // find the generic instance
                     _instance = FindObjectOfType<T>();
 
-                    // if it's null again create a new object
-                    // and attach the generic instance
                     if (_instance == null)
                     {
-                        GameObject obj = new GameObject();
-                        obj.name = typeof(T).Name;
-                        _instance = obj.AddComponent<T>();
+                        Debug.LogError("There is no " + typeof(T) + " in the scene.");
                     }
                 }
+
                 return _instance;
             }
         }
@@ -47,6 +42,7 @@ namespace SingletonsCollection
             }
             else
             {
+                Debug.LogWarning("There is already a " + typeof(T) + " in the scene.");
                 Destroy(gameObject);
             }
         }
@@ -65,21 +61,16 @@ namespace SingletonsCollection
         {
             get
             {
-                // if instance is null
                 if (_instance == null)
                 {
-                    // find the generic instance
                     _instance = FindObjectOfType<T>();
 
-                    // if it's null again create a new object
-                    // and attach the generic instance
                     if (_instance == null)
                     {
-                        GameObject obj = new GameObject();
-                        obj.name = typeof(T).Name;
-                        _instance = obj.AddComponent<T>();
+                        Debug.LogError("There is no " + typeof(T) + " in the scene.");
                     }
                 }
+
                 return _instance;
             }
         }
@@ -93,6 +84,8 @@ namespace SingletonsCollection
             }
             else
             {
+                Debug.LogWarning("There is already a " + typeof(T) + " in the scene.");
+
                 Destroy(gameObject);
             }
         }

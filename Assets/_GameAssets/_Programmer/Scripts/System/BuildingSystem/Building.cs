@@ -6,42 +6,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 using MyCampusStory.StandaloneManager;
 using MyCampusStory.DataPersistenceSystem;
-using MyCampusStory.ResourceSystem;
 
 namespace MyCampusStory.BuildingSystem
 {
     public class Building : MonoBehaviour, IDataPersistence, IInteractable
     {
-        [System.Serializable]
-        public struct BuildingData
-        {
-            [Tooltip("The base id of the building.")]
-            public string BuildingBaseId;
-            public string BuildingName;
-            
-            [TextArea]
-            public string BuildingDescription;
-        }
+        [field:SerializeField] public BuildingSO BuildingDataSO { get; private set; }
 
-
-        [SerializeField] private BuildingData _buildingData;
-
-        [Tooltip("The instance id of the building.")]
+        [Tooltip("Generate only on placed prefab in scene and not on prefab asset!")]
         [SerializeField] private string _buildingInstanceId;
-        [SerializeField] private int _maxBuildingLevel;
-
-        [Tooltip("The stats of the building for each level.")]
-        [SerializeField] private BuildingStat[] _buildingStatsPerLevel;
 
         private LevelManager _levelManager;
         private bool _isBuildingUnlocked = false;
-        private int _currentBuildingLevel = 1;
-        private BuildingStat _currentBuildingStat;
-        private Dictionary<int, BuildingStat> _buildingStatsPerLevelDictionary;
         private BuildingUpgradeManager _buildingUpgradeManager;
         private Coroutine GenerateResourceCoroutine;
+
+        public Dictionary<int, BuildingStat> BuildingStatsPerLevelDictionary { get; private set; } = new Dictionary<int, BuildingStat>();
+        public BuildingStat CurrentBuildingStat { get; private set; }
+        public int CurrentBuildingLevel { get; private set; } = 1;
 
         private void Awake()
         {
@@ -50,12 +38,12 @@ namespace MyCampusStory.BuildingSystem
             _buildingUpgradeManager = new BuildingUpgradeManager();
 
             //Initialize building stats dictionary
-            foreach (var buildingStat in _buildingStatsPerLevel)
+            foreach (var buildingStat in BuildingDataSO.BuildingStatsPerLevel)
             {
-                _buildingStatsPerLevelDictionary.Add(buildingStat.BuildingLevel, buildingStat);
+                BuildingStatsPerLevelDictionary.Add(buildingStat.BuildingLevelForStat, buildingStat);
             }
 
-            _currentBuildingStat = _buildingStatsPerLevelDictionary[_currentBuildingLevel];
+            CurrentBuildingStat = BuildingStatsPerLevelDictionary[CurrentBuildingLevel];
         }
 
         private void Start()
@@ -64,21 +52,21 @@ namespace MyCampusStory.BuildingSystem
         }
 
 
-        public void UpgradeBuilding()
+        public void TryUpgradeBuilding()
         {
-            if(_currentBuildingLevel >= _maxBuildingLevel)
+            if(!IsBuildingUpgradeable())
             {
-                Debug.Log("Max level reached");
                 return;
             }
 
-            if(!_buildingUpgradeManager.TryUpgradingBuilding(_buildingStatsPerLevelDictionary, _currentBuildingStat, _currentBuildingLevel, LevelManager.Instance.ResourceManager))
-            {
-                Debug.Log("Not enough resources to upgrade");
-                return;
-            }
+            _buildingUpgradeManager.TryUpgradingBuilding(this, CurrentBuildingStat, _levelManager.ResourceManager);
 
-            _currentBuildingLevel++;
+            CurrentBuildingLevel++;
+        }
+
+        public bool IsBuildingUpgradeable()
+        {
+            return _buildingUpgradeManager.CheckUpgradeEligibility(this, _levelManager.ResourceManager);
         }
 
         public void SaveData(GameData data)
@@ -86,14 +74,14 @@ namespace MyCampusStory.BuildingSystem
             if(data.PlayerBuildingData.ContainsKey(_buildingInstanceId))
             {
                 data.PlayerBuildingData[_buildingInstanceId].IsBuildingUnlocked = _isBuildingUnlocked;
-                data.PlayerBuildingData[_buildingInstanceId].CurrentBuildingLevel = _currentBuildingLevel;
+                data.PlayerBuildingData[_buildingInstanceId].CurrentBuildingLevel = CurrentBuildingLevel;
             }
             else
             {
                 data.PlayerBuildingData.Add(_buildingInstanceId, new SerializedBuildingData
                 {
                     IsBuildingUnlocked = _isBuildingUnlocked,
-                    CurrentBuildingLevel = _currentBuildingLevel
+                    CurrentBuildingLevel = CurrentBuildingLevel
                 });
             }
         }
@@ -103,57 +91,53 @@ namespace MyCampusStory.BuildingSystem
             if(data.PlayerBuildingData.ContainsKey(_buildingInstanceId))
             {
                 _isBuildingUnlocked = data.PlayerBuildingData[_buildingInstanceId].IsBuildingUnlocked;
-                _currentBuildingLevel = data.PlayerBuildingData[_buildingInstanceId].CurrentBuildingLevel;
+                CurrentBuildingLevel = data.PlayerBuildingData[_buildingInstanceId].CurrentBuildingLevel;
             }
         }
 
-        public void Interact()
+        public void OnInteract()
         {
-            
+            _levelManager.UIGameplayManager.BuildingUIManager.OpenBuildingUI(this);
+        }
+
+        public void OnStopInteract()
+        {
+            _levelManager.UIGameplayManager.BuildingUIManager.CloseBuildingUI();
         }
 
         private IEnumerator GenerateResource()
         {
-            yield return new WaitForSecondsRealtime(_currentBuildingStat.ResourceGenerationStats[0].ResourceGenerationIntervalInSecondsRealTime);
+            yield return new WaitForSecondsRealtime(CurrentBuildingStat.ResourceGenerationStats[0].ResourceGenerationIntervalInSecondsRealTime);
 
-            _levelManager.ResourceManager.ModifyResourceAmount(_currentBuildingStat.ResourceGenerationStats[0].ResourceToGenerate.ResourceId, 
-                _currentBuildingStat.ResourceGenerationStats[0].GeneratedResourceAmount);
+            _levelManager.ResourceManager.ModifyResourceAmount(CurrentBuildingStat.ResourceGenerationStats[0].ResourceToGenerate.ResourceId, 
+                CurrentBuildingStat.ResourceGenerationStats[0].GeneratedResourceAmount);
         }
 
-        [ContextMenu("Generate Building Ref Id")]
-        private void GenerateBuildingRefId()
+
+        // Generate a unique ID
+        public void GenerateUniqueID()
         {
-            _buildingInstanceId = _buildingData.BuildingBaseId + "_" + System.Guid.NewGuid().ToString();
+            _buildingInstanceId = BuildingDataSO.BuildingBaseId + "_" + System.Guid.NewGuid().ToString();
         }
-
     }
 
-    [System.Serializable]
-    public struct BuildingStat
+    #if UNITY_EDITOR
+    // Custom editor to ensure the ID is generated in the editor
+    [CustomEditor(typeof(Building))]
+    public class BuildingEditor : Editor
     {
-        public int BuildingLevel;
-        
-        [Tooltip("The resources required for upgrading the building to next level.")]
-        public BuildingUpgradeRequirement[] BuildingUpgradeRequirements;
-
-        [Tooltip("The resources generated by the building.")]
-        public ResourceGenerationStat[] ResourceGenerationStats;
-        
-
-        [System.Serializable]
-        public struct BuildingUpgradeRequirement
+        public override void OnInspectorGUI()
         {
-            public ResourceSO RequiredResource;
-            public int RequiredResourceAmount;
-        }
+            DrawDefaultInspector();
 
-        [System.Serializable]
-        public struct ResourceGenerationStat
-        {
-            public ResourceSO ResourceToGenerate;
-            public int GeneratedResourceAmount;
-            public float ResourceGenerationIntervalInSecondsRealTime;
+            Building buildingScript = (Building)target;
+            if (GUILayout.Button("Generate Instance ID"))
+            {
+                buildingScript.GenerateUniqueID();
+                EditorUtility.SetDirty(buildingScript);
+            }
         }
     }
-    
+    #endif
+
 }

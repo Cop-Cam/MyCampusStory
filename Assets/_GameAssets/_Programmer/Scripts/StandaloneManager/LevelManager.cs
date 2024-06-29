@@ -3,10 +3,10 @@
 //----------------------------------------------------------------------
 
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 using SingletonsCollection;
 using MyCampusStory.ResourceSystem;
+using MyCampusStory.CameraSystem;
 
 namespace MyCampusStory.StandaloneManager
 {
@@ -22,10 +22,13 @@ namespace MyCampusStory.StandaloneManager
         [field:SerializeField]
         public ResourceManager ResourceManager { get; private set; }
         
+        [field:SerializeField]
+        public CameraManager CameraManager { get; private set; }
+
+        public UIGameplayManager UIGameplayManager { get; private set; }
+        
         [Header("LEVEL PROPERTIES")]
         [SerializeField] AudioClip _levelMusic;
-
-        [SerializeField] private Scene _levelUIScene;
 
         public bool IsGamePaused { get; private set; }
 
@@ -33,7 +36,8 @@ namespace MyCampusStory.StandaloneManager
         {
             GameManager = GameManager.Instance;
 
-            GameManager.SceneHandler.LoadSceneAdditive("LevelGameplayUI");
+            // GameManager.SceneHandler.LoadSceneAdditive("GameplayUI");
+            // UIGameplayManager = FindObjectOfType<UIGameplayManager>();
         }
 
         private void Start()

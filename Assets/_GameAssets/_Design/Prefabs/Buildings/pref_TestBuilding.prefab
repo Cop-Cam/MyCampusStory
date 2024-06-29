@@ -45,13 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c1dd146a17bccb40ac5432a9003ec56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buildingData:
-    BuildingBaseId: 
-    BuildingName: 
-    BuildingDescription: 
-  _buildingRefId: 
+  _buildingDataSO: {fileID: 0}
+  _buildingInstanceId: 
   _maxBuildingLevel: 0
-  _buildingStatsPerLevel: []
 --- !u!114 &1247699369823028709
 MonoBehaviour:
   m_ObjectHideFlags: 0
