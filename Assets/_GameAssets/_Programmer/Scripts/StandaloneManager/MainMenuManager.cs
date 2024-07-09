@@ -14,9 +14,11 @@ namespace MyCampusStory.StandaloneManager
     {
         private GameManager _gameManager;
 
-        [SerializeField] private Canvas _cnvQuitGameMenu;
+        [field:SerializeField]
+        public AudioManager AudioManager { get; private set; }
 
         [SerializeField] AudioClip _mainMenuMusic;
+        [SerializeField] private Canvas _cnvQuitGameMenu;
 
         private void Awake()
         {
@@ -25,7 +27,7 @@ namespace MyCampusStory.StandaloneManager
 
         private void Start()
         {
-            _gameManager.AudioManager.PlayMusic(_mainMenuMusic);
+            AudioManager.PlayMusic(_mainMenuMusic);
         }
 
         public void NewGame()

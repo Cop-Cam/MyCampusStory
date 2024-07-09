@@ -221,10 +221,10 @@ namespace MyCampusStory.DataPersistenceSystem
             IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>(true)
                 .OfType<IDataPersistence>();
 
-            foreach(IDataPersistence dataPersistenceObj in dataPersistenceObjects)
-            {
-                Debug.Log("Found and initialized: "+ dataPersistenceObj.GetType().Name);
-            }
+            // foreach(IDataPersistence dataPersistenceObj in dataPersistenceObjects)
+            // {
+            //     Debug.Log("Found and initialized: "+ dataPersistenceObj.GetType().Name);
+            // }
 
             return new List<IDataPersistence>(dataPersistenceObjects);
         }

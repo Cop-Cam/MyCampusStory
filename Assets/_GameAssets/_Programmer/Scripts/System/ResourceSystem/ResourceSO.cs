@@ -70,6 +70,8 @@ namespace MyCampusStory.ResourceSystem
     {
         public string ResourceId;
         public string ResourceName;
+        public string ResourceDescription;
+        public Sprite ResourceIcon;
         public int UpperLimit = int.MaxValue;
         public int LowerLimit = 0;
 

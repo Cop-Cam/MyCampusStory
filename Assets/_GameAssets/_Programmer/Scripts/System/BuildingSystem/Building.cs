@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 #if UNITY_EDITOR
-using UnityEditor;
+    using UnityEditor;
 #endif
 
 using MyCampusStory.StandaloneManager;
@@ -23,6 +23,7 @@ namespace MyCampusStory.BuildingSystem
         [SerializeField] private string _buildingInstanceId;
 
         private LevelManager _levelManager;
+        private GameplayUIManager _gameplayUIManager;
         private bool _isBuildingUnlocked = false;
         private BuildingUpgradeManager _buildingUpgradeManager;
         private Coroutine GenerateResourceCoroutine;
@@ -34,6 +35,7 @@ namespace MyCampusStory.BuildingSystem
         private void Awake()
         {
             _levelManager = LevelManager.Instance;
+            _gameplayUIManager = GameplayUIManager.Instance;
 
             _buildingUpgradeManager = new BuildingUpgradeManager();
 
@@ -51,7 +53,6 @@ namespace MyCampusStory.BuildingSystem
             GenerateResourceCoroutine = StartCoroutine(GenerateResource());
         }
 
-
         public void TryUpgradeBuilding()
         {
             if(!IsBuildingUpgradeable())
@@ -59,7 +60,7 @@ namespace MyCampusStory.BuildingSystem
                 return;
             }
 
-            _buildingUpgradeManager.TryUpgradingBuilding(this, CurrentBuildingStat, _levelManager.ResourceManager);
+            CurrentBuildingStat = _buildingUpgradeManager.GetNewBuildingStat(this, _levelManager.ResourceManager);
 
             CurrentBuildingLevel++;
         }
@@ -93,24 +94,32 @@ namespace MyCampusStory.BuildingSystem
                 _isBuildingUnlocked = data.PlayerBuildingData[_buildingInstanceId].IsBuildingUnlocked;
                 CurrentBuildingLevel = data.PlayerBuildingData[_buildingInstanceId].CurrentBuildingLevel;
             }
+
+            //Reinit the building
+            CurrentBuildingStat = BuildingStatsPerLevelDictionary[CurrentBuildingLevel];
         }
 
         public void OnInteract()
         {
-            _levelManager.UIGameplayManager.BuildingUIManager.OpenBuildingUI(this);
+            _gameplayUIManager.BuildingUIManager.OpenBuildingUI(this);
         }
 
         public void OnStopInteract()
         {
-            _levelManager.UIGameplayManager.BuildingUIManager.CloseBuildingUI();
+            _gameplayUIManager.BuildingUIManager.CloseBuildingUI();
         }
 
         private IEnumerator GenerateResource()
         {
-            yield return new WaitForSecondsRealtime(CurrentBuildingStat.ResourceGenerationStats[0].ResourceGenerationIntervalInSecondsRealTime);
-
-            _levelManager.ResourceManager.ModifyResourceAmount(CurrentBuildingStat.ResourceGenerationStats[0].ResourceToGenerate.ResourceId, 
-                CurrentBuildingStat.ResourceGenerationStats[0].GeneratedResourceAmount);
+            while(true)
+            {
+                foreach (var resourceGenerationStat in CurrentBuildingStat.ResourceGenerationStats)
+                {
+                    yield return new WaitForSecondsRealtime(resourceGenerationStat.RealTimeIntervalForGeneration);
+                    _levelManager.ResourceManager.ModifyResourceAmount(resourceGenerationStat.ResourceGenerated.ResourceId, 
+                        resourceGenerationStat.AmountGenerated);
+                }
+            }
         }
 
 
@@ -122,22 +131,22 @@ namespace MyCampusStory.BuildingSystem
     }
 
     #if UNITY_EDITOR
-    // Custom editor to ensure the ID is generated in the editor
-    [CustomEditor(typeof(Building))]
-    public class BuildingEditor : Editor
-    {
-        public override void OnInspectorGUI()
+        // Custom editor to ensure the ID is generated in the editor
+        [CustomEditor(typeof(Building))]
+        public class BuildingEditor : Editor
         {
-            DrawDefaultInspector();
-
-            Building buildingScript = (Building)target;
-            if (GUILayout.Button("Generate Instance ID"))
+            public override void OnInspectorGUI()
             {
-                buildingScript.GenerateUniqueID();
-                EditorUtility.SetDirty(buildingScript);
+                DrawDefaultInspector();
+
+                Building buildingScript = (Building)target;
+                if (GUILayout.Button("Generate Instance ID"))
+                {
+                    buildingScript.GenerateUniqueID();
+                    EditorUtility.SetDirty(buildingScript);
+                }
             }
         }
-    }
     #endif
 
 }

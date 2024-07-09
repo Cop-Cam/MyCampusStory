@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using MyCampusStory.DataPersistenceSystem;
+using MyCampusStory.DesignPatterns;
+using MyCampusStory.BuildingSystem;
 
 namespace MyCampusStory.ResourceSystem
 {
@@ -17,24 +19,82 @@ namespace MyCampusStory.ResourceSystem
         [SerializeField] private ResourceSO[] _resourceSOs;
         private Dictionary<string, Resource> _resourcesDictionary;
 
+        private static List<IObserver> _onResourceAmountChangedEventObservers;
+        
         private void Awake()
         {
             _resourcesDictionary = new Dictionary<string, Resource>();
+            _onResourceAmountChangedEventObservers = new List<IObserver>();
 
+            //Instantiate resources based on the resource SOs
             foreach (var resourceSO in _resourceSOs)
             {
                 var newResource = new Resource(resourceSO);
-                if(!_resourcesDictionary.ContainsKey(resourceSO.ResourceId))
+
+                if(_resourcesDictionary.ContainsKey(resourceSO.ResourceId))
                 {
-                    _resourcesDictionary.Add(resourceSO.ResourceId, newResource);
+                    Debug.LogWarning("There are resources with same id found: " + resourceSO.ResourceId);
                 }
                 else
                 {
-                    Debug.LogWarning("There are resources with same id found: " + resourceSO.ResourceId);
+                    _resourcesDictionary.Add(resourceSO.ResourceId, newResource);
                 }
             }
         }
 
+        public int GetResourceAmount(string resourceId)
+        {
+            if (_resourcesDictionary.ContainsKey(resourceId))
+            {
+                return _resourcesDictionary[resourceId].ResourceAmount;
+            }
+            else
+            {
+                Debug.LogWarning("Resource not found: " + resourceId);
+                return 0;
+            }
+        }
+
+        /// <summary>
+        /// Adjusts the amount of a specified resource by adding its current amount with a new value.
+        /// </summary>
+        /// <param name="resourceId">The identifier of the resource to be modified.</param>
+        /// <param name="amount">The new amount to set for the resource. 
+        /// Positive values increase the resource amount, while negative values decrease it.</param>
+        public void ModifyResourceAmount(string resourceId, int amount)
+        {
+            if (_resourcesDictionary.ContainsKey(resourceId))
+            {
+                _resourcesDictionary[resourceId].ModifyAmount(amount);
+
+                NotifyOnResourceChangedEventObservers();
+            }
+            else
+            {
+                Debug.LogWarning("Resource not found: " + resourceId);
+            }
+        }
+
+        /// <summary>
+        /// Adjusts the amount of a specified resource by replacing its current amount with a new value.
+        /// </summary>
+        /// <param name="resourceId">The identifier of the resource to be modified.</param>
+        /// <param name="amount">The new amount to set for the resource.</param>
+        public void ReplaceResourceAmount(string resourceId, int amount)
+        {
+            if (_resourcesDictionary.ContainsKey(resourceId))
+            {
+                _resourcesDictionary[resourceId].ReplaceAmount(amount);
+
+                NotifyOnResourceChangedEventObservers();
+            }
+            else
+            {
+                Debug.LogWarning("Resource not found: " + resourceId);
+            }
+        }
+
+        #region IDataPersistence
         public void LoadData(GameData data)
         {
             foreach (var loadedResources in data.PlayerResourceData)
@@ -64,54 +124,26 @@ namespace MyCampusStory.ResourceSystem
                 }
             }
         }
+        #endregion
 
-        public int GetResourceAmount(string resourceId)
+        #region OnResourceChangedEvent
+        public static void OnResourceChangedEventRegister(IObserver observer)
         {
-            if (_resourcesDictionary.ContainsKey(resourceId))
-            {
-                return _resourcesDictionary[resourceId].ResourceAmount;
-            }
-            else
-            {
-                Debug.LogWarning("Resource not found: " + resourceId);
-                return 0;
-            }
+            _onResourceAmountChangedEventObservers.Add(observer);
         }
 
-        /// <summary>
-        /// Adjusts the amount of a specified resource by adding its current amount with a new value.
-        /// </summary>
-        /// <param name="resourceId">The identifier of the resource to be modified.</param>
-        /// <param name="amount">The new amount to set for the resource. 
-        /// Positive values increase the resource amount, while negative values decrease it.</param>
-        public void ModifyResourceAmount(string resourceId, int amount)
+        public static void OnResourceChangedEventUnregister(IObserver observer)
         {
-            if (_resourcesDictionary.ContainsKey(resourceId))
-            {
-                _resourcesDictionary[resourceId].ModifyAmount(amount);
-            }
-            else
-            {
-                Debug.LogWarning("Resource not found: " + resourceId);
-            }
+            _onResourceAmountChangedEventObservers.Remove(observer);
         }
 
-        /// <summary>
-        /// Adjusts the amount of a specified resource by replacing its current amount with a new value.
-        /// </summary>
-        /// <param name="resourceId">The identifier of the resource to be modified.</param>
-        /// <param name="amount">The new amount to set for the resource.</param>
-        public void ReplaceResourceAmount(string resourceId, int amount)
+        private void NotifyOnResourceChangedEventObservers()
         {
-            if (_resourcesDictionary.ContainsKey(resourceId))
+            foreach (IObserver observer in _onResourceAmountChangedEventObservers)
             {
-                _resourcesDictionary[resourceId].ReplaceAmount(amount);
-            }
-            else
-            {
-                Debug.LogWarning("Resource not found: " + resourceId);
+                observer.OnNotify();
             }
         }
-
+        #endregion
     }
 }

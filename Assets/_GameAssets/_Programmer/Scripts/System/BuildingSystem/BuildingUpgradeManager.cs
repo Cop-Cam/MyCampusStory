@@ -11,16 +11,18 @@ namespace MyCampusStory.BuildingSystem
 {
     public class BuildingUpgradeManager
     {
-        public void TryUpgradingBuilding(Building building, BuildingStat currentBuildingStat, ResourceManager resourceManager)
+        public BuildingStat GetNewBuildingStat(Building building, ResourceManager resourceManager)
         {
             //Check if there is a building stat for the next level
             if(building.BuildingStatsPerLevelDictionary.ContainsKey(building.CurrentBuildingLevel + 1))
             {
-                currentBuildingStat = building.BuildingStatsPerLevelDictionary[building.CurrentBuildingLevel + 1];
+                return building.BuildingStatsPerLevelDictionary[building.CurrentBuildingLevel + 1];
             }
             else //If there is none, assign stat using the formula
             {
                 // currentBuildingStat = GetNewBuildingStatByFormula();
+                Debug.Log("Get New Building Stat By Formula (Not implemented yet!)");
+                return building.CurrentBuildingStat;
             }
         }
 
@@ -37,7 +39,7 @@ namespace MyCampusStory.BuildingSystem
             //Check if the resource is enough to upgrade the building
             foreach (var buildingUpgradeRequirement in currentBuildingStat.BuildingUpgradeRequirements)
             {
-                if (resourceManager.GetResourceAmount(buildingUpgradeRequirement.RequiredResource.ResourceId) < buildingUpgradeRequirement.RequiredResourceAmount)
+                if (resourceManager.GetResourceAmount(buildingUpgradeRequirement.ResourceRequired.ResourceId) < buildingUpgradeRequirement.AmountRequired)
                 {
                     return false;
                 }

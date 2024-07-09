@@ -13,6 +13,7 @@ namespace MyCampusStory.CameraSystem
         [SerializeField] private LayerMask _interactableLayerMask;
         [SerializeField] private CinemachineVirtualCamera _virtualCam;
 
+        private GameManager _gameManager;
         private LevelManager _levelManager;
 
         private Vector2 _lastTouchPressPosition;
@@ -21,6 +22,7 @@ namespace MyCampusStory.CameraSystem
         [SerializeField] private float _minimumDeltaPositionForSwipe = 1f;
         [SerializeField] private float _swipeSpeed = 3f;
         [SerializeField] private float _dampTime = .3f;
+        [SerializeField] private float _maxCameraPosChange = 10f;
         private Vector3 _smoothVelocity = Vector3.zero;
         [SerializeField] private bool enableSwipeHorizontally = true; //in case we will want to have swipe in other direction
 
@@ -31,6 +33,7 @@ namespace MyCampusStory.CameraSystem
 
         private void Awake()
         {
+            _gameManager = GameManager.Instance;
             _levelManager = LevelManager.Instance;
         }
 
@@ -68,7 +71,6 @@ namespace MyCampusStory.CameraSystem
             if(enableSwipeHorizontally)
             {    
                 var x = _virtualCam.transform.position.x - deltaSwipePosition.x * _swipeSpeed * Time.deltaTime;
-                // var xClamped = Mathf.Clamp(x, -10f, 10f);
 
                 newCameraReversePosition = new Vector3(x, _virtualCam.transform.position.y, _virtualCam.transform.position.z);
             }
@@ -83,13 +85,28 @@ namespace MyCampusStory.CameraSystem
 
         private IEnumerator MoveCamera(Vector3 targetPos)
         {
-            while(_virtualCam.transform.position != targetPos)
+            Vector3 currentPosition = _virtualCam.transform.position;
+            
+            // Clamp the target position to be within 10 units of the current position
+            Vector3 clampedTargetPos = Vector3.ClampMagnitude(targetPos - currentPosition, _maxCameraPosChange) + currentPosition;
+
+            while(_virtualCam.transform.position != clampedTargetPos)
             {
-                _virtualCam.transform.position = Vector3.SmoothDamp(_virtualCam.transform.position, targetPos, ref _smoothVelocity, _dampTime);
+                _virtualCam.transform.position = Vector3.SmoothDamp(_virtualCam.transform.position, clampedTargetPos, ref _smoothVelocity, _dampTime);
 
                 yield return new WaitForEndOfFrame();
             }
         }
+
+        // private IEnumerator MoveCamera(Vector3 targetPos)
+        // {
+        //     while(_virtualCam.transform.position != targetPos)
+        //     {
+        //         _virtualCam.transform.position = Vector3.SmoothDamp(_virtualCam.transform.position, targetPos, ref _smoothVelocity, _dampTime);
+
+        //         yield return new WaitForEndOfFrame();
+        //     }
+        // }
 
         private void TouchPressPerformedMethodHandler(Vector2 position)
         {

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 namespace MyCampusStory.InputSystem
@@ -16,10 +17,23 @@ namespace MyCampusStory.InputSystem
         public static event TouchPositionEventHandler OnTouchPositionEvent;
         #endregion
 
+        private bool IsPointerOverUI;
 
         private void Awake()
         {
             _gameInputAction = new GameInputActionAsset();
+        }
+
+        private void Update()
+        {
+            if(EventSystem.current.IsPointerOverGameObject() && !IsPointerOverUI)
+            {
+                IsPointerOverUI = true;
+            }
+            else if(!EventSystem.current.IsPointerOverGameObject() && IsPointerOverUI)
+            {
+                IsPointerOverUI = false;
+            }
         }
 
         private void OnEnable()
@@ -31,6 +45,7 @@ namespace MyCampusStory.InputSystem
 
             _gameInputAction.Gameplay.TouchPosition.performed += ctx => OnTouchPosition(ctx);
         }
+        
         private void OnDisable()
         {
             _gameInputAction.Disable();
@@ -43,16 +58,22 @@ namespace MyCampusStory.InputSystem
 
         private void OnTouchPressPerformed(InputAction.CallbackContext context)
         {
+            if(IsPointerOverUI) return;
+
             OnTouchPressPerformedEvent?.Invoke(_gameInputAction.Gameplay.TouchPosition.ReadValue<Vector2>());
         }
         
         private void OnTouchPressCanceled(InputAction.CallbackContext context) 
         {
+            if(IsPointerOverUI) return;
+
             OnTouchPressCanceledEvent?.Invoke(_gameInputAction.Gameplay.TouchPosition.ReadValue<Vector2>());
         }
 
         private void OnTouchPosition(InputAction.CallbackContext context) 
         {
+            if(IsPointerOverUI) return;
+
             OnTouchPositionEvent?.Invoke(context.ReadValue<Vector2>());
         }
 

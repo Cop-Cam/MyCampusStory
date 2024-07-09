@@ -3,17 +3,32 @@
 //----------------------------------------------------------------------
 
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+using MyCampusStory.DesignPatterns;
+using MyCampusStory.StandaloneManager;
 namespace MyCampusStory.BuildingSystem
 {
     public class BuildingUIManager : MonoBehaviour
     {
+        private GameplayUIManager _gameplayUIManager;
+
+        [Header("ObjectPool")]
+        private ObjectPool _buildingUIObjectPool;
+        [SerializeField] private BuildingRequirementUI _buildingRequirementUIPrefab;
+        [SerializeField] private Transform _poolHolder;
+
         [Header("Canvas")]
         [SerializeField] private Canvas _cnvBuildingUI;
         [SerializeField] private Canvas _cnvDescriptionUI;
+        [SerializeField] private Canvas _cnvRequirementUI;
+
+        [Header("Dynamics")]
+        [SerializeField] private Transform _activeRequirementUIHolder;
+
         
         [Header("Buttons")]
         [SerializeField] private Button _btnUpgradeButton;
@@ -25,11 +40,18 @@ namespace MyCampusStory.BuildingSystem
         
         private Building _currentOpenedBuilding;
         private Coroutine _uiUpdateCoroutine;
+
         
         private void Awake()
         {
+            _gameplayUIManager = GameplayUIManager.Instance;
+
+            _buildingUIObjectPool = GetComponent<ObjectPool>();
+            _buildingUIObjectPool.Init(_poolHolder, _buildingRequirementUIPrefab.gameObject, 5);
+
             _cnvBuildingUI.enabled = false;
             _cnvDescriptionUI.enabled = false;
+            _cnvRequirementUI.enabled = false;
         }
 
         public void OpenBuildingUI(Building currentOpenedBuilding)
@@ -43,7 +65,12 @@ namespace MyCampusStory.BuildingSystem
 
         public void CloseBuildingUI()
         {
-            _cnvDescriptionUI.enabled = false;
+            if(_cnvRequirementUI.enabled)
+                OpenCloseRequirementUI();
+            
+            if(_cnvDescriptionUI.enabled)
+                OpenCloseDescriptionUI();
+
             _cnvBuildingUI.enabled = false;
 
             StopCoroutine(_uiUpdateCoroutine);
@@ -51,23 +78,67 @@ namespace MyCampusStory.BuildingSystem
             _currentOpenedBuilding = null;
         }
 
-        public void OpenDescriptionUI()
+        public void OpenCloseDescriptionUI()
         {
-            _cnvDescriptionUI.enabled = true;
-            _buildingDescription.text = _currentOpenedBuilding.BuildingDataSO.BuildingDescription;
+            _cnvDescriptionUI.enabled = !_cnvDescriptionUI.enabled;
+
+            if(_cnvDescriptionUI.enabled)
+            {
+                _buildingDescription.text = _currentOpenedBuilding.BuildingDataSO.BuildingDescription;
+            }
+            else
+            {
+                _buildingDescription.text = string.Empty;
+            }
+        }
+
+        public void OpenCloseRequirementUI()
+        {
+            _cnvRequirementUI.enabled = !_cnvRequirementUI.enabled;
+
+            if(_cnvRequirementUI.enabled)
+            {
+                foreach (var buildingRequirement in _currentOpenedBuilding.CurrentBuildingStat.BuildingUpgradeRequirements)
+                {
+                    var buildingRequirementUI = _buildingUIObjectPool.GetObject();
+
+                    var buildingRequirementUIScript = buildingRequirementUI.GetComponent<BuildingRequirementUI>();
+                    buildingRequirementUIScript.Init(buildingRequirement.ResourceRequired, buildingRequirement.AmountRequired);
+                    buildingRequirementUI.transform.SetParent(_activeRequirementUIHolder.transform);
+                    buildingRequirementUI.gameObject.SetActive(true);
+                }
+            }
+            else
+            {
+                foreach (var buildingRequirementUI in _cnvRequirementUI.GetComponentsInChildren<BuildingRequirementUI>())
+                {
+                    var buildingRequirementUIScript = buildingRequirementUI.GetComponent<BuildingRequirementUI>();
+                    buildingRequirementUIScript.DeInit();
+
+                    _buildingUIObjectPool.ReturnObject(buildingRequirementUI.gameObject);
+                }
+            }
         }
 
         public void UpgradeBuilding()
         {
-            _currentOpenedBuilding.TryUpgradeBuilding();
-        }
+            if(_currentOpenedBuilding.IsBuildingUpgradeable())
+            {
+                _currentOpenedBuilding.TryUpgradeBuilding();
+                
+                //refresh requirement ui
+                if(_cnvRequirementUI.enabled)
+                {
+                    OpenCloseRequirementUI();
+                    OpenCloseRequirementUI();
+                }
+            }
+            else //kinda show the upgrade requirement
+            {
+                if(!_cnvRequirementUI.enabled)
+                    OpenCloseRequirementUI();
+            }
 
-        private void UpdateUpgradeUI()
-        {
-            if(_currentOpenedBuilding.IsBuildingUpgradeable()) 
-                _btnUpgradeButton.interactable = true;
-            else 
-                _btnUpgradeButton.interactable = false;
         }
 
         private IEnumerator UpdateUI()
@@ -76,7 +147,7 @@ namespace MyCampusStory.BuildingSystem
             {
                 _buildingName.text = _currentOpenedBuilding.BuildingDataSO.BuildingName;
                 _buildingLevel.text = _currentOpenedBuilding.CurrentBuildingLevel.ToString();
-
+                
                 yield return new WaitForSecondsRealtime(0.1f);
             }
         }

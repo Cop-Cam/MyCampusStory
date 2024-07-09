@@ -41,16 +41,16 @@ namespace MyCampusStory.BuildingSystem
         [System.Serializable]
         public struct BuildingUpgradeRequirement
         {
-            public ResourceSO RequiredResource;
-            public int RequiredResourceAmount;
+            public ResourceSO ResourceRequired;
+            public int AmountRequired;
         }
 
         [System.Serializable]
         public struct ResourceGenerationStat
         {
-            public ResourceSO ResourceToGenerate;
-            public int GeneratedResourceAmount;
-            public float ResourceGenerationIntervalInSecondsRealTime;
+            public ResourceSO ResourceGenerated;
+            public int AmountGenerated;
+            public float RealTimeIntervalForGeneration;
         }
     }
     
