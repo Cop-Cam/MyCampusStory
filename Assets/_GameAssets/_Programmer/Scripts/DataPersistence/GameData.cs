@@ -2,6 +2,8 @@
 // Author   : "Ananta Miyoru Wijaya"
 //----------------------------------------------------------------------
 
+using MyCampusStory.QuestSystem;
+
 namespace MyCampusStory.DataPersistenceSystem
 {
     /// <summary>
@@ -23,12 +25,15 @@ namespace MyCampusStory.DataPersistenceSystem
 
         public SerializableDictionary<string, SerializedBuildingData> PlayerBuildingData;
 
+        public SerializableDictionary<string, Questline> PlayerQuestData;
+
         //Default Constructor
         // The values defined in this constructor will be the default values the game starts with when there's no data to load
         public GameData()
         {
             PlayerResourceData = new SerializableDictionary<string, int>();
             PlayerBuildingData = new SerializableDictionary<string, SerializedBuildingData>();
+            PlayerQuestData = new SerializableDictionary<string, Questline>();
         }
     }
 

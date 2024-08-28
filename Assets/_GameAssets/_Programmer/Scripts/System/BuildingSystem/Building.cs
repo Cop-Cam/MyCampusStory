@@ -32,6 +32,13 @@ namespace MyCampusStory.BuildingSystem
         public BuildingStat CurrentBuildingStat { get; private set; }
         public int CurrentBuildingLevel { get; private set; } = 1;
 
+
+        private static List<GameObject> _buildingObjects = new List<GameObject>();
+        public static List<GameObject> GetAllBuildings()
+        {
+            return _buildingObjects;
+        }
+
         private void Awake()
         {
             _levelManager = LevelManager.Instance;
@@ -46,6 +53,8 @@ namespace MyCampusStory.BuildingSystem
             }
 
             CurrentBuildingStat = BuildingStatsPerLevelDictionary[CurrentBuildingLevel];
+
+            _buildingObjects.Add(this.gameObject);
         }
 
         private void Start()
@@ -121,7 +130,6 @@ namespace MyCampusStory.BuildingSystem
                 }
             }
         }
-
 
         // Generate a unique ID
         public void GenerateUniqueID()

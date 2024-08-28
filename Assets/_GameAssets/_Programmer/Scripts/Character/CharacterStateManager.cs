@@ -2,25 +2,26 @@
 // Author   : "Ananta Miyoru Wijaya"
 //----------------------------------------------------------------------
 
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace MyCampusStory.Player
+namespace MyCampusStory.Character
 {
     /// <summary>
     /// 
     /// </summary>
-    public class PlayerStateManager : MonoBehaviour
+    public class CharacterStateManager : MonoBehaviour
     {
-        private PlayerBaseState _currentState;
-        private PlayerAnimation _playerAnimation; 
+        private CharacterBaseState _currentState;
+        public CharacterAnimation CharacterAnimation { get; private set; } 
 
-        public PlayerIdleState IdleState = new PlayerIdleState();
-        public PlayerWalkState WalkState = new PlayerWalkState();
-        public PlayerInteractState InteractState = new PlayerInteractState();
+        public CharacterIdleState IdleState { get; private set; } = new CharacterIdleState();
+        public CharacterWalkState WalkState { get; private set; } = new CharacterWalkState();
+        public CharacterInteractState InteractState { get; private set; } = new CharacterInteractState();
 
         private void Awake()
         {
-            _playerAnimation = GetComponent<PlayerAnimation>();
+            CharacterAnimation = GetComponent<CharacterAnimation>();
         }
 
         private void Start()
@@ -34,7 +35,7 @@ namespace MyCampusStory.Player
             _currentState.UpdateState(this);
         }
 
-        public void SwitchState(PlayerBaseState newState)
+        public void SwitchState(CharacterBaseState newState)
         {
             _currentState.ExitState(this);
             _currentState = newState;

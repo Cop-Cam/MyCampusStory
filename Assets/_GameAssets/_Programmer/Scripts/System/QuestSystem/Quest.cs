@@ -12,47 +12,26 @@ namespace MyCampusStory.QuestSystem
     /// <summary>
     /// Class for quest
     /// </summary>
-    public class Quest : IObserver
+    public class Quest
     {
-        private List<IObserver> _onQuestStateChangedEventObservers = new List<IObserver>();
+        public delegate void QuestIsCompletedDelegate();
+        public event QuestIsCompletedDelegate OnQuestIsCompleted;
 
         public QuestSO QuestData { get; private set; }
         public bool IsQuestCompleted { get; private set; } = false;
         
 
-        public Quest(QuestSO questData, IObserver questStateObserver)
+        public Quest(QuestSO questData)
         {
             QuestData = questData;
-        }
 
-        ~Quest()
-        {
-            QuestData = null;
-        }
-
-
-        private void NotifyOnQuestStateChangedEventObservers()
-        {
-            foreach (var observer in _onQuestStateChangedEventObservers)
+            foreach (var objective in QuestData.QuestObjectives)
             {
-                observer.OnNotify();
+                objective.OnObjectiveIsCompleted += EvaluateAllQuestObjectives;
             }
         }
-        public void OnObjectiveStateChangedEventRegister(IObserver observer)
-        {
-            _onQuestStateChangedEventObservers.Add(observer);
-        }
-        public void OnObjectiveStateChangedEventUnregister(IObserver observer)
-        {
-            _onQuestStateChangedEventObservers.Remove(observer);
-        }
 
-        public void OnNotify()
-        {
-            EvaluateAllObjectives();
-        }
-
-        private void EvaluateAllObjectives()
+        private void EvaluateAllQuestObjectives()
         {
             foreach (var objective in QuestData.QuestObjectives)
             {
@@ -64,14 +43,18 @@ namespace MyCampusStory.QuestSystem
 
             // Complete quest
             IsQuestCompleted = true;
-            NotifyOnQuestStateChangedEventObservers();
+            OnQuestIsCompleted?.Invoke();
+
+            foreach (var objective in QuestData.QuestObjectives)
+            {
+                objective.OnObjectiveIsCompleted -= EvaluateAllQuestObjectives;
+            }
         }
     }
     
     /// <summary>
     /// Class for quest
     /// </summary>
-    
     [CreateAssetMenu(fileName = "Name_QuestSO", menuName = "ScriptableObjects/QuestSO")]
     public class QuestSO : ScriptableObject
     {

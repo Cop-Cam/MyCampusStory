@@ -7,67 +7,78 @@ using UnityEngine;
 
 using MyCampusStory.ResourceSystem;
 using MyCampusStory.DesignPatterns;
+using MyCampusStory.StandaloneManager;
 
 
 namespace MyCampusStory.QuestSystem
 {
+    #region ObjectiveBaseClasses
     public abstract class Objective
     {
-        protected List<IObserver> _onObjectiveStateChangedEventObservers = new List<IObserver>();
-        public bool IsObjectiveCompleted { get; protected set; }
-        protected virtual void NotifyOnResourceChangedEventObservers()
+        public delegate void ObjectiveIsCompletedDelegate();
+        public event ObjectiveIsCompletedDelegate OnObjectiveIsCompleted;
+        
+        public ObjectiveSO ObjectiveData { get; protected set; }
+        public bool IsObjectiveCompleted { get; protected set; } = false;
+
+        protected void InvokeOnObjectiveIsCompleted()
         {
-            foreach (var observer in _onObjectiveStateChangedEventObservers)
-            {
-                observer.OnNotify();
-            }
+            OnObjectiveIsCompleted?.Invoke();
         }
-        public virtual void OnObjectiveStateChangedEventRegister(IObserver observer)
+
+        public Objective(ObjectiveSO objectiveSO)
         {
-            _onObjectiveStateChangedEventObservers.Add(observer);
-        }
-        public virtual void OnObjectiveStateChangedEventUnregister(IObserver observer)
-        {
-            _onObjectiveStateChangedEventObservers.Remove(observer);
+            ObjectiveData = objectiveSO;
         }
     }
 
+    public abstract class ObjectiveSO : ScriptableObject
+    {
+        public string ObjectiveId;
+        public string ObjectiveName;
+
+        public abstract Objective GetObjectiveInstance();
+    }
+    #endregion
+
 
     #region GatherResourcesObjective
-    public class GatherResourcesObjective : Objective, IObserver
+    public class GatherResourcesObjective : Objective
     {
         private ResourceManager _resourceManager;
         private GatherResourcesObjectiveSO _gatherResourcesObjectiveSO;
         
-        public GatherResourcesObjective(ResourceManager resourceManager)
+        public GatherResourcesObjective(ObjectiveSO objectiveSO) : base(objectiveSO)
         {
-            _resourceManager = resourceManager;
+            _resourceManager = LevelManager.Instance.ResourceManager;
 
-            ResourceManager.OnResourceChangedEventRegister(this);
+            if(LevelManager.Instance.ResourceManager != null)
+                LevelManager.Instance.ResourceManager.OnResourceChanged += EvaluateResourceAmount;
         }
 
-        ~GatherResourcesObjective()
-        {
-            ResourceManager.OnResourceChangedEventUnregister(this);
-        }
-
-        public void OnNotify()
+        private void EvaluateResourceAmount()
         {
             if(_resourceManager.GetResourceAmount(_gatherResourcesObjectiveSO.ResourceRequired.ResourceId) >= _gatherResourcesObjectiveSO.AmountRequired)
             {
                 IsObjectiveCompleted = true;
-                NotifyOnResourceChangedEventObservers();
+                InvokeOnObjectiveIsCompleted();
+                
+                if(LevelManager.Instance.ResourceManager != null)
+                    LevelManager.Instance.ResourceManager.OnResourceChanged -= EvaluateResourceAmount;
             }
         }
     }
 
     [CreateAssetMenu(fileName = "Name_GatherResourcesObjectiveSO", menuName = "ScriptableObjects/ObjectiveSO/GatherResourcesObjectiveSO")]
-    public class GatherResourcesObjectiveSO : ScriptableObject
+    public class GatherResourcesObjectiveSO : ObjectiveSO
     {
-        public string ObjectiveId;
-        public string ObjectiveName;
         public ResourceSO ResourceRequired;
         public int AmountRequired;
+
+        public override Objective GetObjectiveInstance()
+        {
+            throw new System.NotImplementedException();
+        }
     }
     #endregion
 }

@@ -10,14 +10,14 @@ namespace MyCampusStory.InputSystem
 
         #region Events
         public delegate void TouchPressEventHandler(Vector2 position);
-        public static event TouchPressEventHandler OnTouchPressPerformedEvent;
-        public static event TouchPressEventHandler OnTouchPressCanceledEvent;
+        public event TouchPressEventHandler OnTouchPressPerformedEvent;
+        public event TouchPressEventHandler OnTouchPressCanceledEvent;
 
         public delegate void TouchPositionEventHandler(Vector2 position);
-        public static event TouchPositionEventHandler OnTouchPositionEvent;
+        public event TouchPositionEventHandler OnTouchPositionEvent;
         #endregion
 
-        private bool IsPointerOverUI;
+        // private bool IsPointerOverUI;
 
         private void Awake()
         {
@@ -26,23 +26,23 @@ namespace MyCampusStory.InputSystem
 
         private void Update()
         {
-            if(EventSystem.current.IsPointerOverGameObject() && !IsPointerOverUI)
-            {
-                IsPointerOverUI = true;
-            }
-            else if(!EventSystem.current.IsPointerOverGameObject() && IsPointerOverUI)
-            {
-                IsPointerOverUI = false;
-            }
+            // if(EventSystem.current.IsPointerOverGameObject() && !IsPointerOverUI)
+            // {
+            //     IsPointerOverUI = true;
+            // }
+            // else if(!EventSystem.current.IsPointerOverGameObject() && IsPointerOverUI)
+            // {
+            //     IsPointerOverUI = false;
+            // }
         }
 
         private void OnEnable()
         {
             _gameInputAction.Enable();
 
-            _gameInputAction.Gameplay.TouchPress.performed += ctx => OnTouchPressPerformed(ctx);
-            _gameInputAction.Gameplay.TouchPress.canceled += ctx => OnTouchPressCanceled(ctx);
-
+            _gameInputAction.Gameplay.TouchPress.performed += ctx => OnTouchPress(ctx);
+            _gameInputAction.Gameplay.TouchPress.canceled += ctx => OnTouchPress(ctx);
+            
             _gameInputAction.Gameplay.TouchPosition.performed += ctx => OnTouchPosition(ctx);
         }
         
@@ -50,29 +50,30 @@ namespace MyCampusStory.InputSystem
         {
             _gameInputAction.Disable();
 
-            _gameInputAction.Gameplay.TouchPress.performed -= ctx => OnTouchPressPerformed(ctx);
-            _gameInputAction.Gameplay.TouchPress.canceled -= ctx => OnTouchPressCanceled(ctx);
+            _gameInputAction.Gameplay.TouchPress.performed -= ctx => OnTouchPress(ctx);
+            _gameInputAction.Gameplay.TouchPress.canceled -= ctx => OnTouchPress(ctx);
 
             _gameInputAction.Gameplay.TouchPosition.performed -= ctx => OnTouchPosition(ctx);
         }
 
-        private void OnTouchPressPerformed(InputAction.CallbackContext context)
+        private void OnTouchPress(InputAction.CallbackContext context)
         {
-            if(IsPointerOverUI) return;
+            if(EventSystem.current.IsPointerOverGameObject()) return;
 
-            OnTouchPressPerformedEvent?.Invoke(_gameInputAction.Gameplay.TouchPosition.ReadValue<Vector2>());
-        }
-        
-        private void OnTouchPressCanceled(InputAction.CallbackContext context) 
-        {
-            if(IsPointerOverUI) return;
+            if(context.performed)
+            {
+                OnTouchPressPerformedEvent?.Invoke(_gameInputAction.Gameplay.TouchPosition.ReadValue<Vector2>());
+            }
 
-            OnTouchPressCanceledEvent?.Invoke(_gameInputAction.Gameplay.TouchPosition.ReadValue<Vector2>());
+            if(context.canceled)
+            {
+                OnTouchPressCanceledEvent?.Invoke(_gameInputAction.Gameplay.TouchPosition.ReadValue<Vector2>());
+            }
         }
 
         private void OnTouchPosition(InputAction.CallbackContext context) 
         {
-            if(IsPointerOverUI) return;
+            if(EventSystem.current.IsPointerOverGameObject()) return;
 
             OnTouchPositionEvent?.Invoke(context.ReadValue<Vector2>());
         }

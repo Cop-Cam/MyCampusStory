@@ -12,22 +12,17 @@ namespace MyCampusStory.StandaloneManager
     /// </summary>
     public class MainMenuManager : MonoBehaviour
     {
-        private GameManager _gameManager;
-
-        [field:SerializeField]
-        public AudioManager AudioManager { get; private set; }
-
         [SerializeField] AudioClip _mainMenuMusic;
         [SerializeField] private Canvas _cnvQuitGameMenu;
 
         private void Awake()
         {
-            _gameManager = GameManager.Instance;
+
         }
 
         private void Start()
         {
-            AudioManager.PlayMusic(_mainMenuMusic);
+            GameManager.Instance.AudioManager.PlayMusic(_mainMenuMusic);
         }
 
         public void NewGame()
@@ -47,11 +42,7 @@ namespace MyCampusStory.StandaloneManager
         
         public void QuitGame()
         {
-            #if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-            #else
-                Application.Quit();
-            #endif
+            GameManager.Instance.QuitGame();
         }
     }
 }

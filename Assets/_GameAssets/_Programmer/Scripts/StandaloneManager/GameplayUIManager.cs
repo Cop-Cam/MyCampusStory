@@ -16,46 +16,17 @@ namespace MyCampusStory.StandaloneManager
     /// Class for managing UI
     /// </summary>
     [DefaultExecutionOrder(-1)]
-    public class GameplayUIManager : SceneSingleton<GameplayUIManager>, IObserver
+    public class GameplayUIManager : SceneSingleton<GameplayUIManager>
     {
-        private LevelManager _levelManager;
+        [field:SerializeField] 
+        public BuildingUIManager BuildingUIManager { get; private set; }
 
-        [field:SerializeField] public BuildingUIManager BuildingUIManager { get; private set; }
+        [field:SerializeField]
+        public ResourceUIManager ResourceUIManager { get; private set; }
         
-        
-        [System.Serializable]
-        public struct ResourceUI
-        {
-            public ResourceSO ResourceSO;
-            public TextMeshProUGUI ResourceText;
-        }
-        [SerializeField] private ResourceUI[] _resourceUIs;
-
         protected override void Awake()
         {
             base.Awake();
-
-            _levelManager = LevelManager.Instance;
-            // _levelManager.SetGameplayUIReference(this);
-        }
-
-        private void OnEnable()
-        {
-            ResourceManager.OnResourceChangedEventRegister(this);
-        }
-
-        private void OnDisable()
-        {
-            ResourceManager.OnResourceChangedEventUnregister(this);
-        }
-
-        public void OnNotify()
-        {
-            foreach (ResourceUI resourceUI in _resourceUIs)
-            {
-                resourceUI.ResourceText.text = _levelManager.ResourceManager.GetResourceAmount(resourceUI.ResourceSO.ResourceId).ToString();
-            }
-        }
-        
+        }        
     }
 }

@@ -8,54 +8,48 @@ using UnityEngine.AI;
 
 using MyCampusStory.BuildingSystem;
 
-namespace MyCampusStory.Player
+namespace MyCampusStory.Character
 {
     /// <summary>
     /// 
     /// </summary>
-    public abstract class PlayerBaseState 
+    public abstract class CharacterBaseState
     {
-        public abstract void EnterState(PlayerStateManager playerStateManager);
-        public abstract void UpdateState(PlayerStateManager playerStateManager);
-        public abstract void ExitState(PlayerStateManager playerStateManager);
+        public abstract void EnterState(CharacterStateManager CharacterStateManager);
+        public abstract void UpdateState(CharacterStateManager CharacterStateManager);
+        public abstract void ExitState(CharacterStateManager CharacterStateManager);
     }
 
-    public class PlayerIdleState : PlayerBaseState
+    public class CharacterIdleState : CharacterBaseState
     {
-        private PlayerStateManager _playerStateManager;
-        private PlayerAnimation _playerAnimation;
-        private float _idleTime = 3f;
+        [SerializeField] private float _idleTime = 3f;
         private float _idleTimeRemaining = 0f;
 
-        public override void EnterState(PlayerStateManager playerStateManager)
+        public override void EnterState(CharacterStateManager CharacterStateManager)
         {
-            _playerStateManager = playerStateManager;
-            _playerAnimation = _playerStateManager.GetComponent<PlayerAnimation>();
-            _playerAnimation.SetAnimCrossFade(_playerAnimation.Idle_anim, 0.1f);
+            CharacterStateManager.CharacterAnimation.SetAnimCrossFade(CharacterStateManager.CharacterAnimation.Idle_anim, 0.1f);
             _idleTimeRemaining = 0f;
         }
 
-        public override void UpdateState(PlayerStateManager playerStateManager)
+        public override void UpdateState(CharacterStateManager CharacterStateManager)
         {
             _idleTimeRemaining += Time.deltaTime;
             if (_idleTimeRemaining > _idleTime)
             {
-                _playerStateManager.SwitchState(_playerStateManager.WalkState);
+                CharacterStateManager.SwitchState(CharacterStateManager.WalkState);
             }
         }
 
-        public override void ExitState(PlayerStateManager playerStateManager)
+        public override void ExitState(CharacterStateManager CharacterStateManager)
         {
-            _playerAnimation.SetAnimBool(_playerAnimation.Idle_anim, false);
+            CharacterStateManager.CharacterAnimation.SetAnimBool(CharacterStateManager.CharacterAnimation.Idle_anim, false);
             _idleTimeRemaining = 0f;
-            _playerAnimation = null;
         }
     }
 
-    public class PlayerWalkState : PlayerBaseState
+    [RequireComponent(typeof(NavMeshAgent))]
+    public class CharacterWalkState : CharacterBaseState
     {
-        private PlayerStateManager _playerStateManager;
-        private PlayerAnimation _playerAnimation;
         private NavMeshAgent _navMeshAgent;
         private int _objectToMoveIndex;
 
@@ -68,11 +62,9 @@ namespace MyCampusStory.Player
         private List<ObjectToMove> _objectsToMove = new List<ObjectToMove>();
 
 
-        public override void EnterState(PlayerStateManager playerStateManager)
+        public override void EnterState(CharacterStateManager CharacterStateManager)
         {
-            _playerStateManager = playerStateManager;
-            _playerAnimation = _playerStateManager.GetComponent<PlayerAnimation>();
-            _navMeshAgent = _playerStateManager.GetComponent<NavMeshAgent>();  
+            _navMeshAgent = CharacterStateManager.GetComponent<NavMeshAgent>();  
 
             if(_objectsToMove.Count == 0 || _objectsToMove == null)
             {
@@ -88,18 +80,17 @@ namespace MyCampusStory.Player
             }
         }
 
-        public override void UpdateState(PlayerStateManager playerStateManager)
+        public override void UpdateState(CharacterStateManager CharacterStateManager)
         {
             if(_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
             {
-                _playerStateManager.SwitchState(_playerStateManager.IdleState);
+                CharacterStateManager.SwitchState(CharacterStateManager.IdleState);
             }
         }
 
-        public override void ExitState(PlayerStateManager playerStateManager)
+        public override void ExitState(CharacterStateManager CharacterStateManager)
         {
-            _playerAnimation.SetAnimBool(_playerAnimation.Walk_anim, false);
-            _playerAnimation = null;
+            CharacterStateManager.CharacterAnimation.SetAnimBool(CharacterStateManager.CharacterAnimation.Walk_anim, false);
             _navMeshAgent = null;
 
             _objectsToMove[_objectToMoveIndex].HasBeenMovedTo = true;
@@ -135,22 +126,22 @@ namespace MyCampusStory.Player
     }
 
     [RequireComponent(typeof(Collider))]
-    public class PlayerInteractState : PlayerBaseState
+    public class CharacterInteractState : CharacterBaseState
     {
         private Collider _targetCollider;
         private Collider _characterCollider;
 
-        public override void EnterState(PlayerStateManager playerStateManager)
+        public override void EnterState(CharacterStateManager CharacterStateManager)
         {
-            _characterCollider = playerStateManager.GetComponent<Collider>();
+            _characterCollider = CharacterStateManager.GetComponent<Collider>();
         }
 
-        public override void UpdateState(PlayerStateManager playerStateManager)
+        public override void UpdateState(CharacterStateManager CharacterStateManager)
         {
 
         }
 
-        public override void ExitState(PlayerStateManager playerStateManager)
+        public override void ExitState(CharacterStateManager CharacterStateManager)
         {
 
         }

@@ -2,22 +2,21 @@
 // Author   : "Ananta Miyoru Wijaya"
 //----------------------------------------------------------------------
 
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace MyCampusStory.Player
+namespace MyCampusStory.Character
 {
     /// <summary>
-    /// Class for handling player animation
+    /// Class for handling character animation
     /// </summary>
-    public class PlayerAnimation : MonoBehaviour
+    public class CharacterAnimation : MonoBehaviour
     {
         [SerializeField] private Animator _animator;
 
         [field:SerializeField] public string Idle_anim { get; private set; } = "Idle";
         [field:SerializeField] public string Walk_anim { get; private set; } = "Walk";
-        [field:SerializeField] public string Run_anim { get; private set; } = "Run";
-        [field:SerializeField] public string Jump_anim { get; private set; } = "Jump";
-        [field:SerializeField] public string Fall_anim { get; private set; } = "Fall";
+        [field:SerializeField] public string Interact_anim { get; private set; } = "Interact";
 
         public void SetAnimBool(string id, bool value)
         {

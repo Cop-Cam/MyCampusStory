@@ -7,6 +7,7 @@ using UnityEngine;
 using MyCampusStory.DesignPatterns;
 using MyCampusStory.ResourceSystem;
 using MyCampusStory.CameraSystem;
+using MyCampusStory.QuestSystem;
 
 namespace MyCampusStory.StandaloneManager
 {
@@ -16,8 +17,6 @@ namespace MyCampusStory.StandaloneManager
     [DefaultExecutionOrder(-1)]
     public class LevelManager : SceneSingleton<LevelManager>
     {
-        public GameManager GameManager { get; private set; }
-
         [field:Header("DEPENDENCIES")]
         [field:SerializeField]
         public ResourceManager ResourceManager { get; private set; }
@@ -26,7 +25,7 @@ namespace MyCampusStory.StandaloneManager
         public CameraManager CameraManager { get; private set; }
 
         [field:SerializeField]
-        public AudioManager AudioManager { get; private set; }
+        public QuestManager QuestManager { get; private set; }
 
 
         [Header("LEVEL PROPERTIES")]
@@ -35,14 +34,12 @@ namespace MyCampusStory.StandaloneManager
         protected override void Awake()
         {
             base.Awake();
-
-            GameManager = GameManager.Instance;
             // GameManager.SceneHandler.LoadSceneAdditive("GameplayUI");
         }
 
         private void Start()
         {
-            AudioManager.PlayMusic(_levelMusic);
+            GameManager.Instance.AudioManager.PlayMusic(_levelMusic);
         }
 
 

@@ -602,19 +602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <BuildingUIManager>k__BackingField: {fileID: 3771929651422064865}
-  _resourceUIs:
-  - ResourceSO: {fileID: 11400000, guid: e4f6f1f8b6609544797d660162c62d60, type: 2}
-    ResourceText: {fileID: 6847804107966114002}
-  - ResourceSO: {fileID: 11400000, guid: 2250438361eb77b448b36a9cb54812a2, type: 2}
-    ResourceText: {fileID: 751906075214619009}
-  - ResourceSO: {fileID: 11400000, guid: a4255ff7f175bcd41be8282a9dfddf07, type: 2}
-    ResourceText: {fileID: 6723773812134140031}
-  - ResourceSO: {fileID: 11400000, guid: 86a069925e6677e4da81ff1e77379824, type: 2}
-    ResourceText: {fileID: 5125700763851226168}
-  - ResourceSO: {fileID: 11400000, guid: 5bf899d1d7c1d524882fad927f02a6e9, type: 2}
-    ResourceText: {fileID: 360361391436525532}
-  - ResourceSO: {fileID: 11400000, guid: 4473c3ebad0f2ff49ba4d8c19fcbdb07, type: 2}
-    ResourceText: {fileID: 4435687110449210689}
+  <ResourceUIManager>k__BackingField: {fileID: 3158900517742523876}
 --- !u!1 &1055243446411254436
 GameObject:
   m_ObjectHideFlags: 0
@@ -1975,6 +1963,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2103723700828213731}
+  - component: {fileID: 3158900517742523876}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -1999,6 +1988,31 @@ Transform:
   - {fileID: 8147462311966812869}
   m_Father: {fileID: 7601837187063576940}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3158900517742523876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2577505854756860646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19a6cad1317c9a742affd2f87c5c650f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _resourceUIs:
+  - ResourceSO: {fileID: 11400000, guid: e4f6f1f8b6609544797d660162c62d60, type: 2}
+    ResourceText: {fileID: 6847804107966114002}
+  - ResourceSO: {fileID: 11400000, guid: 2250438361eb77b448b36a9cb54812a2, type: 2}
+    ResourceText: {fileID: 751906075214619009}
+  - ResourceSO: {fileID: 11400000, guid: a4255ff7f175bcd41be8282a9dfddf07, type: 2}
+    ResourceText: {fileID: 6723773812134140031}
+  - ResourceSO: {fileID: 11400000, guid: 86a069925e6677e4da81ff1e77379824, type: 2}
+    ResourceText: {fileID: 5125700763851226168}
+  - ResourceSO: {fileID: 11400000, guid: 5bf899d1d7c1d524882fad927f02a6e9, type: 2}
+    ResourceText: {fileID: 360361391436525532}
+  - ResourceSO: {fileID: 11400000, guid: 4473c3ebad0f2ff49ba4d8c19fcbdb07, type: 2}
+    ResourceText: {fileID: 4435687110449210689}
 --- !u!1 &2737163494884323278
 GameObject:
   m_ObjectHideFlags: 0
@@ -3713,9 +3727,9 @@ RectTransform:
   - {fileID: 6133281596540057197}
   m_Father: {fileID: 7069883156609057367}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -170, y: 150}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 230, y: -30}
   m_SizeDelta: {x: 460, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1855600856640765850

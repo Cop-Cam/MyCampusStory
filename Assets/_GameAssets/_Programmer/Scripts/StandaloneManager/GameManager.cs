@@ -6,6 +6,7 @@ using UnityEngine;
 
 using MyCampusStory.DesignPatterns;
 using MyCampusStory.InputSystem;
+using MyCampusStory.DataPersistenceSystem;
 
 
 namespace MyCampusStory.StandaloneManager
@@ -21,8 +22,14 @@ namespace MyCampusStory.StandaloneManager
 
         [field:SerializeField]
         public SceneHandler SceneHandler { get; private set; }
+
+        [field:SerializeField]
+        public DataPersistenceManager DataPersistenceManager { get; private set; }
+
+        [field:SerializeField]
+        public AudioManager AudioManager { get; private set; }
         
-        public static bool IsGamePaused { get; private set; }
+        public bool IsGamePaused { get; private set; }
 
         protected override void Awake()
         {
@@ -58,6 +65,15 @@ namespace MyCampusStory.StandaloneManager
             {
                 Time.timeScale = 1.0f;
             }
+        }
+
+        public void QuitGame()
+        {
+            #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+            #else
+                Application.Quit();
+            #endif
         }
     }
 }

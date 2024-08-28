@@ -8,6 +8,7 @@ using UnityEngine;
 using MyCampusStory.DataPersistenceSystem;
 using MyCampusStory.DesignPatterns;
 using MyCampusStory.BuildingSystem;
+using System;
 
 namespace MyCampusStory.ResourceSystem
 {
@@ -19,12 +20,12 @@ namespace MyCampusStory.ResourceSystem
         [SerializeField] private ResourceSO[] _resourceSOs;
         private Dictionary<string, Resource> _resourcesDictionary;
 
-        private static List<IObserver> _onResourceAmountChangedEventObservers;
-        
+        public delegate void ResourceChangedEventDelegate();
+        public event ResourceChangedEventDelegate OnResourceChanged;
+
         private void Awake()
         {
             _resourcesDictionary = new Dictionary<string, Resource>();
-            _onResourceAmountChangedEventObservers = new List<IObserver>();
 
             //Instantiate resources based on the resource SOs
             foreach (var resourceSO in _resourceSOs)
@@ -67,7 +68,7 @@ namespace MyCampusStory.ResourceSystem
             {
                 _resourcesDictionary[resourceId].ModifyAmount(amount);
 
-                NotifyOnResourceChangedEventObservers();
+                OnResourceChanged?.Invoke();
             }
             else
             {
@@ -86,7 +87,7 @@ namespace MyCampusStory.ResourceSystem
             {
                 _resourcesDictionary[resourceId].ReplaceAmount(amount);
 
-                NotifyOnResourceChangedEventObservers();
+                OnResourceChanged?.Invoke();
             }
             else
             {
@@ -122,26 +123,6 @@ namespace MyCampusStory.ResourceSystem
                 {
                     data.PlayerResourceData[resource.Key] = resource.Value.ResourceAmount;
                 }
-            }
-        }
-        #endregion
-
-        #region OnResourceChangedEvent
-        public static void OnResourceChangedEventRegister(IObserver observer)
-        {
-            _onResourceAmountChangedEventObservers.Add(observer);
-        }
-
-        public static void OnResourceChangedEventUnregister(IObserver observer)
-        {
-            _onResourceAmountChangedEventObservers.Remove(observer);
-        }
-
-        private void NotifyOnResourceChangedEventObservers()
-        {
-            foreach (IObserver observer in _onResourceAmountChangedEventObservers)
-            {
-                observer.OnNotify();
             }
         }
         #endregion
