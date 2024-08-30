@@ -674,6 +674,83 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1001 &793776102
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8867477870038081954, guid: 8b65865b399317843817d18b24548d40, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 12fed05413970184f99190dca054ad67, type: 2}
+    - target: {fileID: -8679921383154817045, guid: 8b65865b399317843817d18b24548d40, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 57.42
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b65865b399317843817d18b24548d40, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 15.41
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b65865b399317843817d18b24548d40, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -21.78
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b65865b399317843817d18b24548d40, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b65865b399317843817d18b24548d40, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b65865b399317843817d18b24548d40, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b65865b399317843817d18b24548d40, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b65865b399317843817d18b24548d40, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b65865b399317843817d18b24548d40, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b65865b399317843817d18b24548d40, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6673802680727711063, guid: 8b65865b399317843817d18b24548d40, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d4ccafc0f646ee04eada2662e98c0e88, type: 2}
+    - target: {fileID: -2473424575180118478, guid: 8b65865b399317843817d18b24548d40, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4cc61a71cba21f840a1492b69fcffdc2, type: 2}
+    - target: {fileID: 919132149155446097, guid: 8b65865b399317843817d18b24548d40, type: 3}
+      propertyPath: m_Name
+      value: BUILD_Class_inside_suibs
+      objectReference: {fileID: 0}
+    - target: {fileID: 1066235068171334618, guid: 8b65865b399317843817d18b24548d40, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.168
+      objectReference: {fileID: 0}
+    - target: {fileID: 6947464325843983966, guid: 8b65865b399317843817d18b24548d40, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d1a870c437448ed4bb20a36a2cf5b20c, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8b65865b399317843817d18b24548d40, type: 3}
 --- !u!1 &829473030
 GameObject:
   m_ObjectHideFlags: 3
@@ -791,11 +868,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b25b786c38be4242bdc0dcab881e8e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCamera: {fileID: 1379732136}
-  panSpeed: 2
-  zoomSpeed: 0.5
-  minZoom: 5
-  maxZoom: 15
+  _interactableLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  _virtualCam: {fileID: 0}
+  _minimumDeltaPositionForSwipe: 1
+  _swipeSpeed: 3
+  _dampTime: 0.3
+  _maxCameraPosChange: 10
+  enableSwipeHorizontally: 1
 --- !u!4 &864212842
 Transform:
   m_ObjectHideFlags: 0
@@ -2160,3 +2241,4 @@ SceneRoots:
   - {fileID: 2071943178}
   - {fileID: 692382222}
   - {fileID: 1548918596}
+  - {fileID: 793776102}
