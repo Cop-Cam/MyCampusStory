@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4da915f931682144e9c99d700d1d00d3
+guid: cf53bf6889b79de408a12388cb1adfca
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,18 +121,137 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: a_walkright_new_3_0
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 0
+        width: 521
+        height: 1197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04d5651f3022aaa4c92ca8715d4565b1
+      internalID: -2016897686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: a_walkright_new_3_1
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 6
+        width: 716
+        height: 1170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6438dda698429b846831ec23afadd3cf
+      internalID: -396868413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: a_walkright_new_3_2
+      rect:
+        serializedVersion: 2
+        x: 1258
+        y: 6
+        width: 542
+        height: 1224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac29df61c9a86d64780c16a4da8f8a17
+      internalID: 595922144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: a_walkright_new_3_3
+      rect:
+        serializedVersion: 2
+        x: 1877
+        y: 6
+        width: 525
+        height: 1224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28bb793801bc99e448bf3adeeddc380a
+      internalID: -894349296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: a_walkright_new_3_4
+      rect:
+        serializedVersion: 2
+        x: 2432
+        y: 17
+        width: 623
+        height: 1174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3afcea313e13c1049aa2ea0e15b18e1f
+      internalID: -304478328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 3b6b44eedc04e664ca1f99a1b503485a
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      a_walkright_new_3_0: -2016897686
+      a_walkright_new_3_1: -396868413
+      a_walkright_new_3_10: -1853394331
+      a_walkright_new_3_11: -530434503
+      a_walkright_new_3_12: -934800166
+      a_walkright_new_3_13: 896791463
+      a_walkright_new_3_2: 595922144
+      a_walkright_new_3_3: -894349296
+      a_walkright_new_3_4: -304478328
+      a_walkright_new_3_5: 806579600
+      a_walkright_new_3_6: -1428935293
+      a_walkright_new_3_7: -1503847430
+      a_walkright_new_3_8: -1444084803
+      a_walkright_new_3_9: -729260728
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

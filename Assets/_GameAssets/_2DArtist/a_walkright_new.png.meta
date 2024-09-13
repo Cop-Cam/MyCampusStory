@@ -1,0 +1,333 @@
+fileFormatVersion: 2
+guid: 6a7b5ae4b2d7a254ba48dcf239fa677d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: a_walkright_new_2
+      rect:
+        serializedVersion: 2
+        x: 1297
+        y: 51
+        width: 463
+        height: 1148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93208ac50c4d2464c8e02bb0ba1f6cce
+      internalID: -845299294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: a_walkright_new_3
+      rect:
+        serializedVersion: 2
+        x: 1914
+        y: 42
+        width: 461
+        height: 1151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be1ad0d556907c343b084e2caf4f6d5b
+      internalID: 1627679239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: a_walkright_new_0
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 34
+        width: 464
+        height: 1130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4327a8247846fe41a9bc1f9e578c4c9
+      internalID: 548993020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: a_walkright_new_1
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 34
+        width: 613
+        height: 1121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91a1ace0d75634241bf722a0d64294a0
+      internalID: -36169160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: a_walkright_new_4
+      rect:
+        serializedVersion: 2
+        x: 2457
+        y: 50
+        width: 575
+        height: 1096
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3750ee5692b0be7459dba3a4d36178a7
+      internalID: -956583702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 48f30344cc008924d951e2c936411d77
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      a_walkright_new_0: 548993020
+      a_walkright_new_1: -36169160
+      a_walkright_new_11: -2119424411
+      a_walkright_new_12: 736360792
+      a_walkright_new_13: -479816935
+      a_walkright_new_14: -918366023
+      a_walkright_new_15: -1743873523
+      a_walkright_new_16: 923116507
+      a_walkright_new_17: -2021981318
+      a_walkright_new_18: 609319940
+      a_walkright_new_2: -845299294
+      a_walkright_new_20: -506773587
+      a_walkright_new_21: 1560285791
+      a_walkright_new_22: -1624661801
+      a_walkright_new_23: 1974854415
+      a_walkright_new_25: 1826832013
+      a_walkright_new_26: -798329875
+      a_walkright_new_27: 821888272
+      a_walkright_new_29: -1235698197
+      a_walkright_new_3: 1627679239
+      a_walkright_new_30: -268819776
+      a_walkright_new_31: -9370419
+      a_walkright_new_32: 1224968281
+      a_walkright_new_33: -291450871
+      a_walkright_new_34: -1242315403
+      a_walkright_new_35: -1878621275
+      a_walkright_new_36: -1421704133
+      a_walkright_new_37: 1665689671
+      a_walkright_new_38: 95920215
+      a_walkright_new_39: -1006010746
+      a_walkright_new_4: -956583702
+      a_walkright_new_40: -2011586866
+      a_walkright_new_41: 1198169311
+      a_walkright_new_42: -448101697
+      a_walkright_new_43: 934811587
+      a_walkright_new_44: 1046898955
+      a_walkright_new_45: 1793933227
+      a_walkright_new_46: -1731398097
+      a_walkright_new_47: -741180287
+      a_walkright_new_48: -1734741935
+      a_walkright_new_49: 1621966159
+      a_walkright_new_5: 1372825376
+      a_walkright_new_50: 1791393008
+      a_walkright_new_51: 1715862717
+      a_walkright_new_52: -1882673991
+      a_walkright_new_53: 226821329
+      a_walkright_new_54: 552405119
+      a_walkright_new_55: 2079819330
+      a_walkright_new_56: -139484748
+      a_walkright_new_57: -2022270828
+      a_walkright_new_58: -694281518
+      a_walkright_new_59: 1969486534
+      a_walkright_new_6: -447276809
+      a_walkright_new_60: 1620537263
+      a_walkright_new_61: 11528733
+      a_walkright_new_62: -1262042135
+      a_walkright_new_63: 1671677930
+      a_walkright_new_64: -425289078
+      a_walkright_new_65: 2121989177
+      a_walkright_new_66: 1377014572
+      a_walkright_new_67: 1787969826
+      a_walkright_new_68: 1586552781
+      a_walkright_new_69: -769872598
+      a_walkright_new_7: 1040615451
+      a_walkright_new_70: -521560096
+      a_walkright_new_71: -2112067498
+      a_walkright_new_72: 512852470
+      a_walkright_new_73: 2017246940
+      a_walkright_new_74: 1603402195
+      a_walkright_new_75: 966519445
+      a_walkright_new_76: -1467599893
+      a_walkright_new_77: 1190447979
+      a_walkright_new_78: -1234082718
+      a_walkright_new_79: -440427834
+      a_walkright_new_8: -1648826464
+      a_walkright_new_80: -243322083
+      a_walkright_new_81: -1453711844
+      a_walkright_new_82: 1699784567
+      a_walkright_new_83: 1275489209
+      a_walkright_new_84: 1054862413
+      a_walkright_new_85: 1510532963
+      a_walkright_new_86: 381173983
+      a_walkright_new_87: -938249306
+      a_walkright_new_88: -1456591798
+      a_walkright_new_89: 1427179
+      a_walkright_new_90: -517475190
+      a_walkright_new_91: 2143526488
+      a_walkright_new_92: -411608110
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
