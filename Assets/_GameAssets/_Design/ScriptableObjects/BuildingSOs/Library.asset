@@ -10,34 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1fa856be5e3a4f4fbc9b34b44bdf735, type: 3}
-  m_Name: Testing
+  m_Name: Library
   m_EditorClassIdentifier: 
-  BuildingBaseId: BUILDING_TEST
-  BuildingName: Test
-  BuildingDescription: This building SO is for testing purpose
+  BuildingBaseId: BUILDING_LIBRARY
+  BuildingName: LIBRARY
+  BuildingDescription: Library Generate Knowledge
   MaxBuildingLevel: 3
   BuildingStatsPerLevel:
   - BuildingLevelForStat: 1
     BuildingUpgradeRequirements:
     - ResourceRequired: {fileID: 11400000, guid: 2250438361eb77b448b36a9cb54812a2, type: 2}
-      AmountRequired: 100
+      AmountRequired: 30
     ResourceGenerationStats:
-    - ResourceGenerated: {fileID: 11400000, guid: 2250438361eb77b448b36a9cb54812a2, type: 2}
+    - ResourceGenerated: {fileID: 11400000, guid: a4255ff7f175bcd41be8282a9dfddf07, type: 2}
       AmountGenerated: 5
       RealTimeIntervalForGeneration: 1
   - BuildingLevelForStat: 2
     BuildingUpgradeRequirements:
     - ResourceRequired: {fileID: 11400000, guid: 4473c3ebad0f2ff49ba4d8c19fcbdb07, type: 2}
-      AmountRequired: 50
+      AmountRequired: 100
     ResourceGenerationStats:
-    - ResourceGenerated: {fileID: 11400000, guid: 4473c3ebad0f2ff49ba4d8c19fcbdb07, type: 2}
+    - ResourceGenerated: {fileID: 11400000, guid: a4255ff7f175bcd41be8282a9dfddf07, type: 2}
       AmountGenerated: 7
-      RealTimeIntervalForGeneration: 1.5
-  - BuildingLevelForStat: 3
-    BuildingUpgradeRequirements:
-    - ResourceRequired: {fileID: 11400000, guid: 5bf899d1d7c1d524882fad927f02a6e9, type: 2}
-      AmountRequired: 75
-    ResourceGenerationStats:
-    - ResourceGenerated: {fileID: 11400000, guid: 5bf899d1d7c1d524882fad927f02a6e9, type: 2}
-      AmountGenerated: 4
-      RealTimeIntervalForGeneration: 2
+      RealTimeIntervalForGeneration: 1
