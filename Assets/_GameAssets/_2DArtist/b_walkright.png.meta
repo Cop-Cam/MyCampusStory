@@ -1,0 +1,363 @@
+fileFormatVersion: 2
+guid: d3bd776d73b016c4389600e97a0fab1e
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: b_walkright_3
+      rect:
+        serializedVersion: 2
+        x: 1877
+        y: 51
+        width: 541
+        height: 1122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0b256c4e36d81c4e8584fcb018befa7
+      internalID: 1619365489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: b_walkright_2
+      rect:
+        serializedVersion: 2
+        x: 1279
+        y: 51
+        width: 545
+        height: 1104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b682ce39cd6b224c9285b06a9d09bb1
+      internalID: -1284108972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: b_walkright_0
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 54
+        width: 522
+        height: 1083
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c22b0d13cd2bf74da43ef1172a28c1e
+      internalID: -220949204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: b_walkright_4
+      rect:
+        serializedVersion: 2
+        x: 2475
+        y: 48
+        width: 569
+        height: 1082
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 296b34aa6d1ded54d857c5b937943f19
+      internalID: 1681808382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: b_walkright_1
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 35
+        width: 617
+        height: 1085
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4411e9a6e0cf594d8e0ee6f6b8e3f38
+      internalID: 1510478606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 8d90d78aecba88248b3dceeb7ba3c4a4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      b_walkright_0: -220949204
+      b_walkright_1: 1510478606
+      b_walkright_10: -746846962
+      b_walkright_100: -553976454
+      b_walkright_101: -772444539
+      b_walkright_102: 2022521094
+      b_walkright_103: -889157400
+      b_walkright_104: 1777667308
+      b_walkright_105: -1853712772
+      b_walkright_106: 188629188
+      b_walkright_107: -816988200
+      b_walkright_108: 1897844868
+      b_walkright_109: 708989706
+      b_walkright_11: 213986317
+      b_walkright_110: -111628654
+      b_walkright_111: -1866421968
+      b_walkright_112: -1541060380
+      b_walkright_113: 2079843810
+      b_walkright_114: -373005320
+      b_walkright_115: -1281317782
+      b_walkright_116: -1036609546
+      b_walkright_117: -1201090589
+      b_walkright_118: -362205008
+      b_walkright_119: -720708036
+      b_walkright_12: 2086006570
+      b_walkright_120: -741096918
+      b_walkright_121: -1296143916
+      b_walkright_122: 1486312346
+      b_walkright_14: 1678788461
+      b_walkright_15: -462698328
+      b_walkright_17: -897381675
+      b_walkright_18: 1806432589
+      b_walkright_19: 353519220
+      b_walkright_2: -1284108972
+      b_walkright_20: 1750998189
+      b_walkright_21: -464416513
+      b_walkright_22: -17483370
+      b_walkright_23: -107609359
+      b_walkright_24: 1538956424
+      b_walkright_25: -1792198020
+      b_walkright_26: -1934225406
+      b_walkright_27: 976410478
+      b_walkright_28: -1726503968
+      b_walkright_29: -29228600
+      b_walkright_3: 1619365489
+      b_walkright_30: 1401386872
+      b_walkright_31: -962978707
+      b_walkright_32: 1874621678
+      b_walkright_33: -1435212253
+      b_walkright_35: -657037071
+      b_walkright_36: -1086085748
+      b_walkright_37: 1760839652
+      b_walkright_39: -1512190144
+      b_walkright_4: 1681808382
+      b_walkright_40: -2098307066
+      b_walkright_41: -328038108
+      b_walkright_42: -1042811952
+      b_walkright_43: -978174588
+      b_walkright_44: -1594975663
+      b_walkright_45: 618620132
+      b_walkright_46: 937207276
+      b_walkright_47: -1857016918
+      b_walkright_48: -496435135
+      b_walkright_49: -612947599
+      b_walkright_50: 1582770398
+      b_walkright_51: -1141625395
+      b_walkright_52: -1192962725
+      b_walkright_53: 1726703244
+      b_walkright_54: 214950352
+      b_walkright_55: -1707861543
+      b_walkright_56: -608324874
+      b_walkright_57: -1547453231
+      b_walkright_58: -174729491
+      b_walkright_59: 1609444018
+      b_walkright_6: -2079744511
+      b_walkright_60: 1634139659
+      b_walkright_61: 701322300
+      b_walkright_62: 1295838927
+      b_walkright_63: -602783998
+      b_walkright_64: -1754983386
+      b_walkright_65: 841574862
+      b_walkright_66: 1188701119
+      b_walkright_67: 1060137122
+      b_walkright_68: 972273679
+      b_walkright_69: -1955433501
+      b_walkright_7: -1012125849
+      b_walkright_70: 711812552
+      b_walkright_71: 815476385
+      b_walkright_72: 313385016
+      b_walkright_73: -1608304176
+      b_walkright_74: -1836520154
+      b_walkright_75: 1033047388
+      b_walkright_76: 1213715695
+      b_walkright_77: -63621004
+      b_walkright_78: -586204496
+      b_walkright_79: 648024506
+      b_walkright_8: 346413396
+      b_walkright_80: 1141450547
+      b_walkright_81: -1939211224
+      b_walkright_82: 292999387
+      b_walkright_83: 1082900793
+      b_walkright_84: -1069466087
+      b_walkright_85: 660531191
+      b_walkright_86: 393245231
+      b_walkright_87: 1248492113
+      b_walkright_88: 735777805
+      b_walkright_89: -852432683
+      b_walkright_9: -1954939326
+      b_walkright_90: -1801139529
+      b_walkright_91: -1836788860
+      b_walkright_92: -129335299
+      b_walkright_93: -305181910
+      b_walkright_94: 1533234230
+      b_walkright_95: 1088311953
+      b_walkright_96: -2059673447
+      b_walkright_97: 1165869718
+      b_walkright_98: -717376113
+      b_walkright_99: -329042636
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

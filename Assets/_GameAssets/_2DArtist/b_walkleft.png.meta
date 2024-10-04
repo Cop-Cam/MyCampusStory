@@ -1,0 +1,329 @@
+fileFormatVersion: 2
+guid: cf20aa138ebd36842a34439ee72964d6
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: b_walkleft_4
+      rect:
+        serializedVersion: 2
+        x: 2451
+        y: 0
+        width: 595
+        height: 1146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7fbc53de823b54429ac02bd122df286
+      internalID: 2069844868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: b_walkleft_3
+      rect:
+        serializedVersion: 2
+        x: 1907
+        y: 0
+        width: 515
+        height: 1111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a67d525c88a48643ac44f11c4d73991
+      internalID: -783127351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: b_walkleft_2
+      rect:
+        serializedVersion: 2
+        x: 1281
+        y: 0
+        width: 546
+        height: 1103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a908b94cd87acd4b8001f7d3447d661
+      internalID: 802614616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: b_walkleft_0
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 0
+        width: 538
+        height: 1085
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b542cd70572023468e3e1dafe6f8027
+      internalID: 34216810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: b_walkleft_1
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 7
+        width: 641
+        height: 1069
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f8fb756814da6a4fbfa5bb96a3e50d8
+      internalID: -302931104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 3e60912e200a7b8418c77ff0e9417454
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      b_walkleft_0: 34216810
+      b_walkleft_1: -302931104
+      b_walkleft_11: 499001295
+      b_walkleft_12: 2119112403
+      b_walkleft_14: -52786052
+      b_walkleft_15: -1521504087
+      b_walkleft_16: 1327205972
+      b_walkleft_17: -1888653411
+      b_walkleft_18: 392612468
+      b_walkleft_2: 802614616
+      b_walkleft_20: 1559406724
+      b_walkleft_21: -1308590968
+      b_walkleft_22: 1761242770
+      b_walkleft_24: 171426050
+      b_walkleft_25: 1654789883
+      b_walkleft_26: 433149492
+      b_walkleft_27: 215944449
+      b_walkleft_28: -943360982
+      b_walkleft_29: -933304131
+      b_walkleft_3: -783127351
+      b_walkleft_30: 178980852
+      b_walkleft_31: -1531342386
+      b_walkleft_32: 536054798
+      b_walkleft_33: 135545280
+      b_walkleft_34: -1834600373
+      b_walkleft_35: -302033228
+      b_walkleft_36: -567378173
+      b_walkleft_37: -147418861
+      b_walkleft_38: 1189954077
+      b_walkleft_39: -1951299638
+      b_walkleft_4: 2069844868
+      b_walkleft_40: 1628219758
+      b_walkleft_41: 284318686
+      b_walkleft_42: 27713879
+      b_walkleft_43: -1207020417
+      b_walkleft_44: 1293505196
+      b_walkleft_45: -362459168
+      b_walkleft_46: 357138664
+      b_walkleft_47: 1567728608
+      b_walkleft_48: -1758235329
+      b_walkleft_49: 1073630946
+      b_walkleft_5: -1107954919
+      b_walkleft_50: 763813492
+      b_walkleft_51: 1682514818
+      b_walkleft_52: 1838485257
+      b_walkleft_53: 2077547052
+      b_walkleft_54: -2013998212
+      b_walkleft_55: 181030800
+      b_walkleft_56: -1127737437
+      b_walkleft_57: 1788700557
+      b_walkleft_58: -1772667075
+      b_walkleft_59: -1418488967
+      b_walkleft_60: 1757431081
+      b_walkleft_61: 1250970355
+      b_walkleft_62: 15454486
+      b_walkleft_63: 1381735321
+      b_walkleft_64: 2019140292
+      b_walkleft_65: -141247501
+      b_walkleft_66: -346511571
+      b_walkleft_67: -145453370
+      b_walkleft_68: 1112335137
+      b_walkleft_69: 1559193295
+      b_walkleft_7: 1388130565
+      b_walkleft_70: -1067878494
+      b_walkleft_71: 1818165050
+      b_walkleft_72: 821369981
+      b_walkleft_73: 2076094908
+      b_walkleft_74: 1095796150
+      b_walkleft_75: -1991708172
+      b_walkleft_76: 1593995922
+      b_walkleft_77: 1551555300
+      b_walkleft_78: 276752974
+      b_walkleft_79: -1890919062
+      b_walkleft_8: -1323168877
+      b_walkleft_80: 428989504
+      b_walkleft_81: 359146407
+      b_walkleft_82: -1506700533
+      b_walkleft_83: -1725977242
+      b_walkleft_84: 437881003
+      b_walkleft_85: 567628731
+      b_walkleft_86: -106934820
+      b_walkleft_87: -2085643997
+      b_walkleft_88: 1543811559
+      b_walkleft_9: 236901713
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
