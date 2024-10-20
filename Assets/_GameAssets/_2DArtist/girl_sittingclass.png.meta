@@ -1,0 +1,410 @@
+fileFormatVersion: 2
+guid: 55a22fe57e252a0419393127d2cc4407
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: girl_sittingclass_5
+      rect:
+        serializedVersion: 2
+        x: 3281
+        y: 162
+        width: 582
+        height: 1027
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1729093edfb12a4ca7446b000459241
+      internalID: -888917909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: girl_sittingclass_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 130
+        width: 581
+        height: 1046
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19f14530371f9b749b2c39404734ddef
+      internalID: -787181993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: girl_sittingclass_19
+      rect:
+        serializedVersion: 2
+        x: 3876
+        y: 156
+        width: 602
+        height: 1025
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dabfe3663bcbabe45ae12217cff19dbc
+      internalID: 2058513495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: girl_sittingclass_1
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 130
+        width: 602
+        height: 1033
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a52e5b043620123488554fbf6a7502db
+      internalID: -683588457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: girl_sittingclass_2
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 166
+        width: 597
+        height: 1001
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faebcad8c8c23ea4a9a06b613ea28ed6
+      internalID: -730506362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: girl_sittingclass_3
+      rect:
+        serializedVersion: 2
+        x: 1945
+        y: 143
+        width: 565
+        height: 1020
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9079d85c08e21754ab42539120a6dbee
+      internalID: 388509645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: girl_sittingclass_4
+      rect:
+        serializedVersion: 2
+        x: 2610
+        y: 152
+        width: 609
+        height: 1011
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0b5e29ad4657b7409f2473cdd6a48bb
+      internalID: -1592275852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: girl_sittingclass_49
+      rect:
+        serializedVersion: 2
+        x: 2606
+        y: 840
+        width: 4
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1cf9cabc863ec64c9ca41043518310d
+      internalID: 1880545601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: e2ce91166f6b3934a82468e52c5e2172
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      girl_sittingclass_1: -683588457
+      girl_sittingclass_10: -297935511
+      girl_sittingclass_100: 952677567
+      girl_sittingclass_101: 561997359
+      girl_sittingclass_102: -2011317998
+      girl_sittingclass_103: -643939376
+      girl_sittingclass_104: -430264637
+      girl_sittingclass_105: 399792030
+      girl_sittingclass_106: -929303269
+      girl_sittingclass_11: 924654202
+      girl_sittingclass_12: -100545038
+      girl_sittingclass_13: 1747970274
+      girl_sittingclass_14: 1509565435
+      girl_sittingclass_15: 99750730
+      girl_sittingclass_16: -882763846
+      girl_sittingclass_17: -1228900519
+      girl_sittingclass_18: -1893305029
+      girl_sittingclass_19: 2058513495
+      girl_sittingclass_2: -730506362
+      girl_sittingclass_20: -2025901061
+      girl_sittingclass_21: 2024791436
+      girl_sittingclass_22: -710519776
+      girl_sittingclass_24: 2104851572
+      girl_sittingclass_25: -957037787
+      girl_sittingclass_27: -51773854
+      girl_sittingclass_29: 838065880
+      girl_sittingclass_3: 388509645
+      girl_sittingclass_31: 735636058
+      girl_sittingclass_32: -161586317
+      girl_sittingclass_33: -528106911
+      girl_sittingclass_34: -1182287270
+      girl_sittingclass_35: 2120538643
+      girl_sittingclass_36: -1169240447
+      girl_sittingclass_37: -1334374898
+      girl_sittingclass_38: 1539935289
+      girl_sittingclass_39: -222915710
+      girl_sittingclass_4: -1592275852
+      girl_sittingclass_40: 453561828
+      girl_sittingclass_41: 359340786
+      girl_sittingclass_42: 404646429
+      girl_sittingclass_43: -979166623
+      girl_sittingclass_44: 743258928
+      girl_sittingclass_45: -2105523361
+      girl_sittingclass_46: -1595796362
+      girl_sittingclass_47: -185384811
+      girl_sittingclass_48: -2076282811
+      girl_sittingclass_49: 1880545601
+      girl_sittingclass_5: -888917909
+      girl_sittingclass_50: 628363620
+      girl_sittingclass_51: -807035482
+      girl_sittingclass_52: 1923975652
+      girl_sittingclass_53: 36230755
+      girl_sittingclass_54: 2147115968
+      girl_sittingclass_55: 511040961
+      girl_sittingclass_56: 565836954
+      girl_sittingclass_57: 1189530622
+      girl_sittingclass_58: -141335306
+      girl_sittingclass_59: -2012882381
+      girl_sittingclass_6: -787181993
+      girl_sittingclass_60: 1257433424
+      girl_sittingclass_61: 1340556013
+      girl_sittingclass_62: -175373261
+      girl_sittingclass_63: 991608946
+      girl_sittingclass_64: 1454708031
+      girl_sittingclass_65: 982580423
+      girl_sittingclass_66: 1409477219
+      girl_sittingclass_67: -2073092381
+      girl_sittingclass_68: 554140706
+      girl_sittingclass_69: 1255796501
+      girl_sittingclass_7: 1559810826
+      girl_sittingclass_70: -1941261742
+      girl_sittingclass_71: 611256201
+      girl_sittingclass_72: 1508003427
+      girl_sittingclass_73: -251417016
+      girl_sittingclass_74: 1472348375
+      girl_sittingclass_75: 1343083035
+      girl_sittingclass_76: -1955032758
+      girl_sittingclass_77: -1208598746
+      girl_sittingclass_78: -1184355278
+      girl_sittingclass_79: 469612421
+      girl_sittingclass_8: 981792197
+      girl_sittingclass_80: 426201496
+      girl_sittingclass_81: -1948951838
+      girl_sittingclass_82: 1594844250
+      girl_sittingclass_83: -449294643
+      girl_sittingclass_84: 459561398
+      girl_sittingclass_85: -570096200
+      girl_sittingclass_86: 415814312
+      girl_sittingclass_87: 1994176797
+      girl_sittingclass_88: 103555788
+      girl_sittingclass_89: 842727409
+      girl_sittingclass_9: 1383145778
+      girl_sittingclass_90: -636633024
+      girl_sittingclass_91: -1935423195
+      girl_sittingclass_92: 917471087
+      girl_sittingclass_93: -2125005392
+      girl_sittingclass_94: -1440113559
+      girl_sittingclass_95: -2067951954
+      girl_sittingclass_96: -1491105106
+      girl_sittingclass_97: 1543445751
+      girl_sittingclass_98: -2094476619
+      girl_sittingclass_99: 233853457
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

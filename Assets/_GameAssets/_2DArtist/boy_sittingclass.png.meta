@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ff7e947bcde938f4a89aa42ff1a7ef11
+guid: c669486d07cba2b4a8e204e080d68856
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,148 +123,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: a_sittingclass_new_6
+      name: boy_sittingclass_3
       rect:
         serializedVersion: 2
-        x: 3755
-        y: 78
-        width: 659
-        height: 1130
+        x: 2195
+        y: 42
+        width: 619
+        height: 1144
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 20, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ed909ee0f010cba42be276bbcf8bef61
-      internalID: 2071060647
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: a_sittingclass_new_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 50
-        width: 658
-        height: 1131
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d53695a714496e440b251d1bcc07a09f
-      internalID: -490083516
+      spriteID: 4ac69a2766ba985469fd6362dbda5bc3
+      internalID: -236228143
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: a_sittingclass_new_1
+      name: boy_sittingclass_5
       rect:
         serializedVersion: 2
-        x: 657
-        y: 52
-        width: 628
-        height: 1136
+        x: 3553
+        y: 62
+        width: 639
+        height: 1126
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39b9c2ebab1142847aaf03e605b281f3
-      internalID: 1405102118
+      spriteID: 8cb4f53992368b54286589adfd5ab250
+      internalID: 666212764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: a_sittingclass_new_5
+      name: boy_sittingclass_6
       rect:
         serializedVersion: 2
-        x: 3155
-        y: 69
-        width: 649
-        height: 1110
+        x: 4217
+        y: 56
+        width: 657
+        height: 1132
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 31, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ea728843ada0aae43b35efc4326e4d79
-      internalID: 1652645312
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: a_sittingclass_new_2
-      rect:
-        serializedVersion: 2
-        x: 1304
-        y: 65
-        width: 627
-        height: 1108
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb2c9e768683eed4bb114b2e49be2796
-      internalID: 1929770180
+      spriteID: 373d697224099a1488801d481c353d90
+      internalID: 757029892
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: a_sittingclass_new_3
+      name: boy_sittingclass_1
       rect:
         serializedVersion: 2
-        x: 1954
-        y: 52
-        width: 616
-        height: 1121
+        x: 761
+        y: 42
+        width: 675
+        height: 1132
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0220162265465b548b44958884194df6
-      internalID: -881355194
+      spriteID: 7cbe96acf880d3a46953f757ac421e49
+      internalID: -1157134944
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: a_sittingclass_new_4
+      name: boy_sittingclass_2
       rect:
         serializedVersion: 2
-        x: 2562
-        y: 50
-        width: 625
-        height: 1122
+        x: 1463
+        y: 62
+        width: 646
+        height: 1112
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0becb4f66e7b6d46b1b9df92e3818da
-      internalID: -1970810925
+      spriteID: 5755dfbcd719dad48849d58f41b9f5b9
+      internalID: 740962064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boy_sittingclass_4
+      rect:
+        serializedVersion: 2
+        x: 2883
+        y: 59
+        width: 630
+        height: 1115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c99970a5cb3c08e47a64be5148f924fb
+      internalID: -1466477233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boy_sittingclass_0
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 44
+        width: 655
+        height: 1127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acfd19a23632c19409ef70eb7affea71
+      internalID: 722735806
       vertices: []
       indices: 
       edges: []
@@ -272,7 +272,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 419e4033c1d75ce459e22d3f0b056b88
+    spriteID: 27d7faa0c02451f4a810fdf2a856b251
     internalID: 0
     vertices: []
     indices: 
@@ -280,81 +280,78 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      a_sittingclass_new_0: -490083516
-      a_sittingclass_new_1: 1405102118
-      a_sittingclass_new_10: -718692724
-      a_sittingclass_new_11: -1452875026
-      a_sittingclass_new_12: 621977859
-      a_sittingclass_new_13: 1042242377
-      a_sittingclass_new_14: 231224871
-      a_sittingclass_new_15: -1134392911
-      a_sittingclass_new_16: 542192734
-      a_sittingclass_new_17: -1228590760
-      a_sittingclass_new_19: 1296185965
-      a_sittingclass_new_2: 1929770180
-      a_sittingclass_new_21: 904513313
-      a_sittingclass_new_22: 1657315584
-      a_sittingclass_new_23: -836241449
-      a_sittingclass_new_25: 1348434077
-      a_sittingclass_new_28: 37015118
-      a_sittingclass_new_29: 1395130719
-      a_sittingclass_new_3: -881355194
-      a_sittingclass_new_31: 2126150844
-      a_sittingclass_new_32: 528291864
-      a_sittingclass_new_33: -313537883
-      a_sittingclass_new_34: -895675638
-      a_sittingclass_new_35: 419800705
-      a_sittingclass_new_36: 1330798045
-      a_sittingclass_new_37: 490436470
-      a_sittingclass_new_38: 1426827935
-      a_sittingclass_new_39: 356289489
-      a_sittingclass_new_4: -1970810925
-      a_sittingclass_new_40: -1546631515
-      a_sittingclass_new_41: -1203276145
-      a_sittingclass_new_42: -376316559
-      a_sittingclass_new_43: 1119968514
-      a_sittingclass_new_44: 590285280
-      a_sittingclass_new_45: -1646062983
-      a_sittingclass_new_46: -1577846829
-      a_sittingclass_new_47: 1651710901
-      a_sittingclass_new_48: -1225704345
-      a_sittingclass_new_49: 1946431137
-      a_sittingclass_new_5: 1652645312
-      a_sittingclass_new_50: -1392741831
-      a_sittingclass_new_51: -1761333023
-      a_sittingclass_new_52: -1571015526
-      a_sittingclass_new_53: -2110999411
-      a_sittingclass_new_54: -2039670127
-      a_sittingclass_new_55: 507189904
-      a_sittingclass_new_56: 403556128
-      a_sittingclass_new_57: 548017440
-      a_sittingclass_new_58: 901631745
-      a_sittingclass_new_59: 502528261
-      a_sittingclass_new_6: 2071060647
-      a_sittingclass_new_60: -469566526
-      a_sittingclass_new_61: 390759020
-      a_sittingclass_new_62: -1353057088
-      a_sittingclass_new_63: -2006869177
-      a_sittingclass_new_64: -192964451
-      a_sittingclass_new_65: 103769018
-      a_sittingclass_new_66: -1942951055
-      a_sittingclass_new_67: 904649257
-      a_sittingclass_new_68: -1680199796
-      a_sittingclass_new_69: 2071060647
-      a_sittingclass_new_70: -1913006056
-      a_sittingclass_new_71: 144676075
-      a_sittingclass_new_72: -2027129729
-      a_sittingclass_new_73: 114539164
-      a_sittingclass_new_74: 2005475852
-      a_sittingclass_new_75: -1529349033
-      a_sittingclass_new_76: 504998591
-      a_sittingclass_new_77: 2136863205
-      a_sittingclass_new_78: -1542886267
-      a_sittingclass_new_79: -442163221
-      a_sittingclass_new_8: 1383541914
-      a_sittingclass_new_80: -2073245035
-      a_sittingclass_new_81: 818052353
-      a_sittingclass_new_9: -881355194
+      boy_sittingclass_0: 722735806
+      boy_sittingclass_1: -1157134944
+      boy_sittingclass_10: 1911333548
+      boy_sittingclass_11: -401231103
+      boy_sittingclass_12: 1265630658
+      boy_sittingclass_13: 666437401
+      boy_sittingclass_14: -449137712
+      boy_sittingclass_16: 799290864
+      boy_sittingclass_19: 473334473
+      boy_sittingclass_2: 740962064
+      boy_sittingclass_20: -1658535540
+      boy_sittingclass_21: -982546408
+      boy_sittingclass_22: 1353159717
+      boy_sittingclass_23: -522366954
+      boy_sittingclass_24: 1098784327
+      boy_sittingclass_27: -34560036
+      boy_sittingclass_3: -236228143
+      boy_sittingclass_30: -573359227
+      boy_sittingclass_31: -1164177587
+      boy_sittingclass_32: -1093023147
+      boy_sittingclass_33: -1862026475
+      boy_sittingclass_34: 867480279
+      boy_sittingclass_35: -1090735695
+      boy_sittingclass_36: 1392732167
+      boy_sittingclass_37: -192527041
+      boy_sittingclass_38: 1222969491
+      boy_sittingclass_39: -1108162064
+      boy_sittingclass_4: -1466477233
+      boy_sittingclass_40: -2003215555
+      boy_sittingclass_41: -742335712
+      boy_sittingclass_42: 90109142
+      boy_sittingclass_43: -253260924
+      boy_sittingclass_44: 1163989478
+      boy_sittingclass_45: -968735634
+      boy_sittingclass_46: -1605782158
+      boy_sittingclass_47: 725617787
+      boy_sittingclass_48: 656943272
+      boy_sittingclass_49: 1117095849
+      boy_sittingclass_5: 666212764
+      boy_sittingclass_50: -81021311
+      boy_sittingclass_51: 442265816
+      boy_sittingclass_52: -1996670573
+      boy_sittingclass_53: 559987388
+      boy_sittingclass_54: -1706221757
+      boy_sittingclass_55: 119242146
+      boy_sittingclass_56: 730520465
+      boy_sittingclass_57: -797322201
+      boy_sittingclass_58: -742271416
+      boy_sittingclass_59: -1936865702
+      boy_sittingclass_6: 757029892
+      boy_sittingclass_60: -734854636
+      boy_sittingclass_61: -68005915
+      boy_sittingclass_62: 1528348344
+      boy_sittingclass_63: 2090093088
+      boy_sittingclass_64: -1334144183
+      boy_sittingclass_65: -627601546
+      boy_sittingclass_66: -57910870
+      boy_sittingclass_67: -719713903
+      boy_sittingclass_68: -1396753234
+      boy_sittingclass_69: -1647522772
+      boy_sittingclass_7: 1481025104
+      boy_sittingclass_70: -807211368
+      boy_sittingclass_71: 1640658473
+      boy_sittingclass_72: 404977910
+      boy_sittingclass_73: 511923538
+      boy_sittingclass_74: 2137594459
+      boy_sittingclass_75: 521268194
+      boy_sittingclass_76: 322421237
+      boy_sittingclass_77: 1038292027
+      boy_sittingclass_78: 2069058661
+      boy_sittingclass_8: 1870898805
+      boy_sittingclass_9: 419136477
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
