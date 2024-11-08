@@ -1,0 +1,296 @@
+fileFormatVersion: 2
+guid: 3bc3b7d5ff6a5884492f6d2181200e86
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: girl_reading_1
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 0
+        width: 511
+        height: 1053
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9efd7b9c86f7c3419111b9bcd4cb308
+      internalID: 1644655686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: girl_reading_2
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 0
+        width: 514
+        height: 1046
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c696195e96fde2841a75ceb2316dc3e3
+      internalID: -1643385757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: girl_reading_3
+      rect:
+        serializedVersion: 2
+        x: 1566
+        y: 0
+        width: 516
+        height: 1039
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97220da53f343644a85ee0baad2edebb
+      internalID: 1421038622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: girl_reading_4
+      rect:
+        serializedVersion: 2
+        x: 2087
+        y: 0
+        width: 513
+        height: 1038
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c4d5363b8247eb4cbe11070c0a9c4c8
+      internalID: 1860351963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: girl_reading_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 511
+        height: 1035
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73a091f2a9ae873418c60d5187aeece6
+      internalID: 1563198612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 442186a6e5c68f946b69235c2baa399a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      girl_reading_0: 1563198612
+      girl_reading_1: 1644655686
+      girl_reading_10: -829363773
+      girl_reading_11: -958583562
+      girl_reading_12: -1479917167
+      girl_reading_13: 1241037465
+      girl_reading_14: -143969079
+      girl_reading_15: 1512392977
+      girl_reading_16: -2600642
+      girl_reading_17: -1385875158
+      girl_reading_18: -1453087544
+      girl_reading_19: -11921793
+      girl_reading_2: -1643385757
+      girl_reading_20: 1315995923
+      girl_reading_21: 1677458155
+      girl_reading_22: 224895177
+      girl_reading_23: -1799753392
+      girl_reading_25: 1186913435
+      girl_reading_26: 2141827904
+      girl_reading_27: -923893996
+      girl_reading_28: -781292951
+      girl_reading_29: 419469737
+      girl_reading_3: 1421038622
+      girl_reading_30: 1357332875
+      girl_reading_31: -580443947
+      girl_reading_32: 1209209030
+      girl_reading_35: 248478578
+      girl_reading_37: -1162447105
+      girl_reading_38: -960742517
+      girl_reading_39: -191662029
+      girl_reading_4: 1860351963
+      girl_reading_40: -1846727429
+      girl_reading_41: 1607183438
+      girl_reading_42: 969659149
+      girl_reading_43: -1858239129
+      girl_reading_44: -331628512
+      girl_reading_45: 425425518
+      girl_reading_46: -2117734715
+      girl_reading_47: -2041494693
+      girl_reading_48: -1679671530
+      girl_reading_49: -2042311107
+      girl_reading_50: 115409206
+      girl_reading_51: 50168294
+      girl_reading_52: -32879071
+      girl_reading_53: -1695953074
+      girl_reading_54: -1050216652
+      girl_reading_55: 1366294302
+      girl_reading_6: -1117559242
+      girl_reading_7: -1290003346
+      girl_reading_8: -1836239650
+      girl_reading_9: 1767244807
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

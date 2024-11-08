@@ -1,0 +1,398 @@
+fileFormatVersion: 2
+guid: 3e0007319b123a148b610ca8616384d3
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: boy_dumbbells_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1141
+        width: 675
+        height: 1151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d8c181d9ee6bc8489dadee13304d3a4
+      internalID: 473426343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boy_dumbbells_1
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 1150
+        width: 700
+        height: 1142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7ace623f70de394f977e73d794207a5
+      internalID: 1844883205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boy_dumbbells_2
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 1147
+        width: 708
+        height: 1145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d2176e9809908d45bad82a46413265a
+      internalID: -990834424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boy_dumbbells_3
+      rect:
+        serializedVersion: 2
+        x: 2257
+        y: 1161
+        width: 735
+        height: 1131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd04a3c2ef134444499cd160f5146f63
+      internalID: 202781049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boy_dumbbells_4
+      rect:
+        serializedVersion: 2
+        x: 3053
+        y: 1137
+        width: 727
+        height: 1155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a99ab1e04eff0b443aa4ac2269683cf4
+      internalID: -1364886673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boy_dumbbells_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 766
+        height: 1148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ee1f2c6ad450d34287c2109da2b73d2
+      internalID: -1218767229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boy_dumbbells_7
+      rect:
+        serializedVersion: 2
+        x: 1506
+        y: 1
+        width: 723
+        height: 1147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fc69fb41d441b342a691b1fb5a577cd
+      internalID: -1637491285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boy_dumbbells_8
+      rect:
+        serializedVersion: 2
+        x: 2286
+        y: 6
+        width: 706
+        height: 1151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d574069badfe0545b1033b5bd1eccc6
+      internalID: 917954388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boy_dumbbells_6
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 0
+        width: 710
+        height: 1131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4300c045b0b4e294eaa3a1131f16d4a7
+      internalID: 485318680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boy_dumbbells_9
+      rect:
+        serializedVersion: 2
+        x: 3020
+        y: 0
+        width: 705
+        height: 1129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f2b1d5c6f79fa747863e18d2928e780
+      internalID: 284516962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: b5d711793299e0646a973d866c80214e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      boy_dumbbells_0: 473426343
+      boy_dumbbells_1: 1844883205
+      boy_dumbbells_10: -1724007966
+      boy_dumbbells_11: 660329318
+      boy_dumbbells_12: -242169344
+      boy_dumbbells_13: -289252986
+      boy_dumbbells_14: 429875998
+      boy_dumbbells_15: 1171055159
+      boy_dumbbells_16: 1843881590
+      boy_dumbbells_17: -242646724
+      boy_dumbbells_18: 1369215199
+      boy_dumbbells_19: -1693568004
+      boy_dumbbells_2: -990834424
+      boy_dumbbells_20: 544816014
+      boy_dumbbells_21: -517353451
+      boy_dumbbells_22: -258365017
+      boy_dumbbells_23: 1618003487
+      boy_dumbbells_24: -1125821517
+      boy_dumbbells_25: -998907989
+      boy_dumbbells_26: 571708463
+      boy_dumbbells_27: -1992133480
+      boy_dumbbells_28: 809707196
+      boy_dumbbells_29: 13367042
+      boy_dumbbells_3: 202781049
+      boy_dumbbells_31: -829430406
+      boy_dumbbells_32: 1302518626
+      boy_dumbbells_34: -286344761
+      boy_dumbbells_36: 1851390143
+      boy_dumbbells_38: -2119018542
+      boy_dumbbells_4: -1364886673
+      boy_dumbbells_40: -1736272318
+      boy_dumbbells_41: 898027934
+      boy_dumbbells_42: -1999133430
+      boy_dumbbells_43: 1093463986
+      boy_dumbbells_44: -971036277
+      boy_dumbbells_45: 1712102811
+      boy_dumbbells_46: -1792092950
+      boy_dumbbells_47: 1645971567
+      boy_dumbbells_48: -1806436730
+      boy_dumbbells_49: -951146590
+      boy_dumbbells_5: -1218767229
+      boy_dumbbells_50: -373091901
+      boy_dumbbells_51: 592393384
+      boy_dumbbells_52: 1638201376
+      boy_dumbbells_6: 485318680
+      boy_dumbbells_7: -1637491285
+      boy_dumbbells_8: 917954388
+      boy_dumbbells_9: 284516962
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
