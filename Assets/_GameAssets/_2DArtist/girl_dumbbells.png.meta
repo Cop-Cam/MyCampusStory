@@ -1,0 +1,476 @@
+fileFormatVersion: 2
+guid: 45a9df51020bc044ababdcad241c2c4d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: girl_dumbbells_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1161
+        width: 692
+        height: 1090
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8afdcf8c4e81bb54891ade66653a010e
+      internalID: 1307431874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: girl_dumbbells_1
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 1174
+        width: 703
+        height: 1077
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd3315307f10085488b5cbbee22945fd
+      internalID: -1357288315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: girl_dumbbells_3
+      rect:
+        serializedVersion: 2
+        x: 2269
+        y: 1150
+        width: 741
+        height: 1107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2acaa524390c3a348b44bb797c82c252
+      internalID: 1601402254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: girl_dumbbells_2
+      rect:
+        serializedVersion: 2
+        x: 1492
+        y: 1161
+        width: 736
+        height: 1077
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 041c4aaec5c65d84a8392e49cf6e7915
+      internalID: -950682030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: girl_dumbbells_4
+      rect:
+        serializedVersion: 2
+        x: 3044
+        y: 1161
+        width: 732
+        height: 1079
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8d7b193cbad7384b9b1a4dc63f51648
+      internalID: -1049550903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: girl_dumbbells_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 11
+        width: 711
+        height: 1087
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d91852874a9b15409a62115702cd34c
+      internalID: -1111194824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: girl_dumbbells_8
+      rect:
+        serializedVersion: 2
+        x: 2279
+        y: 16
+        width: 723
+        height: 1104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29c867b1bba4dd044be3bca09988c798
+      internalID: -1688212340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: girl_dumbbells_6
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 0
+        width: 717
+        height: 1089
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad09e4342141d4545a18f281feca849b
+      internalID: -238051826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: girl_dumbbells_7
+      rect:
+        serializedVersion: 2
+        x: 1506
+        y: 18
+        width: 733
+        height: 1070
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b843f1d704f13ce408fba2946debb65a
+      internalID: -1259400207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: girl_dumbbells_9
+      rect:
+        serializedVersion: 2
+        x: 3049
+        y: 2
+        width: 695
+        height: 1083
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc217c63cf2f7e247add9007b0f6022d
+      internalID: -1674366981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 8fe0955f58fc1f548b7d4d5d47119bbf
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      girl_dumbbells_0: 1307431874
+      girl_dumbbells_1: -1357288315
+      girl_dumbbells_10: 616747489
+      girl_dumbbells_100: -1540673914
+      girl_dumbbells_101: -851943018
+      girl_dumbbells_102: 263659070
+      girl_dumbbells_103: 1670025793
+      girl_dumbbells_104: -150372823
+      girl_dumbbells_105: 17065977
+      girl_dumbbells_106: -2086490840
+      girl_dumbbells_107: -73188345
+      girl_dumbbells_108: -1135088424
+      girl_dumbbells_109: 939925585
+      girl_dumbbells_11: 900216473
+      girl_dumbbells_110: -2080729042
+      girl_dumbbells_111: -769497710
+      girl_dumbbells_112: 868426457
+      girl_dumbbells_113: 1269747253
+      girl_dumbbells_114: 565537577
+      girl_dumbbells_115: 1808127709
+      girl_dumbbells_116: 1746103427
+      girl_dumbbells_117: -728905487
+      girl_dumbbells_118: 501652767
+      girl_dumbbells_119: -1713237146
+      girl_dumbbells_120: 247603535
+      girl_dumbbells_121: 1692025083
+      girl_dumbbells_122: -1143561512
+      girl_dumbbells_123: -22625586
+      girl_dumbbells_124: -679399661
+      girl_dumbbells_125: -1533977184
+      girl_dumbbells_126: 1027088618
+      girl_dumbbells_127: -1935377927
+      girl_dumbbells_128: -465860530
+      girl_dumbbells_129: 631423170
+      girl_dumbbells_13: -1278905495
+      girl_dumbbells_130: 1120097583
+      girl_dumbbells_131: 1806669358
+      girl_dumbbells_132: -1960722198
+      girl_dumbbells_133: -922144798
+      girl_dumbbells_134: 1601402254
+      girl_dumbbells_135: -1259400207
+      girl_dumbbells_14: -1507361512
+      girl_dumbbells_16: -1355413883
+      girl_dumbbells_18: 1048255712
+      girl_dumbbells_19: -441532181
+      girl_dumbbells_2: -950682030
+      girl_dumbbells_20: -1287529011
+      girl_dumbbells_22: -1492861157
+      girl_dumbbells_23: -1049550903
+      girl_dumbbells_25: 496372114
+      girl_dumbbells_26: 755238449
+      girl_dumbbells_27: -174575501
+      girl_dumbbells_28: 35428570
+      girl_dumbbells_29: 798861691
+      girl_dumbbells_3: 1601402254
+      girl_dumbbells_30: 1255523122
+      girl_dumbbells_31: 823459649
+      girl_dumbbells_32: 1696901229
+      girl_dumbbells_33: 1516071694
+      girl_dumbbells_34: 541811451
+      girl_dumbbells_35: -572178753
+      girl_dumbbells_36: -410570194
+      girl_dumbbells_37: -1899245687
+      girl_dumbbells_38: 942705382
+      girl_dumbbells_39: -1304829571
+      girl_dumbbells_4: -1049550903
+      girl_dumbbells_40: 1388564209
+      girl_dumbbells_41: -2057201089
+      girl_dumbbells_42: -1260093389
+      girl_dumbbells_43: 1496477038
+      girl_dumbbells_44: -293787688
+      girl_dumbbells_45: -1982133290
+      girl_dumbbells_46: 1035178545
+      girl_dumbbells_47: 1259961274
+      girl_dumbbells_48: 2069895756
+      girl_dumbbells_49: -1279019568
+      girl_dumbbells_5: -1111194824
+      girl_dumbbells_50: -1526487252
+      girl_dumbbells_51: -374550676
+      girl_dumbbells_52: 460321066
+      girl_dumbbells_53: -1460999470
+      girl_dumbbells_54: -1656921032
+      girl_dumbbells_55: 245289940
+      girl_dumbbells_56: -1213828389
+      girl_dumbbells_57: -1806791947
+      girl_dumbbells_58: -725230672
+      girl_dumbbells_59: 1034064888
+      girl_dumbbells_6: -238051826
+      girl_dumbbells_60: -246554542
+      girl_dumbbells_61: -29360945
+      girl_dumbbells_62: -748099142
+      girl_dumbbells_63: -871930470
+      girl_dumbbells_64: 562459602
+      girl_dumbbells_65: 1941223813
+      girl_dumbbells_66: 1878376642
+      girl_dumbbells_67: -480676410
+      girl_dumbbells_68: -524667832
+      girl_dumbbells_69: 1947657732
+      girl_dumbbells_7: -1259400207
+      girl_dumbbells_70: 1126688664
+      girl_dumbbells_71: 1389756415
+      girl_dumbbells_72: -1111194824
+      girl_dumbbells_74: -1027417644
+      girl_dumbbells_75: 1799072642
+      girl_dumbbells_76: 889752028
+      girl_dumbbells_77: 1452834162
+      girl_dumbbells_78: 2063972414
+      girl_dumbbells_79: -1640228527
+      girl_dumbbells_8: -1688212340
+      girl_dumbbells_80: 1715304415
+      girl_dumbbells_81: -1040717809
+      girl_dumbbells_82: -1421319346
+      girl_dumbbells_83: -1762900279
+      girl_dumbbells_84: -2001105652
+      girl_dumbbells_85: -1688212340
+      girl_dumbbells_87: 1391988866
+      girl_dumbbells_88: -938148815
+      girl_dumbbells_89: -238051826
+      girl_dumbbells_9: -1674366981
+      girl_dumbbells_93: 759365634
+      girl_dumbbells_94: -401226087
+      girl_dumbbells_95: 636469359
+      girl_dumbbells_96: 1641456359
+      girl_dumbbells_97: 1084491350
+      girl_dumbbells_98: -2006227801
+      girl_dumbbells_99: 114277437
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
