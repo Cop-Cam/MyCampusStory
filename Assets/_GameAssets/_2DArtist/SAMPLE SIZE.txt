@@ -1,0 +1,4 @@
+Walking: 55
+Sitting: 35
+Reading: 32
+Lifting: 45
