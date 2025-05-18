@@ -1386,9 +1386,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b25b786c38be4242bdc0dcab881e8e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactableLayerMask:
+  _clickableLayerMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   _virtualCam: {fileID: 1492772571}
   _minimumDeltaPositionForSwipe: 1
   _swipeSpeed: 5
@@ -1984,6 +1984,14 @@ PrefabInstance:
     - target: {fileID: 4248303608649369076, guid: b5b56c50271036749842a9c147c2962b, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4488470320170090123, guid: b5b56c50271036749842a9c147c2962b, type: 3}
+      propertyPath: _interactObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4488470320170090123, guid: b5b56c50271036749842a9c147c2962b, type: 3}
+      propertyPath: _interactObjects.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5397639261353654923, guid: b5b56c50271036749842a9c147c2962b, type: 3}
       propertyPath: m_Layer

@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2492222995802527562}
-  - component: {fileID: 1826600223929127574}
-  - component: {fileID: 8334625133401556368}
   - component: {fileID: 8516227502818377015}
   - component: {fileID: 6395790935061657810}
+  - component: {fileID: 2426928754935285085}
+  - component: {fileID: 1375061694908702796}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -36,36 +36,6 @@ Transform:
   - {fileID: 4908313206547960845}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1826600223929127574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 844301699662983536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55d1b2f1739c0344b9d895407ca06579, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8334625133401556368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 844301699662983536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eaeb7409c5982e46b1804edb429d331, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 6385055272163501266}
-  <Idle_anim>k__BackingField: Idle
-  <Walk_anim>k__BackingField: Walk
-  <Run_anim>k__BackingField: Run
-  <Jump_anim>k__BackingField: Jump
-  <Fall_anim>k__BackingField: Fall
 --- !u!195 &8516227502818377015
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -111,6 +81,35 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2426928754935285085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844301699662983536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c2ab9557f6cde44494c3b952e4e856d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <CharacterSceneGroup>k__BackingField: {fileID: 0}
+--- !u!114 &1375061694908702796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844301699662983536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c2d390f8a0551a4da7a2c404848143f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 6385055272163501266}
+  <Idle_anim>k__BackingField: Idle
+  <Walk_anim>k__BackingField: Walk
+  <Interact_anim>k__BackingField: Interact
 --- !u!1 &9102388597270220927
 GameObject:
   m_ObjectHideFlags: 0

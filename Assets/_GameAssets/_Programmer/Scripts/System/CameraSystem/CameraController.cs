@@ -142,7 +142,7 @@ namespace MyCampusStory.CameraSystem
 
     public class FrontViewCameraController : MonoBehaviour
     {
-        [SerializeField] private LayerMask _interactableLayerMask;
+        [SerializeField] private LayerMask _clickableLayerMask;
         [SerializeField] private CinemachineVirtualCamera _virtualCam;
 
         private Vector2 _lastTouchPressPosition;
@@ -155,7 +155,7 @@ namespace MyCampusStory.CameraSystem
         private Vector3 _smoothVelocity = Vector3.zero;
         [SerializeField] private bool enableSwipeHorizontally = true; //in case we will want to have swipe in other direction
 
-        [SerializeField] private List<IInteractable> _lastInteractedObjects;
+        [SerializeField] private List<IClickable> _lastclickedObjects;
 
         private Coroutine MoveCameraCoroutine;
         
@@ -255,13 +255,13 @@ namespace MyCampusStory.CameraSystem
             
             if(!_isSwiping)
             {
-                if(_lastInteractedObjects != null)
+                if(_lastclickedObjects != null)
                 {
-                    foreach (var interactableObject in _lastInteractedObjects)
+                    foreach (var clickedObj in _lastclickedObjects)
                     {
-                        interactableObject.OnStopInteract();
+                        clickedObj.OnStopClick();
                     }
-                    _lastInteractedObjects = null;
+                    _lastclickedObjects = null;
                 }
 
                 DrawRayAndTryToInteract(position);
@@ -279,20 +279,16 @@ namespace MyCampusStory.CameraSystem
             
             // Raycast methods can't differentiate between maxDistance and layerMask args
             RaycastHit hit;
-            if(!Physics.Raycast(ray, out hit, mainCamera.farClipPlane, _interactableLayerMask) ||
-                hit.collider == null || hit.collider.gameObject.GetComponent<IInteractable>() == null)
+            if(!Physics.Raycast(ray, out hit, mainCamera.farClipPlane, _clickableLayerMask) ||
+                hit.collider == null || hit.collider.gameObject.GetComponent<IClickable>() == null)
             {
                 return;
             }
-
-            // IInteractable interactedObj = hit.collider.gameObject.GetComponent<IInteractable>();
-            // interactedObj.Interact();
             
-            // IInteractable[] interactableObjects = hit.collider.gameObject.GetComponents<IInteractable>();
-            _lastInteractedObjects = new (hit.collider.gameObject.GetComponents<IInteractable>());
-            foreach (var interactableObject in _lastInteractedObjects)
+            _lastclickedObjects = new (hit.collider.gameObject.GetComponents<IClickable>());
+            foreach (var clickedObj in _lastclickedObjects)
             {
-                interactableObject.OnInteract();
+                clickedObj.OnClick();
             }
         }
     }

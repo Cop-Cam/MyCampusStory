@@ -14,23 +14,20 @@ namespace MyCampusStory.BuildingSystem
     [CreateAssetMenu(fileName = "Name_BuildingSO", menuName = "ScriptableObjects/BuildingSO")]
     public class BuildingSO : ScriptableObject
     {
-        [Tooltip("The base id of the building.")]
         public string BuildingBaseId;
         public string BuildingName;
-        
+   
         [TextArea] 
         public string BuildingDescription;
-        public int MaxBuildingLevel;
-        
-        [Tooltip("The stats of the building for each level.")]
         public BuildingStat[] BuildingStatsPerLevel;
+        
+        [HideInInspector]
+        public int MaxBuildingLevel => BuildingStatsPerLevel.Length;
     }
 
     [System.Serializable]
     public struct BuildingStat
     {
-        public int BuildingLevelForStat;
-        
         [Tooltip("The resources required for upgrading the building to next level.")]
         public BuildingUpgradeRequirement[] BuildingUpgradeRequirements;
 
@@ -50,7 +47,7 @@ namespace MyCampusStory.BuildingSystem
         {
             public ResourceSO ResourceGenerated;
             public int AmountGenerated;
-            public float RealTimeIntervalForGeneration;
+            public float GenerationTimeInterval;
         }
     }
     
