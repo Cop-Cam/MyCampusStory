@@ -33,27 +33,27 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Class back 1_Base_color
-    second: {fileID: 2800000, guid: f88c979d5a5709b47b14009b05bc3a45, type: 3}
+    second: {fileID: 2800000, guid: 856efe827eb6b8e4f900131922c2b215, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Pecture_Base_color
-    second: {fileID: 2800000, guid: bbcf650d2aaa39a4b8f5cbd5534381a6, type: 3}
+    second: {fileID: 2800000, guid: e9e686d3fa2e42e4fa3b07d7f218ab4c, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Plant_Base_color
-    second: {fileID: 2800000, guid: 5d899cee41911d6489b4f2cc611cc534, type: 3}
+    second: {fileID: 2800000, guid: eb440cdc7c242534b90d2cd3b39223ef, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Table_Base_color
-    second: {fileID: 2800000, guid: 974e2de8166931f439acefb603e16c53, type: 3}
+    second: {fileID: 2800000, guid: 6653adf9d28ff0e4ea387be665aeb1d7, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Wboard_Base_color
-    second: {fileID: 2800000, guid: 92a2298bfcce26c43aa852b7e27b45ce, type: 3}
+    second: {fileID: 2800000, guid: 8216b995e83d76c43bca5288fffd15cc, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

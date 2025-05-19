@@ -18,17 +18,17 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: BLD_Inside_Kantin_Base_color
-    second: {fileID: 2800000, guid: d4068d66d623b77488657b1e4d2cf574, type: 3}
+    second: {fileID: 2800000, guid: 37d0319c76598164790a942fa26d13e4, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: BLD_Inside_Kantin_Normal
-    second: {fileID: 2800000, guid: 3eba9001d6f4ff34c8ab5c9612810f52, type: 3}
+    second: {fileID: 2800000, guid: dc6f14defa0290d428e92b19ab8699c0, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: BLD_Inside_Kantin_glass_Base_color
-    second: {fileID: 2800000, guid: 0cdd9b9ca79688d42904ead278fc4f47, type: 3}
+    second: {fileID: 2800000, guid: e1e5bf332f520594a9a10a390bac9061, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
