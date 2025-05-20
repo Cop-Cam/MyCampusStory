@@ -14,6 +14,16 @@ namespace MyCampusStory.Character
     /// </summary>
     public class RoamerCharacter : Character
     {
+        /// <summary>
+        /// Awake is called when the script instance is being loaded.
+        /// </summary>
+        private void Awake()
+        {
+            RoamerIdleState IdleState = new RoamerIdleState();
+            RoamerWalkState WalkState = new RoamerWalkState();
+            RoamerInteractState InteractState = new RoamerInteractState();    
+        }
+
         private void Start()
         {
             SwitchState(IdleState);
@@ -29,6 +39,7 @@ namespace MyCampusStory.Character
         [SerializeField] private float _idleMaxTime = 3f;
         private RoamerIdleState IdleState = new RoamerIdleState();
         public float GetIdleMaxTime() => _idleMaxTime;
+        public string Idle_Anim = "IDLE";
         public class RoamerIdleState : CharacterState
         {
             private float _idleTimeRemaining;
@@ -36,8 +47,8 @@ namespace MyCampusStory.Character
 
             public override void EnterState(Character character)
             {
-                character.SetAnimBool("Idle", true);
                 _roamerCharacter = (RoamerCharacter)character;
+                character.SetAnimBool(_roamerCharacter.Idle_Anim, true);
                 _idleTimeRemaining = 0f;
             }
 
@@ -53,7 +64,7 @@ namespace MyCampusStory.Character
 
             public override void ExitState(Character character)
             {
-                character.SetAnimBool("Idle", false);
+                character.SetAnimBool(_roamerCharacter.Idle_Anim, false);
                 _roamerCharacter = null;
                 _idleTimeRemaining = 0f;
             }
@@ -64,6 +75,7 @@ namespace MyCampusStory.Character
         #region WalkState
         private RoamerWalkState WalkState = new RoamerWalkState();
         [HideInInspector] public Building CurrentBuildingToMove;
+        public string Walk_Anim = "WALK";
         // [HideInInspector] public Transform CurrentReservedInteractPoint;
         public class RoamerWalkState : CharacterState
         {
@@ -105,9 +117,9 @@ namespace MyCampusStory.Character
 
             public override void ExitState(Character character)
             {
-                _roamerCharacter = null;
+                character.SetAnimBool(_roamerCharacter.Walk_Anim, false);
 
-                character.SetAnimBool("Walk", false);
+                _roamerCharacter = null;
             }
 
             private void SelectObjectToMoveAt()
@@ -124,7 +136,7 @@ namespace MyCampusStory.Character
                     // var randomIndex = Random.Range(0, objectToMove.GetInteractPoints().Count);
                     // objectToMove.ReserveInteractPoints(objectToMove.GetInteractPoints()[randomIndex]);
                     _roamerCharacter.CurrentBuildingToMove = objectToMove;
-                    _roamerCharacter.SetAnimBool("Walk", true);
+                    _roamerCharacter.SetAnimBool(_roamerCharacter.Walk_Anim, true);
                 }
                 //If there is no object to move
                 else
