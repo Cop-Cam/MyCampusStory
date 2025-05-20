@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7268876115823178500}
   - component: {fileID: 1774650493222222628}
   m_Layer: 0
-  m_Name: RoamerCharacter
+  m_Name: Girl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
