@@ -14,19 +14,11 @@ namespace MyCampusStory.Character
     /// </summary>
     public class RoamerCharacter : Character
     {
-        /// <summary>
-        /// Awake is called when the script instance is being loaded.
-        /// </summary>
-        private void Awake()
-        {
-            RoamerIdleState IdleState = new RoamerIdleState();
-            RoamerWalkState WalkState = new RoamerWalkState();
-            RoamerInteractState InteractState = new RoamerInteractState();    
-        }
-
         private void Start()
         {
-            SwitchState(IdleState);
+            _currentState = IdleState;
+            _currentState.EnterState(this);
+            // SwitchState(IdleState);
         }
 
         private void Update()
