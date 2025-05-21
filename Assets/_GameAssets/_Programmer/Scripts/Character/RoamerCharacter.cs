@@ -31,7 +31,7 @@ namespace MyCampusStory.Character
         [SerializeField] private float _idleMaxTime = 3f;
         private RoamerIdleState IdleState = new RoamerIdleState();
         public float GetIdleMaxTime() => _idleMaxTime;
-        public string Idle_Anim = "IDLE";
+        public string Idle_Anim_Param = "IDLE";
         public class RoamerIdleState : CharacterState
         {
             private float _idleTimeRemaining;
@@ -40,7 +40,9 @@ namespace MyCampusStory.Character
             public override void EnterState(Character character)
             {
                 _roamerCharacter = (RoamerCharacter)character;
-                character.SetAnimBool(_roamerCharacter.Idle_Anim, true);
+                // character.SetAnimBool(_roamerCharacter.Idle_Anim_Param, true);
+                _roamerCharacter.ChangeAnimation(_roamerCharacter.Idle_Anim_Param);
+
                 _idleTimeRemaining = 0f;
             }
 
@@ -56,7 +58,7 @@ namespace MyCampusStory.Character
 
             public override void ExitState(Character character)
             {
-                character.SetAnimBool(_roamerCharacter.Idle_Anim, false);
+                // character.SetAnimBool(_roamerCharacter.Idle_Anim_Param, false);
                 _roamerCharacter = null;
                 _idleTimeRemaining = 0f;
             }
@@ -67,7 +69,7 @@ namespace MyCampusStory.Character
         #region WalkState
         private RoamerWalkState WalkState = new RoamerWalkState();
         [HideInInspector] public Building CurrentBuildingToMove;
-        public string Walk_Anim = "WALK";
+        public string Walk_Anim_Param = "WALK";
         // [HideInInspector] public Transform CurrentReservedInteractPoint;
         public class RoamerWalkState : CharacterState
         {
@@ -99,6 +101,21 @@ namespace MyCampusStory.Character
                 //     _roamerCharacter.CurrentInteractedBuilding = _roamerCharacter.CurrentBuildingToMove;
                 //     character.SwitchState(_roamerCharacter.InteractState);
                 // }
+
+                Vector3 velocity = character.GetNavMeshAgent().velocity;
+
+                if (velocity.x > 0.1f)
+                {
+                    // Face right
+                    character.transform.rotation = Quaternion.Euler(0, 180, 0);
+                }
+                else if (velocity.x < -0.1f)
+                {
+                    // Face left
+                    character.transform.rotation = Quaternion.Euler(0, 0, 0);
+                }
+
+
                 if((character.transform.position - _roamerCharacter.CurrentBuildingToMove.GetInteractPoint().position).magnitude <= _randomDistance)
                 {
                     _roamerCharacter.CurrentBuildingToMove.OnInteract(character.gameObject);
@@ -109,9 +126,12 @@ namespace MyCampusStory.Character
                 }
             }
 
+            
+
             public override void ExitState(Character character)
             {
-                character.SetAnimBool(_roamerCharacter.Walk_Anim, false);
+                // character.SetAnimBool(_roamerCharacter.Walk_Anim_Param, false);
+                // character.ChangeAnimation(_roamerCharacter.Idle_Anim_Param);
                 _randomDistance = 0f;
 
                 _roamerCharacter = null;
@@ -131,7 +151,8 @@ namespace MyCampusStory.Character
                     // var randomIndex = Random.Range(0, objectToMove.GetInteractPoints().Count);
                     // objectToMove.ReserveInteractPoints(objectToMove.GetInteractPoints()[randomIndex]);
                     _roamerCharacter.CurrentBuildingToMove = objectToMove;
-                    _roamerCharacter.SetAnimBool(_roamerCharacter.Walk_Anim, true);
+                    // _roamerCharacter.SetAnimBool(_roamerCharacter.Walk_Anim_Param, true);
+                    _roamerCharacter.ChangeAnimation(_roamerCharacter.Walk_Anim_Param);
                 }
                 //If there is no object to move
                 else
@@ -150,6 +171,8 @@ namespace MyCampusStory.Character
         [SerializeField] private float _interactMaxTime = 3f;
         public float GetInteractMaxTime() => _interactMaxTime;
         public Building CurrentInteractedBuilding;
+        public string Interact_Anim_Param = "INTERACT";
+        public string StopInteract_Anim_Param = "STOPINTERACT";
         public class RoamerInteractState : CharacterState
         {
             private float _interactTimeRemaining;
@@ -157,9 +180,10 @@ namespace MyCampusStory.Character
 
             public override void EnterState(Character character)
             {
-                character.SetAnimBool(_roamerCharacter.CurrentInteractedBuilding.GetInteractAnimName(), true);
-                _interactTimeRemaining = 0f;
                 _roamerCharacter = (RoamerCharacter)character;
+                // character.SetAnimBool(_roamerCharacter.Interact_Anim_Param, true);
+                character.ChangeAnimation(_roamerCharacter.Interact_Anim_Param);
+                _interactTimeRemaining = 0f;
             }
 
             public override void UpdateState(Character character)
@@ -177,9 +201,10 @@ namespace MyCampusStory.Character
 
             public override void ExitState(Character character)
             {
-                character.SetAnimBool(_roamerCharacter.CurrentInteractedBuilding.GetInteractAnimName(), false);
-                _roamerCharacter = null;
+                // character.SetAnimBool(_roamerCharacter.Interact_Anim_Param, false);
+                character.ChangeAnimation(_roamerCharacter.StopInteract_Anim_Param);
                 _interactTimeRemaining = 0f;
+                _roamerCharacter = null;
             }
         }
         #endregion

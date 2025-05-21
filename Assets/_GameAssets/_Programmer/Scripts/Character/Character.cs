@@ -22,6 +22,7 @@ namespace MyCampusStory.Character
         [Header("References")]
         [SerializeField] protected NavMeshAgent _navMeshAgent;
         [SerializeField] protected Animator _animator;
+        protected string currentAnimState;
         
         protected CharacterState _currentState;
 
@@ -67,6 +68,15 @@ namespace MyCampusStory.Character
         {
             if (!string.IsNullOrEmpty(id))
                 _animator?.CrossFade(id, time);
+        }
+
+        public void ChangeAnimation(string newAnimState)
+        {
+            if(currentAnimState == newAnimState) return;
+
+            _animator.Play(newAnimState);
+            
+            currentAnimState = newAnimState;
         }
         #endregion
 
