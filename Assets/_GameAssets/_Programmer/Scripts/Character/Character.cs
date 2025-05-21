@@ -22,7 +22,7 @@ namespace MyCampusStory.Character
         [Header("References")]
         [SerializeField] protected NavMeshAgent _navMeshAgent;
         [SerializeField] protected Animator _animator;
-        protected string currentAnimState;
+        protected string _currentAnimState;
         
         protected CharacterState _currentState;
 
@@ -72,11 +72,11 @@ namespace MyCampusStory.Character
 
         public void ChangeAnimation(string newAnimState)
         {
-            if(currentAnimState == newAnimState) return;
+            if(_currentAnimState == newAnimState) return;
 
             _animator.Play(newAnimState);
-            
-            currentAnimState = newAnimState;
+
+            _currentAnimState = newAnimState;
         }
         #endregion
 

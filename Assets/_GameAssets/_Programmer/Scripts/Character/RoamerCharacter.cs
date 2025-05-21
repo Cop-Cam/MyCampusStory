@@ -41,7 +41,9 @@ namespace MyCampusStory.Character
             {
                 _roamerCharacter = (RoamerCharacter)character;
                 // character.SetAnimBool(_roamerCharacter.Idle_Anim_Param, true);
-                _roamerCharacter.ChangeAnimation(_roamerCharacter.Idle_Anim_Param);
+                // _roamerCharacter.ChangeAnimation(_roamerCharacter.Idle_Anim_Param);
+                character.SetAnimCrossFade(_roamerCharacter.Idle_Anim_Param, 0.1f);
+                
 
                 _idleTimeRemaining = 0f;
             }
@@ -132,6 +134,7 @@ namespace MyCampusStory.Character
 
                         _roamerCharacter.CurrentInteractedBuilding = _roamerCharacter.CurrentBuildingToMove;
                         character.SwitchState(_roamerCharacter.InteractState);
+                        
                     }
                 }
             }
@@ -161,7 +164,9 @@ namespace MyCampusStory.Character
                     // objectToMove.ReserveInteractPoints(objectToMove.GetInteractPoints()[randomIndex]);
                     _roamerCharacter.CurrentBuildingToMove = objectToMove;
                     // _roamerCharacter.SetAnimBool(_roamerCharacter.Walk_Anim_Param, true);
-                    _roamerCharacter.ChangeAnimation(_roamerCharacter.Walk_Anim_Param);
+                    // _roamerCharacter.ChangeAnimation(_roamerCharacter.Walk_Anim_Param);
+                    _roamerCharacter.SetAnimCrossFade(_roamerCharacter.Walk_Anim_Param, 0.1f);
+
                 }
                 //If there is no object to move
                 else
@@ -187,32 +192,65 @@ namespace MyCampusStory.Character
             private float _interactTimeRemaining;
             private RoamerCharacter _roamerCharacter;
 
+            private bool _isExiting = false;
+            private float _exitTimer = 0f;
+            private float _stopInteractAnimDuration = 1f; // adjust to your animation length
+
+
             public override void EnterState(Character character)
             {
                 _roamerCharacter = (RoamerCharacter)character;
                 // character.SetAnimBool(_roamerCharacter.Interact_Anim_Param, true);
-                character.ChangeAnimation(_roamerCharacter.Interact_Anim_Param);
+                character.SetAnimCrossFade(_roamerCharacter.Interact_Anim_Param, 0.1f);
+                // character.ChangeAnimation(_roamerCharacter.Interact_Anim_Param);
                 _interactTimeRemaining = 0f;
             }
 
             public override void UpdateState(Character character)
             {
+                // _interactTimeRemaining += Time.deltaTime;
+
+                // // character.SetAnimCrossFade(_roamerCharacter.StopInteract_Anim_Param, 0.1f);
+
+
+                // if (_interactTimeRemaining > _roamerCharacter.GetInteractMaxTime())
+                // {
+                //     _roamerCharacter.CurrentBuildingToMove.OnStopInteract(character.gameObject);
+
+                //     // character.transform.position = _roamerCharacter.CurrentBuildingToMove.GetBuildingEntryPoint().position;
+                //     // _roamerCharacter.CurrentBuildingToMove.UnReserveInteractPoints(_roamerCharacter.CurrentReservedInteractPoint);
+                //     character.SetAnimCrossFade(_roamerCharacter.StopInteract_Anim_Param, 0.1f);
+
+                //     // character.SwitchState(_roamerCharacter.IdleState);
+                // }
+
+                if (_isExiting)
+                {
+                    _exitTimer -= Time.deltaTime;
+                    if (_exitTimer <= 0f)
+                    {
+                        _roamerCharacter.SwitchState(_roamerCharacter.IdleState); // or WalkState, etc.
+                    }
+                    return;
+                }
+
                 _interactTimeRemaining += Time.deltaTime;
 
                 if (_interactTimeRemaining > _roamerCharacter.GetInteractMaxTime())
                 {
                     _roamerCharacter.CurrentBuildingToMove.OnStopInteract(character.gameObject);
-                    character.ChangeAnimation(_roamerCharacter.StopInteract_Anim_Param);
-                    character.SwitchState(_roamerCharacter.IdleState);
+                    character.SetAnimCrossFade(_roamerCharacter.StopInteract_Anim_Param, 0.1f);
 
-                    // character.transform.position = _roamerCharacter.CurrentBuildingToMove.GetBuildingEntryPoint().position;
-                    // _roamerCharacter.CurrentBuildingToMove.UnReserveInteractPoints(_roamerCharacter.CurrentReservedInteractPoint);
+                    _isExiting = true;
+                    _exitTimer = _stopInteractAnimDuration;
                 }
             }
 
             public override void ExitState(Character character)
             {
                 // character.SetAnimBool(_roamerCharacter.Interact_Anim_Param, false);
+                // character.ChangeAnimation(_roamerCharacter.StopInteract_Anim_Param);
+                // character.SetAnimCrossFade(_roamerCharacter.StopInteract_Anim_Param, 0.1f);
                 _interactTimeRemaining = 0f;
                 _roamerCharacter.CurrentInteractedBuilding = null;
                 _roamerCharacter = null;

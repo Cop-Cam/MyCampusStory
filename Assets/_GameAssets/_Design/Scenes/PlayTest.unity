@@ -1793,11 +1793,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1774650493222222628, guid: 73cd390d0bf13094bba127664ce6d755, type: 3}
       propertyPath: _idleMaxTime
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1774650493222222628, guid: 73cd390d0bf13094bba127664ce6d755, type: 3}
       propertyPath: _interactMaxTime
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7268876115823178500, guid: 73cd390d0bf13094bba127664ce6d755, type: 3}
       propertyPath: m_StoppingDistance
