@@ -76,7 +76,6 @@ namespace MyCampusStory.Character
             private Building _previousMovedToBuilding;
             private List<Building> _buildingToMoveList = new List<Building>();
             private RoamerCharacter _roamerCharacter;
-            private float _randomDistance;
 
             public override void EnterState(Character character)
             {
@@ -86,7 +85,6 @@ namespace MyCampusStory.Character
                 if(_buildingToMoveList.Count <= 0 || _buildingToMoveList == null)
                     _buildingToMoveList = Building.GetAllBuildings(character.GetSceneGroup());
 
-                _randomDistance = Random.Range(1f, 1.5f);
                 SelectObjectToMoveAt();
             }
 
@@ -116,7 +114,7 @@ namespace MyCampusStory.Character
                 }
 
 
-                if((character.transform.position - _roamerCharacter.CurrentBuildingToMove.GetInteractPoint().position).magnitude <= _randomDistance)
+                if((character.transform.position - _roamerCharacter.CurrentBuildingToMove.GetInteractPoint().position).magnitude <= 1f)
                 {
                     _roamerCharacter.CurrentBuildingToMove.OnInteract(character.gameObject);
                     // character.transform.position = _roamerCharacter.CurrentReservedInteractPoint.position;
@@ -132,7 +130,6 @@ namespace MyCampusStory.Character
             {
                 // character.SetAnimBool(_roamerCharacter.Walk_Anim_Param, false);
                 // character.ChangeAnimation(_roamerCharacter.Idle_Anim_Param);
-                _randomDistance = 0f;
 
                 _roamerCharacter = null;
             }
@@ -194,6 +191,7 @@ namespace MyCampusStory.Character
                 {
                     character.SwitchState(_roamerCharacter.IdleState);
                     _roamerCharacter.CurrentBuildingToMove.OnStopInteract(character.gameObject);
+                    _roamerCharacter.SwitchState(_roamerCharacter.IdleState);
                     // character.transform.position = _roamerCharacter.CurrentBuildingToMove.GetBuildingEntryPoint().position;
                     // _roamerCharacter.CurrentBuildingToMove.UnReserveInteractPoints(_roamerCharacter.CurrentReservedInteractPoint);
                 }
@@ -204,6 +202,7 @@ namespace MyCampusStory.Character
                 // character.SetAnimBool(_roamerCharacter.Interact_Anim_Param, false);
                 character.ChangeAnimation(_roamerCharacter.StopInteract_Anim_Param);
                 _interactTimeRemaining = 0f;
+                _roamerCharacter.CurrentInteractedBuilding = null;
                 _roamerCharacter = null;
             }
         }
