@@ -45,6 +45,15 @@ namespace MyCampusStory.StandaloneManager
             _sfxSource.mute = isMuted;
         }
 
+        public void SetMusicVolume(float volume)
+        {
+            _musicSource.volume = volume;
+        }
+
+        public void SetSoundVolume(float volume)
+        {
+            _musicSource.volume = volume;
+        }
     }
 }
 

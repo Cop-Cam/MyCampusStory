@@ -39,6 +39,8 @@ namespace MyCampusStory.BuildingSystem
         private Dictionary<int, BuildingStat> _buildingStatsPerLevelDictionary = new Dictionary<int, BuildingStat>();
         private BuildingStat _currentBuildingStat;
         private int _currentBuildingLevel = 1;
+        private string _currentAnimState;
+
 
         private static Dictionary<GroupData, Dictionary<string, Building>> _buildingObjectCollection 
             = new Dictionary<GroupData, Dictionary<string, Building>>();
@@ -71,7 +73,7 @@ namespace MyCampusStory.BuildingSystem
             // Now add the building to the inner dictionary (under the group)
             _buildingObjectCollection[_sceneGroup][_buildingInstanceId] = this;
 
-            _buildingAnimator.CrossFade(Idle_Anim_StateName, 0.1f);
+            SetAnimCrossFade(Idle_Anim_StateName, 0.1f);
         }
 
         private void Update()
@@ -79,6 +81,15 @@ namespace MyCampusStory.BuildingSystem
             if(_isBuildingUnlocked && GenerateResourceCoroutine == null)
             {
                 GenerateResourceCoroutine = StartCoroutine(GenerateResource());
+            }
+        }
+
+        public void SetAnimCrossFade(string id, float time)
+        {
+            if (!string.IsNullOrEmpty(id) && _currentAnimState != id)
+            {
+                _buildingAnimator?.CrossFade(id, time);
+                _currentAnimState = id;
             }
         }
 
@@ -164,17 +175,30 @@ namespace MyCampusStory.BuildingSystem
         // [SerializeField] private GameObject _buildingCover;
         // private List<Transform> _usedInteractPoints;
         // private List<Furniture> _usedFurnitures;
+        public List<GameObject> CharactersObjectInteracting = new List<GameObject>();  
         public Transform GetInteractPoint() => _interactPoint;
         // public string GetInteractAnimName() => _interactAnimName;
 
         public void OnInteract(GameObject interactedObject)
         {
-            _buildingAnimator.CrossFade(Interact_Anim_StateName, 0.1f);
+            CharactersObjectInteracting.Add(interactedObject);
+            
+            //So that the building won't be interacted again when there is still a character inside
+            if(CharactersObjectInteracting == null || CharactersObjectInteracting.Count <= 0) 
+                return;
+
+            SetAnimCrossFade(Interact_Anim_StateName, 0.1f);
         }
 
         public void OnStopInteract(GameObject interactedObject)
         {
-            _buildingAnimator.CrossFade(StopInteract_Anim_StateName, 0.1f);
+            CharactersObjectInteracting.Remove(interactedObject);
+
+            //So that the building won't be interacted again when there is still a character inside
+            if(CharactersObjectInteracting == null || CharactersObjectInteracting.Count <= 0) 
+                return;
+
+            SetAnimCrossFade(StopInteract_Anim_StateName, 0.1f);
 
             // _buildingAnimator.CrossFade(Idle_Anim_StateName, 0.1f);
         }
