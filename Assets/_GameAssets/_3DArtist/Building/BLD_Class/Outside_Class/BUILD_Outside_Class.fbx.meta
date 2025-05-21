@@ -13,7 +13,7 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: BLD_Outside_Class
-    second: {fileID: 2800000, guid: 865d5826ada2d674a87810890221973b, type: 3}
+    second: {fileID: 2800000, guid: 67045caf94d5ad245ad09bd4efcc3e48, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
