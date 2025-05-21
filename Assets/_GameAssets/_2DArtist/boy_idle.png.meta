@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 76ece54a438d19f4cad92bf1714137a5
+guid: 80920d67ba88a244ebc2d18e997d64d5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: girl_canteen_0
+      name: boy_idle_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 48
-        width: 525
-        height: 1047
+        x: 106
+        y: 0
+        width: 436
+        height: 1122
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abfc89865a534a24786aed406610750c
-      internalID: 635262874
+      spriteID: 9a5910e9abbefb94d831b5f68720df49
+      internalID: -1084449938
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: girl_canteen_2
+      name: boy_idle_1
       rect:
         serializedVersion: 2
-        x: 531
-        y: 43
-        width: 521
-        height: 1055
+        x: 718
+        y: 0
+        width: 493
+        height: 1124
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,71 +158,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ea04fa141d414b468944c7788e83fc2
-      internalID: 762704425
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: girl_canteen_3
-      rect:
-        serializedVersion: 2
-        x: 1063
-        y: 59
-        width: 530
-        height: 1046
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1127cd8ec088b054ba7c2fda35b657f7
-      internalID: 901059309
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: girl_canteen_4
-      rect:
-        serializedVersion: 2
-        x: 1609
-        y: 55
-        width: 557
-        height: 1044
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 04c46cf47f00f294ca2b6d44d045f6c4
-      internalID: 179617718
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: girl_canteen_5
-      rect:
-        serializedVersion: 2
-        x: 2194
-        y: 48
-        width: 522
-        height: 1056
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e3a8d37c63dc9a044929a38d2b544060
-      internalID: -1511982138
+      spriteID: 480b7cda00ce1b146a6d755a324be8ad
+      internalID: -282250567
       vertices: []
       indices: 
       edges: []
@@ -230,7 +167,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ce269e1eec1c0584a94e0a5178392bce
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -238,19 +175,45 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      girl_canteen_0: 635262874
-      girl_canteen_1: -469222322
-      girl_canteen_10: 207845098
-      girl_canteen_11: 1418783934
-      girl_canteen_12: 687861717
-      girl_canteen_2: 762704425
-      girl_canteen_3: 901059309
-      girl_canteen_4: 179617718
-      girl_canteen_5: -1511982138
-      girl_canteen_6: -118413243
-      girl_canteen_7: -714778639
-      girl_canteen_8: 972943424
-      girl_canteen_9: 12431582
+      boy_idle_0: -1084449938
+      boy_idle_1: -282250567
+      boy_idle_10: -513788870
+      boy_idle_12: 929018824
+      boy_idle_14: -680188740
+      boy_idle_15: 201695395
+      boy_idle_16: -2011808339
+      boy_idle_17: 1899747802
+      boy_idle_18: 1949208651
+      boy_idle_19: -489877492
+      boy_idle_2: 307487950
+      boy_idle_20: 1152734669
+      boy_idle_21: 408855201
+      boy_idle_22: 910761097
+      boy_idle_23: 1364797040
+      boy_idle_24: -1186334471
+      boy_idle_25: -1039945007
+      boy_idle_26: 468948543
+      boy_idle_27: -158783433
+      boy_idle_28: -2040749540
+      boy_idle_29: -1056976133
+      boy_idle_3: 1729392019
+      boy_idle_30: 1756275687
+      boy_idle_31: 368571490
+      boy_idle_32: -567598152
+      boy_idle_33: -1976742905
+      boy_idle_34: 239317408
+      boy_idle_35: 319972104
+      boy_idle_36: 562911869
+      boy_idle_37: 1546628927
+      boy_idle_38: -1530443308
+      boy_idle_39: 390500180
+      boy_idle_4: 152625619
+      boy_idle_40: 68961497
+      boy_idle_5: 2115812247
+      boy_idle_6: -2096141007
+      boy_idle_7: 1678774289
+      boy_idle_8: -2073630880
+      boy_idle_9: 1786327211
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
