@@ -74,6 +74,7 @@ namespace MyCampusStory.Character
             private Building _previousMovedToBuilding;
             private List<Building> _buildingToMoveList = new List<Building>();
             private RoamerCharacter _roamerCharacter;
+            private float _randomDistance;
 
             public override void EnterState(Character character)
             {
@@ -83,6 +84,7 @@ namespace MyCampusStory.Character
                 if(_buildingToMoveList.Count <= 0 || _buildingToMoveList == null)
                     _buildingToMoveList = Building.GetAllBuildings(character.GetSceneGroup());
 
+                _randomDistance = Random.Range(1f, 1.5f);
                 SelectObjectToMoveAt();
             }
 
@@ -97,7 +99,7 @@ namespace MyCampusStory.Character
                 //     _roamerCharacter.CurrentInteractedBuilding = _roamerCharacter.CurrentBuildingToMove;
                 //     character.SwitchState(_roamerCharacter.InteractState);
                 // }
-                if((character.transform.position - _roamerCharacter.CurrentBuildingToMove.GetInteractPoint().position).magnitude <= 1f)
+                if((character.transform.position - _roamerCharacter.CurrentBuildingToMove.GetInteractPoint().position).magnitude <= _randomDistance)
                 {
                     _roamerCharacter.CurrentBuildingToMove.OnInteract(character.gameObject);
                     // character.transform.position = _roamerCharacter.CurrentReservedInteractPoint.position;
@@ -110,6 +112,7 @@ namespace MyCampusStory.Character
             public override void ExitState(Character character)
             {
                 character.SetAnimBool(_roamerCharacter.Walk_Anim, false);
+                _randomDistance = 0f;
 
                 _roamerCharacter = null;
             }
@@ -133,7 +136,8 @@ namespace MyCampusStory.Character
                 //If there is no object to move
                 else
                 {
-                    SelectObjectToMoveAt();
+                    // SelectObjectToMoveAt();
+                    _roamerCharacter.SwitchState(_roamerCharacter.IdleState);
                 }   
             }
         }

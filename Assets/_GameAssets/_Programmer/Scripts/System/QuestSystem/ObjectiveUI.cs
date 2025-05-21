@@ -8,9 +8,9 @@ using TMPro;
 
 using MyCampusStory.ResourceSystem;
 
-namespace MyCampusStory.BuildingSystem
+namespace MyCampusStory.QuestSystem
 {
-    public class BuildingRequirementUI : MonoBehaviour
+    public class ObjectiveUI : MonoBehaviour
     {
         [SerializeField] private Image _resourceIcon;
         [SerializeField] private TextMeshProUGUI _resourceAmount;

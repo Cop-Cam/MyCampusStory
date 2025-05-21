@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 namespace MyCampusStory.InputSystem
 {
+
+    
     public class InputManager : MonoBehaviour
     {
         private GameInputActionAsset _gameInputAction;

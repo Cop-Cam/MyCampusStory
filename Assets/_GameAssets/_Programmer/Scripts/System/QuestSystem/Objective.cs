@@ -6,17 +6,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using MyCampusStory.ResourceSystem;
-using MyCampusStory.DesignPatterns;
 using MyCampusStory.StandaloneManager;
+using System;
 
 
 namespace MyCampusStory.QuestSystem
 {
     #region ObjectiveBaseClasses
-    public abstract class Objective
+    public class Objective
     {
-        public delegate void ObjectiveIsCompletedDelegate();
-        public event ObjectiveIsCompletedDelegate OnObjectiveIsCompleted;
+        // public delegate void ObjectiveIsCompletedDelegate();
+        public event Action OnObjectiveIsCompleted;
         
         public ObjectiveSO ObjectiveData { get; protected set; }
         public bool IsObjectiveCompleted { get; protected set; } = false;
@@ -45,20 +45,17 @@ namespace MyCampusStory.QuestSystem
     #region GatherResourcesObjective
     public class GatherResourcesObjective : Objective
     {
-        private ResourceManager _resourceManager;
         private GatherResourcesObjectiveSO _gatherResourcesObjectiveSO;
         
         public GatherResourcesObjective(ObjectiveSO objectiveSO) : base(objectiveSO)
         {
-            _resourceManager = LevelManager.Instance.ResourceManager;
-
             if(LevelManager.Instance.ResourceManager != null)
                 LevelManager.Instance.ResourceManager.OnResourceChanged += EvaluateResourceAmount;
         }
 
         private void EvaluateResourceAmount()
         {
-            if(_resourceManager.GetResourceAmount(_gatherResourcesObjectiveSO.ResourceRequired.ResourceId) >= _gatherResourcesObjectiveSO.AmountRequired)
+            if(LevelManager.Instance.ResourceManager.GetResourceAmount(_gatherResourcesObjectiveSO.ResourceRequired.ResourceId) >= _gatherResourcesObjectiveSO.AmountRequired)
             {
                 IsObjectiveCompleted = true;
                 InvokeOnObjectiveIsCompleted();
