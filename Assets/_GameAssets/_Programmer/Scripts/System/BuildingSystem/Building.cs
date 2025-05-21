@@ -43,6 +43,8 @@ namespace MyCampusStory.BuildingSystem
         private static Dictionary<GroupData, Dictionary<string, Building>> _buildingObjectCollection 
             = new Dictionary<GroupData, Dictionary<string, Building>>();
 
+        public string Idle_Anim_StateName = "IDLE";
+
         private void Awake()
         {
             //Initialize building stats dictionary
@@ -68,6 +70,8 @@ namespace MyCampusStory.BuildingSystem
             }
             // Now add the building to the inner dictionary (under the group)
             _buildingObjectCollection[_sceneGroup][_buildingInstanceId] = this;
+
+            _buildingAnimator.CrossFade(Idle_Anim_StateName, 0.1f);
         }
 
         private void Update()
@@ -153,28 +157,26 @@ namespace MyCampusStory.BuildingSystem
 
         #region IInteractable 
         [Header("Interaction")]
+        public string Interact_Anim_StateName = "INTERACT";
+        public string StopInteract_Anim_StateName = "STOPINTERACT";
         [SerializeField] private Transform _interactPoint;
-        [SerializeField] private string _interactAnimName;
-        [SerializeField] private GameObject _buildingCover;
-        private List<Transform> _usedInteractPoints;
-        private List<Furniture> _usedFurnitures;
+        // [SerializeField] private string _interactAnimName;
+        // [SerializeField] private GameObject _buildingCover;
+        // private List<Transform> _usedInteractPoints;
+        // private List<Furniture> _usedFurnitures;
         public Transform GetInteractPoint() => _interactPoint;
-        public string GetInteractAnimName() => _interactAnimName;
+        // public string GetInteractAnimName() => _interactAnimName;
 
         public void OnInteract(GameObject interactedObject)
         {
-            if(_buildingCover.activeSelf)
-            {
-                _buildingCover.SetActive(false);
-            }
+            _buildingAnimator.CrossFade(Interact_Anim_StateName, 0.1f);
         }
 
         public void OnStopInteract(GameObject interactedObject)
         {
-            if(!_buildingCover.activeSelf)
-            {
-                _buildingCover.SetActive(true);
-            }
+            _buildingAnimator.CrossFade(StopInteract_Anim_StateName, 0.1f);
+
+            // _buildingAnimator.CrossFade(Idle_Anim_StateName, 0.1f);
         }
         #endregion
         

@@ -46,6 +46,16 @@ namespace MyCampusStory.Character
 
 
         #region Animator
+        public float GetAnimDuration(string animName)
+        {
+            foreach (var clip in _animator.runtimeAnimatorController.animationClips)
+            {
+                if (clip.name == animName)
+                    return clip.length;
+            }
+            return 0.5f; // fallback if not found
+        }
+
         public void SetAnimBool(string id, bool value)
         {
             if (!string.IsNullOrEmpty(id))
