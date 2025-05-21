@@ -217,9 +217,9 @@ namespace MyCampusStory.Character
 
             public override void EnterState(Character character)
             {
-                _stopInteractAnimDuration = _roamerCharacter.GetAnimDuration(_roamerCharacter.StopInteract_Anim_StateName);
-
                 _roamerCharacter = (RoamerCharacter)character;
+
+                _stopInteractAnimDuration = _roamerCharacter.GetAnimDuration(_roamerCharacter.StopInteract_Anim_StateName);
                 // character.SetAnimBool(_roamerCharacter.Interact_Anim_Param, true);
                 character.SetAnimCrossFade(_roamerCharacter.Interact_Anim_StateName, 0.1f);
                 // character.ChangeAnimation(_roamerCharacter.Interact_Anim_Param);
