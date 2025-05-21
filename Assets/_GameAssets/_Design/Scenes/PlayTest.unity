@@ -757,7 +757,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6341767817790378488, guid: b5b56c50271036749842a9c147c2962b, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8654651270368239702, guid: b5b56c50271036749842a9c147c2962b, type: 3}
       propertyPath: m_Enabled
@@ -948,8 +948,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 749105478}
     - target: {fileID: 4488470320170090123, guid: e46a72876361d424a965e38b6f05eff9, type: 3}
+      propertyPath: _buildingInstanceId
+      value: BUILDING_GYM_dec354b6-a7a2-43d9-b77c-d1d3a5d8fe21
+      objectReference: {fileID: 0}
+    - target: {fileID: 4488470320170090123, guid: e46a72876361d424a965e38b6f05eff9, type: 3}
       propertyPath: _isBuildingUnlocked
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6984869196279120129, guid: e46a72876361d424a965e38b6f05eff9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1513,8 +1521,16 @@ PrefabInstance:
       value: Canteen_Building 2
       objectReference: {fileID: 0}
     - target: {fileID: 4488470320170090123, guid: 327fd80fb180a744289f3b041c9901bd, type: 3}
+      propertyPath: _buildingInstanceId
+      value: BUILDING_Canteen_6db9f7cd-8ef7-4a2d-bd02-cccfa921ac97
+      objectReference: {fileID: 0}
+    - target: {fileID: 4488470320170090123, guid: 327fd80fb180a744289f3b041c9901bd, type: 3}
       propertyPath: _isBuildingUnlocked
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4868796461343906810, guid: 327fd80fb180a744289f3b041c9901bd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1774,6 +1790,18 @@ PrefabInstance:
     - target: {fileID: 1078028951381437974, guid: 73cd390d0bf13094bba127664ce6d755, type: 3}
       propertyPath: m_Name
       value: Boy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774650493222222628, guid: 73cd390d0bf13094bba127664ce6d755, type: 3}
+      propertyPath: _idleMaxTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774650493222222628, guid: 73cd390d0bf13094bba127664ce6d755, type: 3}
+      propertyPath: _interactMaxTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7268876115823178500, guid: 73cd390d0bf13094bba127664ce6d755, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

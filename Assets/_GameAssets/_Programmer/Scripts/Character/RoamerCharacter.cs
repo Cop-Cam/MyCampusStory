@@ -201,9 +201,10 @@ namespace MyCampusStory.Character
 
                 if (_interactTimeRemaining > _roamerCharacter.GetInteractMaxTime())
                 {
-                    character.SwitchState(_roamerCharacter.IdleState);
                     _roamerCharacter.CurrentBuildingToMove.OnStopInteract(character.gameObject);
-                    _roamerCharacter.SwitchState(_roamerCharacter.IdleState);
+                    character.ChangeAnimation(_roamerCharacter.StopInteract_Anim_Param);
+                    character.SwitchState(_roamerCharacter.IdleState);
+
                     // character.transform.position = _roamerCharacter.CurrentBuildingToMove.GetBuildingEntryPoint().position;
                     // _roamerCharacter.CurrentBuildingToMove.UnReserveInteractPoints(_roamerCharacter.CurrentReservedInteractPoint);
                 }
@@ -212,7 +213,6 @@ namespace MyCampusStory.Character
             public override void ExitState(Character character)
             {
                 // character.SetAnimBool(_roamerCharacter.Interact_Anim_Param, false);
-                character.ChangeAnimation(_roamerCharacter.StopInteract_Anim_Param);
                 _interactTimeRemaining = 0f;
                 _roamerCharacter.CurrentInteractedBuilding = null;
                 _roamerCharacter = null;
