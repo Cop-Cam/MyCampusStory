@@ -4,20 +4,20 @@ using UnityEngine.InputSystem;
 
 namespace MyCampusStory.InputSystem
 {
+
+    
     public class InputManager : MonoBehaviour
     {
         private GameInputActionAsset _gameInputAction;
 
         #region Events
-        public delegate void TouchPressEventHandler(Vector2 position);
-        public event TouchPressEventHandler OnTouchPressPerformedEvent;
-        public event TouchPressEventHandler OnTouchPressCanceledEvent;
-
-        public delegate void TouchPositionEventHandler(Vector2 position);
-        public event TouchPositionEventHandler OnTouchPositionEvent;
+        public delegate void InputPositionEventHandler(Vector2 position);
+        public event InputPositionEventHandler OnTouchPressPerformedEvent;
+        public event InputPositionEventHandler OnTouchPressCanceledEvent;
+        public event InputPositionEventHandler OnTouchPositionEvent;
         #endregion
 
-        // private bool IsPointerOverUI;
+        private bool IsPointerOverUI;
 
         private void Awake()
         {
@@ -26,14 +26,14 @@ namespace MyCampusStory.InputSystem
 
         private void Update()
         {
-            // if(EventSystem.current.IsPointerOverGameObject() && !IsPointerOverUI)
-            // {
-            //     IsPointerOverUI = true;
-            // }
-            // else if(!EventSystem.current.IsPointerOverGameObject() && IsPointerOverUI)
-            // {
-            //     IsPointerOverUI = false;
-            // }
+            if(EventSystem.current.IsPointerOverGameObject() && !IsPointerOverUI)
+            {
+                IsPointerOverUI = true;
+            }
+            else if(!EventSystem.current.IsPointerOverGameObject() && IsPointerOverUI)
+            {
+                IsPointerOverUI = false;
+            }
         }
 
         private void OnEnable()
@@ -58,7 +58,7 @@ namespace MyCampusStory.InputSystem
 
         private void OnTouchPress(InputAction.CallbackContext context)
         {
-            if(EventSystem.current.IsPointerOverGameObject()) return;
+            if(IsPointerOverUI) return;
 
             if(context.performed)
             {
@@ -73,7 +73,7 @@ namespace MyCampusStory.InputSystem
 
         private void OnTouchPosition(InputAction.CallbackContext context) 
         {
-            if(EventSystem.current.IsPointerOverGameObject()) return;
+            if(IsPointerOverUI) return;
 
             OnTouchPositionEvent?.Invoke(context.ReadValue<Vector2>());
         }

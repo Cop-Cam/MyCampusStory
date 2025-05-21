@@ -10,7 +10,7 @@ namespace MyCampusStory.InteractionBehavior
 {
     [RequireComponent(typeof(Collider))]
     [RequireComponent(typeof(Material))]
-    public class ChangeMaterialOnInteraction : MonoBehaviour, IInteractable
+    public class ChangeMaterialOnInteraction : MonoBehaviour, IClickable
     {
         private Material _originalMaterial;
         [SerializeField] private Material _changingMaterial; 
@@ -21,13 +21,13 @@ namespace MyCampusStory.InteractionBehavior
             _originalMaterial = GetComponent<Renderer>().material;
         }
 
-        public void OnInteract()
+        public void OnClick()
         {
             // Switch to other material on interaction
             GetComponent<Renderer>().material = _changingMaterial;
         }
 
-        public void OnStopInteract()
+        public void OnStopClick()
         {
             // Revert to the original material when stop interacting
             GetComponent<Renderer>().material = _originalMaterial;

@@ -26,7 +26,5 @@ namespace MyCampusStory.BuildingSystem
             _resourceIcon.sprite = null;
             _resourceAmount.text = string.Empty;
         }
-
-
     }
 }

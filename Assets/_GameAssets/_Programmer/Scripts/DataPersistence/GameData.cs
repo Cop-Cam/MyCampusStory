@@ -25,7 +25,7 @@ namespace MyCampusStory.DataPersistenceSystem
 
         public SerializableDictionary<string, SerializedBuildingData> PlayerBuildingData;
 
-        public SerializableDictionary<string, Questline> PlayerQuestData;
+        public SerializableDictionary<string, Quest> PlayerQuestData;
 
         //Default Constructor
         // The values defined in this constructor will be the default values the game starts with when there's no data to load
@@ -33,7 +33,7 @@ namespace MyCampusStory.DataPersistenceSystem
         {
             PlayerResourceData = new SerializableDictionary<string, int>();
             PlayerBuildingData = new SerializableDictionary<string, SerializedBuildingData>();
-            PlayerQuestData = new SerializableDictionary<string, Questline>();
+            PlayerQuestData = new SerializableDictionary<string, Quest>();
         }
     }
 

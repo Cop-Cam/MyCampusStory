@@ -10,7 +10,7 @@ namespace MyCampusStory.InteractionBehavior
 {
     [RequireComponent(typeof(Collider))]
     [RequireComponent(typeof(Transform))]
-    public class RescaleOnInteraction : MonoBehaviour, IInteractable
+    public class RescaleOnInteraction : MonoBehaviour, IClickable
     {
         [SerializeField] private Vector3 _targetScale = new Vector3(2f, 2f, 2f);
         [SerializeField] private float _animationDuration = 0.1f;
@@ -23,12 +23,12 @@ namespace MyCampusStory.InteractionBehavior
             _originalScale = transform.localScale;
         }
 
-        public void OnInteract()
+        public void OnClick()
         {
             _resizeObjectAnimationCoroutine = StartCoroutine(ResizeObject(true));
         }
 
-        public void OnStopInteract()
+        public void OnStopClick()
         {
             _resizeObjectAnimationCoroutine = StartCoroutine(ResizeObject(false));
         }

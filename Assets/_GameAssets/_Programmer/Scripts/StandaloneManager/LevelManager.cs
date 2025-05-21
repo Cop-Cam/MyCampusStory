@@ -21,8 +21,8 @@ namespace MyCampusStory.StandaloneManager
         [field:SerializeField]
         public ResourceManager ResourceManager { get; private set; }
         
-        [field:SerializeField]
-        public CameraManager CameraManager { get; private set; }
+        // [field:SerializeField]
+        // public CameraManager CameraManager { get; private set; }
 
         [field:SerializeField]
         public QuestManager QuestManager { get; private set; }

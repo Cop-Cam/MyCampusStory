@@ -15,21 +15,18 @@ MonoBehaviour:
   BuildingBaseId: BUILDING_GYM
   BuildingName: GYM
   BuildingDescription: Gym Generate Fitness
-  MaxBuildingLevel: 3
   BuildingStatsPerLevel:
-  - BuildingLevelForStat: 1
-    BuildingUpgradeRequirements:
+  - BuildingUpgradeRequirements:
     - ResourceRequired: {fileID: 11400000, guid: 2250438361eb77b448b36a9cb54812a2, type: 2}
       AmountRequired: 30
     ResourceGenerationStats:
     - ResourceGenerated: {fileID: 11400000, guid: 5bf899d1d7c1d524882fad927f02a6e9, type: 2}
       AmountGenerated: 5
-      RealTimeIntervalForGeneration: 1
-  - BuildingLevelForStat: 2
-    BuildingUpgradeRequirements:
+      GenerationTimeInterval: 1
+  - BuildingUpgradeRequirements:
     - ResourceRequired: {fileID: 11400000, guid: 4473c3ebad0f2ff49ba4d8c19fcbdb07, type: 2}
       AmountRequired: 100
     ResourceGenerationStats:
     - ResourceGenerated: {fileID: 11400000, guid: 5bf899d1d7c1d524882fad927f02a6e9, type: 2}
       AmountGenerated: 7
-      RealTimeIntervalForGeneration: 1
+      GenerationTimeInterval: 0

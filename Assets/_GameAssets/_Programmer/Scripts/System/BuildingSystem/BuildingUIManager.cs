@@ -84,7 +84,7 @@ namespace MyCampusStory.BuildingSystem
 
             if(_cnvDescriptionUI.enabled)
             {
-                _buildingDescription.text = _currentOpenedBuilding.BuildingDataSO.BuildingDescription;
+                _buildingDescription.text = _currentOpenedBuilding.GetBuildingSO().BuildingDescription;
             }
             else
             {
@@ -98,7 +98,7 @@ namespace MyCampusStory.BuildingSystem
 
             if(_cnvRequirementUI.enabled)
             {
-                foreach (var buildingRequirement in _currentOpenedBuilding.CurrentBuildingStat.BuildingUpgradeRequirements)
+                foreach (var buildingRequirement in _currentOpenedBuilding.GetCurrentBuildingStat().BuildingUpgradeRequirements)
                 {
                     var buildingRequirementUI = _buildingUIObjectPool.GetObject();
 
@@ -145,8 +145,8 @@ namespace MyCampusStory.BuildingSystem
         {
             while (true)
             {
-                _buildingName.text = _currentOpenedBuilding.BuildingDataSO.BuildingName;
-                _buildingLevel.text = _currentOpenedBuilding.CurrentBuildingLevel.ToString();
+                _buildingName.text = _currentOpenedBuilding.GetBuildingSO().BuildingName;
+                _buildingLevel.text = _currentOpenedBuilding.GetCurrentBuildingLevel().ToString();
                 
                 yield return new WaitForSecondsRealtime(0.1f);
             }
