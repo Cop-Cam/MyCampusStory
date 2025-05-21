@@ -114,13 +114,25 @@ namespace MyCampusStory.Character
                 }
 
 
-                if((character.transform.position - _roamerCharacter.CurrentBuildingToMove.GetInteractPoint().position).magnitude <= 1f)
-                {
-                    _roamerCharacter.CurrentBuildingToMove.OnInteract(character.gameObject);
-                    // character.transform.position = _roamerCharacter.CurrentReservedInteractPoint.position;
+                // if((character.transform.position - _roamerCharacter.CurrentBuildingToMove.GetInteractPoint().position).magnitude <= 1f)
+                // {
+                //     _roamerCharacter.CurrentBuildingToMove.OnInteract(character.gameObject);
+                //     // character.transform.position = _roamerCharacter.CurrentReservedInteractPoint.position;
 
-                    _roamerCharacter.CurrentInteractedBuilding = _roamerCharacter.CurrentBuildingToMove;
-                    character.SwitchState(_roamerCharacter.InteractState);
+                //     _roamerCharacter.CurrentInteractedBuilding = _roamerCharacter.CurrentBuildingToMove;
+                //     character.SwitchState(_roamerCharacter.InteractState);
+                // }
+
+                if (!_roamerCharacter._navMeshAgent.pathPending && _roamerCharacter._navMeshAgent.remainingDistance <= _roamerCharacter._navMeshAgent.stoppingDistance)
+                {
+                    if (!_roamerCharacter._navMeshAgent.hasPath || _roamerCharacter._navMeshAgent.velocity.sqrMagnitude == 0f)
+                    {
+                        _roamerCharacter.CurrentBuildingToMove.OnInteract(character.gameObject);
+                        // character.transform.position = _roamerCharacter.CurrentReservedInteractPoint.position;
+
+                        _roamerCharacter.CurrentInteractedBuilding = _roamerCharacter.CurrentBuildingToMove;
+                        character.SwitchState(_roamerCharacter.InteractState);
+                    }
                 }
             }
 
