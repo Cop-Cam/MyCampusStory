@@ -76,8 +76,11 @@ namespace MyCampusStory.Character
 
         public void SetAnimCrossFade(string id, float time)
         {
-            if (!string.IsNullOrEmpty(id))
+            if (!string.IsNullOrEmpty(id) && _currentAnimState != id)
+            {
                 _animator?.CrossFade(id, time);
+                _currentAnimState = id;
+            }
         }
 
         public void ChangeAnimation(string newAnimState)
