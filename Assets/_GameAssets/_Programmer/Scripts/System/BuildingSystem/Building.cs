@@ -184,7 +184,7 @@ namespace MyCampusStory.BuildingSystem
             CharactersObjectInteracting.Add(interactedObject);
             
             //So that the building won't be interacted again when there is still a character inside
-            if(CharactersObjectInteracting == null || CharactersObjectInteracting.Count <= 0) 
+            if(CharactersObjectInteracting.Count > 1) 
                 return;
 
             SetAnimCrossFade(Interact_Anim_StateName, 0.1f);
@@ -195,7 +195,7 @@ namespace MyCampusStory.BuildingSystem
             CharactersObjectInteracting.Remove(interactedObject);
 
             //So that the building won't be interacted again when there is still a character inside
-            if(CharactersObjectInteracting == null || CharactersObjectInteracting.Count <= 0) 
+            if(CharactersObjectInteracting.Count > 0) 
                 return;
 
             SetAnimCrossFade(StopInteract_Anim_StateName, 0.1f);
