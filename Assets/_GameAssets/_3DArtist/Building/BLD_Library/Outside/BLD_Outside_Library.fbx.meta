@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ce1a3dbb873098e40b3c79dfe2aa1ca0
+guid: 15bf7f8a28038784eb4fe373a40129d1
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,13 +7,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: BLD_Inside_Library
-    second: {fileID: 2100000, guid: 3e8b3a8d5f21eed45b659706fe35faaf, type: 2}
+      name: BLD_Outside_Glass_Library
+    second: {fileID: 2100000, guid: e92d923c309e83544a36b72efff0bf89, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLD_Outside_Library
+    second: {fileID: 2100000, guid: 62f9b9ca13280c745ae2766ddad7478e, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Table_BaseColor
-    second: {fileID: 2800000, guid: a21fb2e41fefd8141855af2a7135eddf, type: 3}
+      name: BLD_Outside_Glass_Library_Base_color
+    second: {fileID: 2800000, guid: bcb23df937c599646b186ccbc4b92633, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BLD_Outside_Library_BaseColor
+    second: {fileID: 2800000, guid: a0a52d457cf0553428010e0b06142347, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BLD_Outside_Library_Normal
+    second: {fileID: 2800000, guid: e3bcbd428500df14796d504b75d2d834, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: BLD_Outside_Class
+    second: {fileID: 2100000, guid: a3343504dc83e8f4d8d302d132153ad6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Class back 1
     second: {fileID: 2100000, guid: 4b5f302b1b508304d936cc1327fd1169, type: 2}
   - first:
@@ -32,28 +37,33 @@ ModelImporter:
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
+      name: BLD_Outside_Class
+    second: {fileID: 2800000, guid: 89ddd706ec1ab4c4ebad0634c684c643, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
       name: Class back 1_Base_color
-    second: {fileID: 2800000, guid: 856efe827eb6b8e4f900131922c2b215, type: 3}
+    second: {fileID: 2800000, guid: 8fdbfa6cf4331eb428d1ebc10e5d101d, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Pecture_Base_color
-    second: {fileID: 2800000, guid: e9e686d3fa2e42e4fa3b07d7f218ab4c, type: 3}
+    second: {fileID: 2800000, guid: ad896b4125ccc7b49849a9d7848fd9df, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Plant_Base_color
-    second: {fileID: 2800000, guid: eb440cdc7c242534b90d2cd3b39223ef, type: 3}
+    second: {fileID: 2800000, guid: 29393edf0f9fcc04a89794e1535d44d8, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Table_Base_color
-    second: {fileID: 2800000, guid: 6653adf9d28ff0e4ea387be665aeb1d7, type: 3}
+    second: {fileID: 2800000, guid: 1177ebbdbfc003742b3fbcc01ea13621, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Wboard_Base_color
-    second: {fileID: 2800000, guid: 8216b995e83d76c43bca5288fffd15cc, type: 3}
+    second: {fileID: 2800000, guid: 54095d8f3e7647446a6fae37a173e76e, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
