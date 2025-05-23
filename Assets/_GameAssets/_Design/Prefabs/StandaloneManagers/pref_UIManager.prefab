@@ -939,7 +939,6 @@ GameObject:
   - component: {fileID: 6838018722431872612}
   - component: {fileID: 5627307732438710327}
   - component: {fileID: 1434495595351224499}
-  - component: {fileID: 3327132933164823792}
   m_Layer: 0
   m_Name: CanvaSettings
   m_TagString: Untagged
@@ -1030,27 +1029,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!95 &3327132933164823792
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 618033239311259660}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &630730654770570744
 GameObject:
   m_ObjectHideFlags: 0
@@ -1210,7 +1188,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BuildingUIManager>k__BackingField: {fileID: 3771929651422064865}
   <ResourceUIManager>k__BackingField: {fileID: 3158900517742523876}
-  _lowerUIAnimator: {fileID: 0}
+  _currentLowerUIAnimState: 
+  _lowerUIAnimator: {fileID: 499553067402595661}
+  _cnvLowerUI: {fileID: 6328756676317975404}
+  _currentSettingMenuAnimState: 
+  _settingMenuAnimator: {fileID: 0}
+  _cnvSettingMenu: {fileID: 6838018722431872612}
 --- !u!1 &854326988386909587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1833,6 +1816,7 @@ GameObject:
   - component: {fileID: 6328756676317975404}
   - component: {fileID: 3437479732660332846}
   - component: {fileID: 5108820222564932783}
+  - component: {fileID: 499553067402595661}
   m_Layer: 0
   m_Name: cnvLowerMenu
   m_TagString: Untagged
@@ -1923,6 +1907,27 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!95 &499553067402595661
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547003308456319437}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2c2bf35e4fea461478744e763d60f492, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1617664738312389777
 GameObject:
   m_ObjectHideFlags: 0
@@ -3033,9 +3038,9 @@ RectTransform:
   m_Father: {fileID: 7218506516077679776}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -128, y: 128}
-  m_SizeDelta: {x: 256, y: 256}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -128, y: 0}
+  m_SizeDelta: {x: 256, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &684431276943866971
 CanvasRenderer:
@@ -3119,10 +3124,24 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3327132933164823792}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
+      - m_Target: {fileID: 100895710431371571}
+        m_TargetAssemblyTypeName: MyCampusStory.StandaloneManager.GameplayUIManager,
+          Assembly-CSharp
+        m_MethodName: CloseLowerUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 100895710431371571}
+        m_TargetAssemblyTypeName: MyCampusStory.StandaloneManager.GameplayUIManager,
+          Assembly-CSharp
+        m_MethodName: OpenSettingMenu
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8948,9 +8967,9 @@ RectTransform:
   m_Father: {fileID: 7218506516077679776}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 128, y: 128}
-  m_SizeDelta: {x: 256, y: 256}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 128, y: 0}
+  m_SizeDelta: {x: 256, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2302125512035335480
 CanvasRenderer:

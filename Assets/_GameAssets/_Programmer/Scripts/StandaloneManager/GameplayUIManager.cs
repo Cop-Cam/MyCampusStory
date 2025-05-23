@@ -30,25 +30,61 @@ namespace MyCampusStory.StandaloneManager
         [field:SerializeField]
         public ResourceUIManager ResourceUIManager { get; private set; }
 
-        [Header("Lower UI")]
-        [SerializeField] private Animator _lowerUIAnimator;
-        
         
         protected override void Awake()
         {
             base.Awake();
         }
 
-        public void OpenCloseLowerUI()
+        #region Lower UI
+        [Header("Lower UI")]
+        [SerializeField] private string _currentLowerUIAnimState;
+        [SerializeField] private Animator _lowerUIAnimator;
+        [SerializeField] private Canvas _cnvLowerUI;
+        public void OpenLowerUI()
         {
-            _lowerUIAnimator.SetBool("isOpen", !_lowerUIAnimator.GetBool("isOpen"));
+            if (_cnvLowerUI.enabled) return;
+
+            _cnvLowerUI.enabled = true;
+            SetAnimCrossFade(_lowerUIAnimator, ref _currentLowerUIAnimState, "OPEN", 0.1f);
+        }
+
+        public void CloseLowerUI()
+        {
+            if (!_cnvLowerUI.enabled) return;
+
+            SetAnimCrossFade(_lowerUIAnimator, ref _currentLowerUIAnimState, "CLOSE", 0.1f);
+            _cnvLowerUI.enabled = false;
         }
 
         public void CloseEveryUI()
         {
             CloseEveryUIEvent?.Invoke();
         }
+        #endregion
 
+        #region Setting Menu
+        [Header("Setting Menu")]
+        [SerializeField] private string _currentSettingMenuAnimState;
+        [SerializeField] private Animator _settingMenuAnimator;
+        [SerializeField] private Canvas _cnvSettingMenu;
+        public void OpenSettingMenu()
+        {
+            if (_cnvSettingMenu.enabled) return;
+
+            _cnvSettingMenu.enabled = true;
+            SetAnimCrossFade(_settingMenuAnimator, ref _currentSettingMenuAnimState, "OPEN", 0.1f);
+        }
+
+        public void CloseSettingMenu()
+        {
+            if (!_cnvSettingMenu.enabled) return;
+
+            SetAnimCrossFade(_lowerUIAnimator, ref _currentSettingMenuAnimState, "CLOSE", 0.1f);
+            _cnvSettingMenu.enabled = false;
+        }
+        #endregion
+        
         private void OnEnable()
         {
             
@@ -57,6 +93,15 @@ namespace MyCampusStory.StandaloneManager
         private void OnDisable()
         {
             
+        }
+
+        public void SetAnimCrossFade(Animator animator, ref string state, string id, float time)
+        {
+            if (!string.IsNullOrEmpty(id) && state != id)
+            {
+                animator?.CrossFade(id, time);
+                state = id;
+            }
         }
     }
 }

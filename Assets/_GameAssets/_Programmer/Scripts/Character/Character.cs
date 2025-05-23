@@ -82,15 +82,6 @@ namespace MyCampusStory.Character
                 _currentAnimState = id;
             }
         }
-
-        public void ChangeAnimation(string newAnimState)
-        {
-            if(_currentAnimState == newAnimState) return;
-
-            _animator.Play(newAnimState);
-
-            _currentAnimState = newAnimState;
-        }
         #endregion
 
 
