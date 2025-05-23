@@ -40,21 +40,22 @@ namespace MyCampusStory.StandaloneManager
         [Header("Lower UI")]
         [SerializeField] private string _currentLowerUIAnimState;
         [SerializeField] private Animator _lowerUIAnimator;
-        [SerializeField] private Canvas _cnvLowerUI;
+        // [SerializeField] private Canvas _cnvLowerUI;
         public void OpenLowerUI()
         {
-            if (_cnvLowerUI.enabled) return;
+            // if (_cnvLowerUI.enabled) return;
 
-            _cnvLowerUI.enabled = true;
+            Debug.Log("Open Lower UI");
+            // _cnvLowerUI.enabled = true;
             SetAnimCrossFade(_lowerUIAnimator, ref _currentLowerUIAnimState, "OPEN", 0.1f);
         }
 
         public void CloseLowerUI()
         {
-            if (!_cnvLowerUI.enabled) return;
+            // if (!_cnvLowerUI.enabled) return;
 
             SetAnimCrossFade(_lowerUIAnimator, ref _currentLowerUIAnimState, "CLOSE", 0.1f);
-            _cnvLowerUI.enabled = false;
+            // _cnvLowerUI.enabled = false;
         }
 
         public void CloseEveryUI()
@@ -67,24 +68,24 @@ namespace MyCampusStory.StandaloneManager
         [Header("Setting Menu")]
         [SerializeField] private string _currentSettingMenuAnimState;
         [SerializeField] private Animator _settingMenuAnimator;
-        [SerializeField] private Canvas _cnvSettingMenu;
+        // [SerializeField] private Canvas _cnvSettingMenu;
         public void OpenSettingMenu()
         {
-            if (_cnvSettingMenu.enabled) return;
+            // if (_cnvSettingMenu.enabled) return;
 
-            _cnvSettingMenu.enabled = true;
+            // _cnvSettingMenu.enabled = true;
             SetAnimCrossFade(_settingMenuAnimator, ref _currentSettingMenuAnimState, "OPEN", 0.1f);
         }
 
         public void CloseSettingMenu()
         {
-            if (!_cnvSettingMenu.enabled) return;
-
-            SetAnimCrossFade(_lowerUIAnimator, ref _currentSettingMenuAnimState, "CLOSE", 0.1f);
-            _cnvSettingMenu.enabled = false;
+            // if (!_cnvSettingMenu.enabled) return;
+            Debug.Log("Close Setting Menu");
+            SetAnimCrossFade(_settingMenuAnimator, ref _currentSettingMenuAnimState, "CLOSE", 0.1f);
+            // _cnvSettingMenu.enabled = false;
         }
         #endregion
-        
+
         private void OnEnable()
         {
             
