@@ -10883,6 +10883,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4658416035531109834, guid: 829a2985386ef9c40849b798734f16a7, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4658416035531109834, guid: 829a2985386ef9c40849b798734f16a7, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4658416035531109834, guid: 829a2985386ef9c40849b798734f16a7, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5109588120009734491, guid: 829a2985386ef9c40849b798734f16a7, type: 3}
       propertyPath: m_Name
       value: pref_ResourceRequirementUI
