@@ -50,7 +50,6 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     path: 
-<<<<<<< Updated upstream
   m_FloatCurves:
   - serializedVersion: 2
     curve:
@@ -82,9 +81,6 @@ AnimationClip:
     classID: 223
     script: {fileID: 0}
     flags: 0
-=======
-  m_FloatCurves: []
->>>>>>> Stashed changes
   m_PPtrCurves: []
   m_SampleRate: 60
   m_WrapMode: 0
@@ -102,7 +98,6 @@ AnimationClip:
       isPPtrCurve: 0
       isIntCurve: 0
       isSerializeReferenceCurve: 0
-<<<<<<< Updated upstream
     - serializedVersion: 2
       path: 0
       attribute: 3305885265
@@ -112,8 +107,6 @@ AnimationClip:
       isPPtrCurve: 0
       isIntCurve: 0
       isSerializeReferenceCurve: 0
-=======
->>>>>>> Stashed changes
     pptrCurveMapping: []
   m_AnimationClipSettings:
     serializedVersion: 2
@@ -253,7 +246,6 @@ AnimationClip:
     classID: 224
     script: {fileID: 0}
     flags: 0
-<<<<<<< Updated upstream
   - serializedVersion: 2
     curve:
       serializedVersion: 2
@@ -284,8 +276,6 @@ AnimationClip:
     classID: 223
     script: {fileID: 0}
     flags: 0
-=======
->>>>>>> Stashed changes
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
