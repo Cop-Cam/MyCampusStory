@@ -126,10 +126,10 @@ TextureImporter:
       name: tungtungsahur_walkleft_3
       rect:
         serializedVersion: 2
-        x: 1792
-        y: 65
-        width: 365
-        height: 805
+        x: 1813
+        y: 67
+        width: 344
+        height: 778
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,34 +144,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tungtungsahur_walkleft_13
-      rect:
-        serializedVersion: 2
-        x: 30
-        y: 82
-        width: 459
-        height: 744
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f61d6f43ce076094d8b08cc8c8138ef7
-      internalID: 1855624378
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: tungtungsahur_walkleft_2
       rect:
         serializedVersion: 2
         x: 1267
-        y: 59
-        width: 384
-        height: 770
+        y: 72
+        width: 354
+        height: 752
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,10 +168,10 @@ TextureImporter:
       name: tungtungsahur_walkleft_1
       rect:
         serializedVersion: 2
-        x: 540
-        y: 83
-        width: 557
-        height: 735
+        x: 542
+        y: 94
+        width: 555
+        height: 699
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,9 +189,9 @@ TextureImporter:
       name: tungtungsahur_walkleft_4
       rect:
         serializedVersion: 2
-        x: 2354
+        x: 2353
         y: 62
-        width: 373
+        width: 370
         height: 762
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -223,6 +202,27 @@ TextureImporter:
       bones: []
       spriteID: e1efae9355634374ea911dade6455c3e
       internalID: 1927049515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tungtungsahur_walkleft_0
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 82
+        width: 440
+        height: 737
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8d6b4795986773498937fbef6e5174e
+      internalID: 1742518000
       vertices: []
       indices: 
       edges: []
@@ -238,85 +238,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      tungtungsahur_walkleft_0: 1742518000
       tungtungsahur_walkleft_1: -725721634
-      tungtungsahur_walkleft_10: 99782470
-      tungtungsahur_walkleft_11: -1453486953
-      tungtungsahur_walkleft_12: 788844895
-      tungtungsahur_walkleft_13: 1855624378
-      tungtungsahur_walkleft_14: 324169398
-      tungtungsahur_walkleft_16: -1064877541
-      tungtungsahur_walkleft_18: -892414941
       tungtungsahur_walkleft_2: 1129529120
-      tungtungsahur_walkleft_20: 96315902
-      tungtungsahur_walkleft_21: -643616919
-      tungtungsahur_walkleft_22: 1211296135
-      tungtungsahur_walkleft_23: 341819527
-      tungtungsahur_walkleft_24: 1421537616
-      tungtungsahur_walkleft_25: -1690607581
-      tungtungsahur_walkleft_26: 422022670
-      tungtungsahur_walkleft_27: -1592774157
-      tungtungsahur_walkleft_28: 592149568
-      tungtungsahur_walkleft_29: 1545390959
       tungtungsahur_walkleft_3: -1651755244
-      tungtungsahur_walkleft_30: 1089988246
-      tungtungsahur_walkleft_31: -365343150
-      tungtungsahur_walkleft_32: -783760335
-      tungtungsahur_walkleft_33: -1991270160
-      tungtungsahur_walkleft_34: 1219845185
-      tungtungsahur_walkleft_35: 1321366615
-      tungtungsahur_walkleft_36: 1188050809
-      tungtungsahur_walkleft_37: -1374756668
-      tungtungsahur_walkleft_38: -695489570
-      tungtungsahur_walkleft_39: 513636390
       tungtungsahur_walkleft_4: 1927049515
-      tungtungsahur_walkleft_40: 1935832407
-      tungtungsahur_walkleft_41: -1800789885
-      tungtungsahur_walkleft_42: -2124244942
-      tungtungsahur_walkleft_43: 580056959
-      tungtungsahur_walkleft_44: 2035848842
-      tungtungsahur_walkleft_45: 1840135334
-      tungtungsahur_walkleft_46: 1109745962
-      tungtungsahur_walkleft_47: 1498595707
-      tungtungsahur_walkleft_48: -120704039
-      tungtungsahur_walkleft_49: 320428178
-      tungtungsahur_walkleft_5: -1434443359
-      tungtungsahur_walkleft_50: -1630475165
-      tungtungsahur_walkleft_51: -560831166
-      tungtungsahur_walkleft_52: 1695734145
-      tungtungsahur_walkleft_53: 1515584222
-      tungtungsahur_walkleft_54: -1254052200
-      tungtungsahur_walkleft_55: 1132251962
-      tungtungsahur_walkleft_56: 1267073607
-      tungtungsahur_walkleft_57: 304038928
-      tungtungsahur_walkleft_58: 397304888
-      tungtungsahur_walkleft_59: -35680742
-      tungtungsahur_walkleft_6: 205047503
-      tungtungsahur_walkleft_60: -590619486
-      tungtungsahur_walkleft_61: 1279717218
-      tungtungsahur_walkleft_62: -704401546
-      tungtungsahur_walkleft_63: 801953614
-      tungtungsahur_walkleft_64: 1539107558
-      tungtungsahur_walkleft_65: 869711249
-      tungtungsahur_walkleft_66: -1949362059
-      tungtungsahur_walkleft_67: -670505699
-      tungtungsahur_walkleft_68: 1831446696
-      tungtungsahur_walkleft_69: -407155946
-      tungtungsahur_walkleft_7: 1182238743
-      tungtungsahur_walkleft_70: -331296977
-      tungtungsahur_walkleft_71: 2016586521
-      tungtungsahur_walkleft_72: 1116642746
-      tungtungsahur_walkleft_73: 1332778579
-      tungtungsahur_walkleft_74: 1880070017
-      tungtungsahur_walkleft_75: -673511087
-      tungtungsahur_walkleft_76: 547682793
-      tungtungsahur_walkleft_77: 1988825670
-      tungtungsahur_walkleft_78: -1584230277
-      tungtungsahur_walkleft_79: -1698092049
-      tungtungsahur_walkleft_8: 959523001
-      tungtungsahur_walkleft_80: -1540754646
-      tungtungsahur_walkleft_81: -1246663104
-      tungtungsahur_walkleft_82: 2065706680
-      tungtungsahur_walkleft_9: 1068008753
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
