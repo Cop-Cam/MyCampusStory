@@ -43,9 +43,9 @@ namespace MyCampusStory.BuildingSystem
         private Building _currentOpenedBuilding;
         // private Coroutine _uiUpdateCoroutine;
 
-        private Animator _animator;
+        [SerializeField] private Animator _animator;
 
-        private string _currentAnimState;
+        public string _currentAnimState;
 
         public string OpenUI_Anim_State = "OPEN";
         public string CloseUI_Anim_State = "CLOSE";
@@ -94,6 +94,8 @@ namespace MyCampusStory.BuildingSystem
         public void OpenBuildingUI(Building currentOpenedBuilding)
         {
             GameplayUIManager.Instance.CloseEveryUI();
+            SetAnimCrossFade(OpenUI_Anim_State, 0.1f);
+
             _currentOpenedBuilding = currentOpenedBuilding;
 
             // Fill UI Fields
@@ -118,8 +120,8 @@ namespace MyCampusStory.BuildingSystem
                 var buildingRequirementUIScript = buildingRequirementUI.GetComponent<BuildingRequirementUI>();
 
                 buildingRequirementUI.transform.SetParent(_activeRequirementUIHolder.transform, false);
+                buildingRequirementUI.SetActive(true);
                 buildingRequirementUIScript.Init(buildingRequirement.ResourceRequired, buildingRequirement.AmountRequired);
-                // buildingRequirementUI.SetActive(true);
             }
         }
 
@@ -131,13 +133,14 @@ namespace MyCampusStory.BuildingSystem
                 var buildingGenerationUIScript = buildingGenerationUI.GetComponent<BuildingRequirementUI>(); //temp use the same script for now
 
                 buildingGenerationUI.transform.SetParent(_activeGenerationUIHolder.transform, false);
+                buildingGenerationUI.SetActive(true);
                 buildingGenerationUIScript.Init(buildingGeneration.ResourceGenerated, buildingGeneration.AmountGenerated);
             }
         }
 
         private void PopulateGenerationOnUpgradeUI()
         {
-            if(!_currentOpenedBuilding.IsBuildingUpgradeable()) return;
+            // if(!_currentOpenedBuilding.IsBuildingUpgradeable()) return;
 
             foreach (var buildingGenerationOnUpgrade in _currentOpenedBuilding.GetBuildingSO().BuildingStatsPerLevel[_currentOpenedBuilding.GetCurrentBuildingLevel()+1].ResourceGenerationStats)
             {
@@ -145,6 +148,7 @@ namespace MyCampusStory.BuildingSystem
                 var buildingGenerationUIScript = buildingGenerationUI.GetComponent<BuildingRequirementUI>(); //temp use the same script for now
 
                 buildingGenerationUI.transform.SetParent(_activeGenerationOnUpgradeUIHolder.transform, false);
+                buildingGenerationUI.SetActive(true);
                 buildingGenerationUIScript.Init(buildingGenerationOnUpgrade.ResourceGenerated, buildingGenerationOnUpgrade.AmountGenerated);
             }
         }

@@ -32,14 +32,14 @@ namespace MyCampusStory.BuildingSystem
         {
             if(_currentAnimState != Activated_Anim_State) return;
 
-            if(_resourceAmountInInt <= LevelManager.Instance.ResourceManager.GetResourceAmount(_resourceId))
-            {
-                SetAnimCrossFade(Fulfilled_Anim_State, 0.1f);
-            }
-            else
-            {
-                SetAnimCrossFade(UnFulfilled_Anim_State, 0.1f);
-            }
+            // if(_resourceAmountInInt <= LevelManager.Instance.ResourceManager.GetResourceAmount(_resourceId))
+            // {
+            //     SetAnimCrossFade(Fulfilled_Anim_State, 0.1f);
+            // }
+            // else
+            // {
+            //     SetAnimCrossFade(UnFulfilled_Anim_State, 0.1f);
+            // }
         }
 
         public void Init(ResourceSO resourceSO, int resourceAmount)
@@ -55,6 +55,7 @@ namespace MyCampusStory.BuildingSystem
         public void DeInit()
         {
             // _animator.SetBool(Activated_Anim_Param, false);
+            SetAnimCrossFade(DeActivated_Anim_State, 0.1f);
             _resourceIcon.sprite = null;
             _resourceAmount.text = string.Empty;
         }

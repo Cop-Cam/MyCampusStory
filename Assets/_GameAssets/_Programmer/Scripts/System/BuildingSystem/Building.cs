@@ -126,11 +126,15 @@ namespace MyCampusStory.BuildingSystem
         public void OnClick()
         {
             GameplayUIManager.Instance.BuildingUIManager.OpenBuildingUI(this);
+
+            Debug.Log("Clicked at " + this.gameObject.name);
         }
 
         public void OnStopClick()
         {
             GameplayUIManager.Instance.BuildingUIManager.CloseBuildingUI();
+
+            Debug.Log("Stop clicked at " + this.gameObject.name);
         }
         #endregion
 
