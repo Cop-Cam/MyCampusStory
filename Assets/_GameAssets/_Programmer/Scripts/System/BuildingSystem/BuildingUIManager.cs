@@ -14,7 +14,7 @@ namespace MyCampusStory.BuildingSystem
 {
     public class BuildingUIManager : MonoBehaviour
     {
-        private GameplayUIManager _gameplayUIManager;
+        // private GameplayUIManager _gameplayUIManager;
 
         [Header("ObjectPool")]
         private ObjectPool _buildingUIObjectPool;
@@ -22,12 +22,14 @@ namespace MyCampusStory.BuildingSystem
         [SerializeField] private Transform _poolHolder;
 
         [Header("Canvas")]
-        [SerializeField] private Canvas _cnvBuildingUI;
-        [SerializeField] private Canvas _cnvDescriptionUI;
-        [SerializeField] private Canvas _cnvRequirementUI;
+        // [SerializeField] private Canvas _cnvBuildingUI;
+        // [SerializeField] private Canvas _cnvDescriptionUI;
+        // [SerializeField] private Canvas _cnvRequirementUI;
 
         [Header("Dynamics")]
         [SerializeField] private Transform _activeRequirementUIHolder;
+        [SerializeField] private Transform _activeGenerationUIHolder;
+        [SerializeField] private Transform _activeGenerationOnUpgradeUIHolder;
 
         
         [Header("Buttons")]
@@ -39,86 +41,214 @@ namespace MyCampusStory.BuildingSystem
         [SerializeField] private TextMeshProUGUI _buildingLevel;
         
         private Building _currentOpenedBuilding;
-        private Coroutine _uiUpdateCoroutine;
+        // private Coroutine _uiUpdateCoroutine;
 
-        
+        private Animator _animator;
+
+        private string _currentAnimState;
+
+        public string OpenUI_Anim_State = "OPEN";
+        public string CloseUI_Anim_State = "CLOSE";
+        public string UnableToUpgrade_Anim_State = "UNABLETOUPGRADE";
+        public string AbleToUpgrade_Anim_State = "ABLETOUPGRADE";
+
+        public void SetAnimCrossFade(string id, float time)
+        {
+            if (!string.IsNullOrEmpty(id) && _currentAnimState != id)
+            {
+                _animator?.CrossFade(id, time);
+                _currentAnimState = id;
+            }
+        }
+
+        private void OnEnable()
+        {
+            GameplayUIManager.Instance.CloseEveryUIEvent += CloseBuildingUI;
+        }
+
+        private void OnDisable()
+        {
+            GameplayUIManager.Instance.CloseEveryUIEvent -= CloseBuildingUI;
+        }
+
         private void Awake()
         {
-            _gameplayUIManager = GameplayUIManager.Instance;
-
             _buildingUIObjectPool = GetComponent<ObjectPool>();
             _buildingUIObjectPool.Init(_poolHolder, _buildingRequirementUIPrefab.gameObject, 5);
 
-            _cnvBuildingUI.enabled = false;
-            _cnvDescriptionUI.enabled = false;
-            _cnvRequirementUI.enabled = false;
+            // _cnvBuildingUI.enabled = false;
+            // _cnvDescriptionUI.enabled = false;
+            // _cnvRequirementUI.enabled = false;
+        }
+
+        private void Update()
+        {
+            if(_currentOpenedBuilding == null) return;
+
+            if(_currentOpenedBuilding.IsBuildingUpgradeable())
+            {
+                SetAnimCrossFade(AbleToUpgrade_Anim_State, 0.1f);
+            }
         }
 
         public void OpenBuildingUI(Building currentOpenedBuilding)
         {
+            GameplayUIManager.Instance.CloseEveryUI();
             _currentOpenedBuilding = currentOpenedBuilding;
-            
-            _uiUpdateCoroutine = StartCoroutine(UpdateUI());
 
-            _cnvBuildingUI.enabled = true;
+            // Fill UI Fields
+            _buildingName.text = _currentOpenedBuilding.GetBuildingSO().BuildingName;
+            _buildingLevel.text = _currentOpenedBuilding.GetCurrentBuildingLevel().ToString();
+            _buildingDescription.text = _currentOpenedBuilding.GetBuildingSO().BuildingDescription;
+
+            // Populate requirement UI
+            PopulateRequirementsUI();
+            PopulateGenerationUI();
+            PopulateGenerationOnUpgradeUI();
+
+            SetAnimCrossFade(OpenUI_Anim_State, 0.1f);
+        }
+
+        private void PopulateRequirementsUI()
+        {
+            // Populate new requirement UI objects
+            foreach (var buildingRequirement in _currentOpenedBuilding.GetCurrentBuildingStat().BuildingUpgradeRequirements)
+            {
+                var buildingRequirementUI = _buildingUIObjectPool.GetObject();
+                var buildingRequirementUIScript = buildingRequirementUI.GetComponent<BuildingRequirementUI>();
+
+                buildingRequirementUI.transform.SetParent(_activeRequirementUIHolder.transform, false);
+                buildingRequirementUIScript.Init(buildingRequirement.ResourceRequired, buildingRequirement.AmountRequired);
+                // buildingRequirementUI.SetActive(true);
+            }
+        }
+
+        private void PopulateGenerationUI()
+        {
+            foreach (var buildingGeneration in _currentOpenedBuilding.GetCurrentBuildingStat().ResourceGenerationStats)
+            {
+                var buildingGenerationUI = _buildingUIObjectPool.GetObject();
+                var buildingGenerationUIScript = buildingGenerationUI.GetComponent<BuildingRequirementUI>(); //temp use the same script for now
+
+                buildingGenerationUI.transform.SetParent(_activeGenerationUIHolder.transform, false);
+                buildingGenerationUIScript.Init(buildingGeneration.ResourceGenerated, buildingGeneration.AmountGenerated);
+            }
+        }
+
+        private void PopulateGenerationOnUpgradeUI()
+        {
+            if(!_currentOpenedBuilding.IsBuildingUpgradeable()) return;
+
+            foreach (var buildingGenerationOnUpgrade in _currentOpenedBuilding.GetBuildingSO().BuildingStatsPerLevel[_currentOpenedBuilding.GetCurrentBuildingLevel()+1].ResourceGenerationStats)
+            {
+                var buildingGenerationUI = _buildingUIObjectPool.GetObject();
+                var buildingGenerationUIScript = buildingGenerationUI.GetComponent<BuildingRequirementUI>(); //temp use the same script for now
+
+                buildingGenerationUI.transform.SetParent(_activeGenerationOnUpgradeUIHolder.transform, false);
+                buildingGenerationUIScript.Init(buildingGenerationOnUpgrade.ResourceGenerated, buildingGenerationOnUpgrade.AmountGenerated);
+            }
         }
 
         public void CloseBuildingUI()
         {
-            if(_cnvRequirementUI.enabled)
-                OpenCloseRequirementUI();
+            SetAnimCrossFade(CloseUI_Anim_State, 0.1f);
+
+            // Clear existing UI objects
+            foreach (var buildingRequirementUI in _activeRequirementUIHolder.GetComponentsInChildren<BuildingRequirementUI>())
+            {
+                buildingRequirementUI.DeInit();
+                _buildingUIObjectPool.ReturnObject(buildingRequirementUI.gameObject);
+            }
+
+            foreach (var buildingGenerationUI in _activeGenerationUIHolder.GetComponentsInChildren<BuildingRequirementUI>())
+            {
+                buildingGenerationUI.DeInit();
+                _buildingUIObjectPool.ReturnObject(buildingGenerationUI.gameObject);
+            }
+
+            foreach (var buildingGenerationOnUpgradeUI in _activeGenerationOnUpgradeUIHolder.GetComponentsInChildren<BuildingRequirementUI>())
+            {
+                buildingGenerationOnUpgradeUI.DeInit();
+                _buildingUIObjectPool.ReturnObject(buildingGenerationOnUpgradeUI.gameObject);
+            }
+
+            // if(_cnvRequirementUI.enabled)
+            //     OpenCloseRequirementUI();
             
-            if(_cnvDescriptionUI.enabled)
-                OpenCloseDescriptionUI();
+            // if(_cnvDescriptionUI.enabled)
+            //     OpenCloseDescriptionUI();
 
-            _cnvBuildingUI.enabled = false;
+            // _cnvBuildingUI.enabled = false;
 
-            StopCoroutine(_uiUpdateCoroutine);
+            // StopCoroutine(_uiUpdateCoroutine);
 
             _currentOpenedBuilding = null;
         }
 
-        public void OpenCloseDescriptionUI()
-        {
-            _cnvDescriptionUI.enabled = !_cnvDescriptionUI.enabled;
 
-            if(_cnvDescriptionUI.enabled)
-            {
-                _buildingDescription.text = _currentOpenedBuilding.GetBuildingSO().BuildingDescription;
-            }
-            else
-            {
-                _buildingDescription.text = string.Empty;
-            }
-        }
+        // public void OpenBuildingUI(Building currentOpenedBuilding)
+        // {
+        //     GameplayUIManager.Instance.CloseEveryUI();
 
-        public void OpenCloseRequirementUI()
-        {
-            _cnvRequirementUI.enabled = !_cnvRequirementUI.enabled;
+        //     _currentOpenedBuilding = currentOpenedBuilding;
+            
+        //     _animator.SetBool("ISOPEN", true);
 
-            if(_cnvRequirementUI.enabled)
-            {
-                foreach (var buildingRequirement in _currentOpenedBuilding.GetCurrentBuildingStat().BuildingUpgradeRequirements)
-                {
-                    var buildingRequirementUI = _buildingUIObjectPool.GetObject();
+        //     // _cnvDescriptionUI.enabled = !_cnvDescriptionUI.enabled;
 
-                    var buildingRequirementUIScript = buildingRequirementUI.GetComponent<BuildingRequirementUI>();
-                    buildingRequirementUIScript.Init(buildingRequirement.ResourceRequired, buildingRequirement.AmountRequired);
-                    buildingRequirementUI.transform.SetParent(_activeRequirementUIHolder.transform);
-                    buildingRequirementUI.gameObject.SetActive(true);
-                }
-            }
-            else
-            {
-                foreach (var buildingRequirementUI in _cnvRequirementUI.GetComponentsInChildren<BuildingRequirementUI>())
-                {
-                    var buildingRequirementUIScript = buildingRequirementUI.GetComponent<BuildingRequirementUI>();
-                    buildingRequirementUIScript.DeInit();
+        //     if(_cnvDescriptionUI.enabled)
+        //     {
+        //         _buildingDescription.text = _currentOpenedBuilding.GetBuildingSO().BuildingDescription;
+        //     }
+        //     else
+        //     {
+        //         _buildingDescription.text = string.Empty;
+        //     }
+        // }
 
-                    _buildingUIObjectPool.ReturnObject(buildingRequirementUI.gameObject);
-                }
-            }
-        }
+        
+
+        // public void OpenCloseDescriptionUI()
+        // {
+        //     _cnvDescriptionUI.enabled = !_cnvDescriptionUI.enabled;
+
+        //     if(_cnvDescriptionUI.enabled)
+        //     {
+        //         _buildingDescription.text = _currentOpenedBuilding.GetBuildingSO().BuildingDescription;
+        //     }
+        //     else
+        //     {
+        //         _buildingDescription.text = string.Empty;
+        //     }
+        // }
+
+        // public void OpenCloseRequirementUI()
+        // {
+        //     // _cnvRequirementUI.enabled = !_cnvRequirementUI.enabled;
+
+        //     if(_cnvRequirementUI.enabled)
+        //     {
+        //         foreach (var buildingRequirement in _currentOpenedBuilding.GetCurrentBuildingStat().BuildingUpgradeRequirements)
+        //         {
+        //             var buildingRequirementUI = _buildingUIObjectPool.GetObject();
+
+        //             var buildingRequirementUIScript = buildingRequirementUI.GetComponent<BuildingRequirementUI>();
+        //             buildingRequirementUIScript.Init(buildingRequirement.ResourceRequired, buildingRequirement.AmountRequired);
+        //             buildingRequirementUI.transform.SetParent(_activeRequirementUIHolder.transform);
+        //             buildingRequirementUI.gameObject.SetActive(true);
+        //         }
+        //     }
+        //     else
+        //     {
+        //         foreach (var buildingRequirementUI in _cnvRequirementUI.GetComponentsInChildren<BuildingRequirementUI>())
+        //         {
+        //             var buildingRequirementUIScript = buildingRequirementUI.GetComponent<BuildingRequirementUI>();
+        //             buildingRequirementUIScript.DeInit();
+
+        //             _buildingUIObjectPool.ReturnObject(buildingRequirementUI.gameObject);
+        //         }
+        //     }
+        // }
 
         public void UpgradeBuilding()
         {
@@ -126,30 +256,33 @@ namespace MyCampusStory.BuildingSystem
             {
                 _currentOpenedBuilding.TryUpgradeBuilding();
                 
-                //refresh requirement ui
-                if(_cnvRequirementUI.enabled)
-                {
-                    OpenCloseRequirementUI();
-                    OpenCloseRequirementUI();
-                }
+                CloseBuildingUI();
+                // //refresh requirement ui
+                // if(_cnvRequirementUI.enabled)
+                // {
+                //     OpenCloseRequirementUI();
+                //     OpenCloseRequirementUI();
+                // }
             }
             else //kinda show the upgrade requirement
             {
-                if(!_cnvRequirementUI.enabled)
-                    OpenCloseRequirementUI();
+                // if(!_cnvRequirementUI.enabled)
+                //     OpenCloseRequirementUI();
+
+                SetAnimCrossFade(UnableToUpgrade_Anim_State, 0.1f);
             }
 
         }
 
-        private IEnumerator UpdateUI()
-        {
-            while (true)
-            {
-                _buildingName.text = _currentOpenedBuilding.GetBuildingSO().BuildingName;
-                _buildingLevel.text = _currentOpenedBuilding.GetCurrentBuildingLevel().ToString();
+        // private IEnumerator UpdateUI()
+        // {
+        //     while (true)
+        //     {
+        //         _buildingName.text = _currentOpenedBuilding.GetBuildingSO().BuildingName;
+        //         _buildingLevel.text = _currentOpenedBuilding.GetCurrentBuildingLevel().ToString();
                 
-                yield return new WaitForSecondsRealtime(0.1f);
-            }
-        }
+        //         yield return new WaitForSecondsRealtime(0.1f);
+        //     }
+        // }
     }
 }
