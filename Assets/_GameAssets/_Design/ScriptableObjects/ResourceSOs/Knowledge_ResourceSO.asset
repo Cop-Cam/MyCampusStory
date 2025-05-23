@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResourceId: RSCKNOWLEDGE
   ResourceName: Knowledge
+  ResourceDescription: 
+  ResourceIcon: {fileID: 21300000, guid: b5d657464670d4149aa98a1e0be69e92, type: 3}
   UpperLimit: 2147483647
   LowerLimit: 0

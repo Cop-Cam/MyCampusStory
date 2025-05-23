@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResourceId: RSCLEVEL
   ResourceName: Level
+  ResourceDescription: 
+  ResourceIcon: {fileID: 21300000, guid: 5f5ba7bf11e7e8f44a6b710ee5dd4aee, type: 3}
   UpperLimit: 2147483647
   LowerLimit: 0

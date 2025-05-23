@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResourceId: RSCINTELLIGENT
   ResourceName: Intelligent
+  ResourceDescription: 
+  ResourceIcon: {fileID: 21300000, guid: d597cdc0dea79e64e87361f16046cefe, type: 3}
   UpperLimit: 2147483647
   LowerLimit: 0
