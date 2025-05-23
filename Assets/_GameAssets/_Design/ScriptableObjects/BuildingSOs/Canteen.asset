@@ -17,12 +17,12 @@ MonoBehaviour:
   BuildingDescription: Canteen Generate Money
   BuildingStatsPerLevel:
   - BuildingUpgradeRequirements:
-    - ResourceRequired: {fileID: 11400000, guid: 86a069925e6677e4da81ff1e77379824, type: 2}
-      AmountRequired: 100
+    - ResourceRequired: {fileID: 11400000, guid: 2250438361eb77b448b36a9cb54812a2, type: 2}
+      AmountRequired: 1000
     ResourceGenerationStats: []
   - BuildingUpgradeRequirements:
     - ResourceRequired: {fileID: 11400000, guid: 2250438361eb77b448b36a9cb54812a2, type: 2}
-      AmountRequired: 0
+      AmountRequired: 1
     ResourceGenerationStats:
     - ResourceGenerated: {fileID: 11400000, guid: 2250438361eb77b448b36a9cb54812a2, type: 2}
       AmountGenerated: 100

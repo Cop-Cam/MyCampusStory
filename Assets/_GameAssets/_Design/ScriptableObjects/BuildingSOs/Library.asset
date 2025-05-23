@@ -29,4 +29,4 @@ MonoBehaviour:
     ResourceGenerationStats:
     - ResourceGenerated: {fileID: 11400000, guid: a4255ff7f175bcd41be8282a9dfddf07, type: 2}
       AmountGenerated: 7
-      GenerationTimeInterval: 0
+      GenerationTimeInterval: 1
