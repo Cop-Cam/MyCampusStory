@@ -42,9 +42,11 @@ namespace MyCampusStory.BuildingSystem
         private int _currentBuildingLevel = 0;
         private string _currentAnimState;
         private string _currentAnimStateSecondLayer;
+        
+        [Header("Sounds")]
+        [SerializeField] private AudioClip _buildingClickSound;
 
-
-        private static Dictionary<GroupData, Dictionary<string, Building>> _buildingObjectCollection 
+        private static Dictionary<GroupData, Dictionary<string, Building>> _buildingObjectCollection
             = new Dictionary<GroupData, Dictionary<string, Building>>();
 
         public string Idle_Anim_StateName = "IDLE";
@@ -115,7 +117,7 @@ namespace MyCampusStory.BuildingSystem
             if ((layer == 0 && _currentAnimState == id) || (layer == 1 && _currentAnimStateSecondLayer == id))
                 return;
 
-            _buildingAnimator.CrossFade(id, time, layer, 0f); // normalizedTime = 0f starts from beginning
+            _buildingAnimator.CrossFade(id, time, layer); // normalizedTime = 0f starts from beginning
 
             if (layer == 1)
                 _currentAnimStateSecondLayer = id;
@@ -156,6 +158,8 @@ namespace MyCampusStory.BuildingSystem
         #region IClickable
         public void OnClick()
         {
+            GameManager.Instance.AudioManager.PlaySFX(_buildingClickSound);
+            
             GameplayUIManager.Instance.BuildingUIManager.OpenBuildingUI(this);
 
             Debug.Log("Clicked at " + this.gameObject.name);
