@@ -18,9 +18,12 @@ MonoBehaviour:
   BuildingStatsPerLevel:
   - BuildingUpgradeRequirements:
     - ResourceRequired: {fileID: 11400000, guid: 2250438361eb77b448b36a9cb54812a2, type: 2}
-      AmountRequired: 30
+      AmountRequired: 199
     ResourceGenerationStats:
     - ResourceGenerated: {fileID: 11400000, guid: a4255ff7f175bcd41be8282a9dfddf07, type: 2}
+      AmountGenerated: 5
+      GenerationTimeInterval: 1
+    - ResourceGenerated: {fileID: 11400000, guid: 2250438361eb77b448b36a9cb54812a2, type: 2}
       AmountGenerated: 5
       GenerationTimeInterval: 1
   - BuildingUpgradeRequirements:
@@ -28,5 +31,8 @@ MonoBehaviour:
       AmountRequired: 100
     ResourceGenerationStats:
     - ResourceGenerated: {fileID: 11400000, guid: a4255ff7f175bcd41be8282a9dfddf07, type: 2}
-      AmountGenerated: 7
+      AmountGenerated: 10
+      GenerationTimeInterval: 1
+    - ResourceGenerated: {fileID: 11400000, guid: 2250438361eb77b448b36a9cb54812a2, type: 2}
+      AmountGenerated: 10
       GenerationTimeInterval: 1

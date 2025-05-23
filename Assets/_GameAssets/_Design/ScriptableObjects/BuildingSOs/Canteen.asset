@@ -22,7 +22,7 @@ MonoBehaviour:
     ResourceGenerationStats: []
   - BuildingUpgradeRequirements:
     - ResourceRequired: {fileID: 11400000, guid: 2250438361eb77b448b36a9cb54812a2, type: 2}
-      AmountRequired: 1
+      AmountRequired: 1500
     ResourceGenerationStats:
     - ResourceGenerated: {fileID: 11400000, guid: 2250438361eb77b448b36a9cb54812a2, type: 2}
       AmountGenerated: 100
