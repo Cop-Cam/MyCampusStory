@@ -49,8 +49,6 @@ namespace MyCampusStory.BuildingSystem
 
         public string OpenUI_Anim_State = "OPEN";
         public string CloseUI_Anim_State = "CLOSE";
-        public string UnableToUpgrade_Anim_State = "UNABLETOUPGRADE";
-        public string AbleToUpgrade_Anim_State = "ABLETOUPGRADE";
 
         public void SetAnimCrossFade(string id, float time)
         {
@@ -83,12 +81,17 @@ namespace MyCampusStory.BuildingSystem
 
         private void Update()
         {
-            if(_currentOpenedBuilding == null) return;
+            if (_currentOpenedBuilding == null) return;
 
-            if(_currentOpenedBuilding.IsBuildingUpgradeable())
+            if (_currentOpenedBuilding.IsBuildingMaxLevel())
             {
-                SetAnimCrossFade(AbleToUpgrade_Anim_State, 0.1f);
+                _btnUpgradeButton.gameObject.SetActive(false);
             }
+
+            // if(_currentOpenedBuilding.IsBuildingUpgradeable())
+            // {
+            //     SetAnimCrossFade(AbleToUpgrade_Anim_State, 0.1f);
+            // }
         }
 
         public void OpenBuildingUI(Building currentOpenedBuilding)
@@ -113,6 +116,9 @@ namespace MyCampusStory.BuildingSystem
 
         private void PopulateRequirementsUI()
         {
+            var BuildingUpgradeRequirements = _currentOpenedBuilding.GetCurrentBuildingStat().BuildingUpgradeRequirements;
+            if(BuildingUpgradeRequirements == null || BuildingUpgradeRequirements.Length == 0) return;
+
             // Populate new requirement UI objects
             foreach (var buildingRequirement in _currentOpenedBuilding.GetCurrentBuildingStat().BuildingUpgradeRequirements)
             {
@@ -127,6 +133,9 @@ namespace MyCampusStory.BuildingSystem
 
         private void PopulateGenerationUI()
         {
+            var ResourceGenerationStats = _currentOpenedBuilding.GetCurrentBuildingStat().ResourceGenerationStats;
+            if(ResourceGenerationStats == null || ResourceGenerationStats.Length == 0) return;
+
             foreach (var buildingGeneration in _currentOpenedBuilding.GetCurrentBuildingStat().ResourceGenerationStats)
             {
                 var buildingGenerationUI = _buildingUIObjectPool.GetObject();
@@ -141,6 +150,9 @@ namespace MyCampusStory.BuildingSystem
         private void PopulateGenerationOnUpgradeUI()
         {
             // if(!_currentOpenedBuilding.IsBuildingUpgradeable()) return;
+
+            var ResourceGenerationStats = _currentOpenedBuilding.GetBuildingSO().BuildingStatsPerLevel[_currentOpenedBuilding.GetCurrentBuildingLevel()+1].ResourceGenerationStats;
+            if(ResourceGenerationStats == null || ResourceGenerationStats.Length == 0) return;
 
             foreach (var buildingGenerationOnUpgrade in _currentOpenedBuilding.GetBuildingSO().BuildingStatsPerLevel[_currentOpenedBuilding.GetCurrentBuildingLevel()+1].ResourceGenerationStats)
             {
@@ -158,22 +170,34 @@ namespace MyCampusStory.BuildingSystem
             SetAnimCrossFade(CloseUI_Anim_State, 0.1f);
 
             // Clear existing UI objects
-            foreach (var buildingRequirementUI in _activeRequirementUIHolder.GetComponentsInChildren<BuildingRequirementUI>())
+            var activeRequirementUIs = _activeRequirementUIHolder.GetComponentsInChildren<BuildingRequirementUI>();
+            if (activeRequirementUIs != null && activeRequirementUIs.Length > 0)
             {
-                buildingRequirementUI.DeInit();
-                _buildingUIObjectPool.ReturnObject(buildingRequirementUI.gameObject);
+                foreach (var buildingRequirementUI in _activeRequirementUIHolder.GetComponentsInChildren<BuildingRequirementUI>())
+                {
+                    buildingRequirementUI.DeInit();
+                    _buildingUIObjectPool.ReturnObject(buildingRequirementUI.gameObject);
+                }
             }
 
-            foreach (var buildingGenerationUI in _activeGenerationUIHolder.GetComponentsInChildren<BuildingRequirementUI>())
+            var activeGenerationUIs = _activeGenerationUIHolder.GetComponentsInChildren<BuildingRequirementUI>();
+            if (activeGenerationUIs != null && activeGenerationUIs.Length > 0)
             {
-                buildingGenerationUI.DeInit();
-                _buildingUIObjectPool.ReturnObject(buildingGenerationUI.gameObject);
+                foreach (var buildingGenerationUI in _activeGenerationUIHolder.GetComponentsInChildren<BuildingRequirementUI>())
+                {
+                    buildingGenerationUI.DeInit();
+                    _buildingUIObjectPool.ReturnObject(buildingGenerationUI.gameObject);
+                }
             }
 
-            foreach (var buildingGenerationOnUpgradeUI in _activeGenerationOnUpgradeUIHolder.GetComponentsInChildren<BuildingRequirementUI>())
+            var activeGenerationOnUpgradeUIs = _activeGenerationOnUpgradeUIHolder.GetComponentsInChildren<BuildingRequirementUI>();
+            if (activeGenerationOnUpgradeUIs != null && activeGenerationOnUpgradeUIs.Length > 0)
             {
-                buildingGenerationOnUpgradeUI.DeInit();
-                _buildingUIObjectPool.ReturnObject(buildingGenerationOnUpgradeUI.gameObject);
+                foreach (var buildingGenerationOnUpgradeUI in _activeGenerationOnUpgradeUIHolder.GetComponentsInChildren<BuildingRequirementUI>())
+                {
+                    buildingGenerationOnUpgradeUI.DeInit();
+                    _buildingUIObjectPool.ReturnObject(buildingGenerationOnUpgradeUI.gameObject);
+                }
             }
 
             // if(_cnvRequirementUI.enabled)
@@ -268,13 +292,13 @@ namespace MyCampusStory.BuildingSystem
                 //     OpenCloseRequirementUI();
                 // }
             }
-            else //kinda show the upgrade requirement
-            {
-                // if(!_cnvRequirementUI.enabled)
-                //     OpenCloseRequirementUI();
+            // else //kinda show the upgrade requirement
+            // {
+            //     // if(!_cnvRequirementUI.enabled)
+            //     //     OpenCloseRequirementUI();
 
-                SetAnimCrossFade(UnableToUpgrade_Anim_State, 0.1f);
-            }
+            //     SetAnimCrossFade(UnableToUpgrade_Anim_State, 0.1f);
+            // }
 
         }
 

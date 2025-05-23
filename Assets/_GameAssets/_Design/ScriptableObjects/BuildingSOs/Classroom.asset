@@ -18,7 +18,7 @@ MonoBehaviour:
   BuildingStatsPerLevel:
   - BuildingUpgradeRequirements:
     - ResourceRequired: {fileID: 11400000, guid: 2250438361eb77b448b36a9cb54812a2, type: 2}
-      AmountRequired: 30
+      AmountRequired: 0
     ResourceGenerationStats:
     - ResourceGenerated: {fileID: 11400000, guid: 86a069925e6677e4da81ff1e77379824, type: 2}
       AmountGenerated: 5

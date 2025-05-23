@@ -88,5 +88,13 @@ namespace MyCampusStory.StandaloneManager
             Application.Quit();
         #endif
         }
+
+        //Temporary
+        public void CleanPlayerPrefs()
+        {
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.Save();
+            Debug.Log("PlayerPrefs cleared");
+        }
     }
 }

@@ -19,6 +19,10 @@ namespace MyCampusStory.InputSystem
 
         private bool IsPointerOverUI;
 
+        private bool IsAllowedToInteract = true;
+
+        public void SetAllowedToInteract(bool value) => IsAllowedToInteract = value;
+
         private void Awake()
         {
             _gameInputAction = new GameInputActionAsset();
@@ -58,7 +62,12 @@ namespace MyCampusStory.InputSystem
 
         private void OnTouchPress(InputAction.CallbackContext context)
         {
-            if(IsPointerOverUI) return;
+            if(IsPointerOverUI || !IsAllowedToInteract)
+            {
+                Debug.Log("IsPointerOverUI: " + IsPointerOverUI);
+                Debug.Log("IsAllowedToInteract: " + IsAllowedToInteract);
+                return;
+            }
 
             if(context.performed)
             {
@@ -73,7 +82,12 @@ namespace MyCampusStory.InputSystem
 
         private void OnTouchPosition(InputAction.CallbackContext context) 
         {
-            if(IsPointerOverUI) return;
+            if(IsPointerOverUI || !IsAllowedToInteract)
+            {
+                Debug.Log("IsPointerOverUI: " + IsPointerOverUI);
+                Debug.Log("IsAllowedToInteract: " + IsAllowedToInteract);
+                return;
+            }
 
             OnTouchPositionEvent?.Invoke(context.ReadValue<Vector2>());
         }

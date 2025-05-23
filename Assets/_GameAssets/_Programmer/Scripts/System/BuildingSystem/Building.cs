@@ -12,6 +12,7 @@ using UnityEditor;
 
 using MyCampusStory.StandaloneManager;
 using MyCampusStory.DataPersistenceSystem;
+using Unity.VisualScripting;
 
 
 namespace MyCampusStory.BuildingSystem
@@ -38,21 +39,26 @@ namespace MyCampusStory.BuildingSystem
         private Coroutine GenerateResourceCoroutine;
         private Dictionary<int, BuildingStat> _buildingStatsPerLevelDictionary = new Dictionary<int, BuildingStat>();
         private BuildingStat _currentBuildingStat;
-        private int _currentBuildingLevel = 1;
+        private int _currentBuildingLevel = 0;
         private string _currentAnimState;
+        private string _currentAnimStateSecondLayer;
 
 
         private static Dictionary<GroupData, Dictionary<string, Building>> _buildingObjectCollection 
             = new Dictionary<GroupData, Dictionary<string, Building>>();
 
         public string Idle_Anim_StateName = "IDLE";
+        public string Locked_Anim_State_Name = "LOCKED";
+        public string Unlocked_Anim_State_Name = "UNLOCKED";
+        public string Upgrade_Anim_State_Name = "UPGRADE";
+        // public string Dummy_State_Name = "DUMMY";
 
         private void Awake()
         {
             //Initialize building stats dictionary
             for (int i = 0; i < _buildingDataSO.BuildingStatsPerLevel.Length; i++)
             {
-                _buildingStatsPerLevelDictionary.Add(i+1, _buildingDataSO.BuildingStatsPerLevel[i]);
+                _buildingStatsPerLevelDictionary.Add(i, _buildingDataSO.BuildingStatsPerLevel[i]);
             }
 
             //Set current building stat
@@ -65,7 +71,7 @@ namespace MyCampusStory.BuildingSystem
                 // If the group doesn't exist, create a new inner dictionary for the group
                 _buildingObjectCollection[_sceneGroup] = new Dictionary<string, Building>();
             }
-            if(_buildingObjectCollection[_sceneGroup].ContainsKey(_buildingInstanceId))
+            if (_buildingObjectCollection[_sceneGroup].ContainsKey(_buildingInstanceId))
             {
                 // If the building already exists in the inner dictionary, throw an error
                 throw new System.Exception("Building already exists in the collection!");
@@ -73,7 +79,23 @@ namespace MyCampusStory.BuildingSystem
             // Now add the building to the inner dictionary (under the group)
             _buildingObjectCollection[_sceneGroup][_buildingInstanceId] = this;
 
-            SetAnimCrossFade(Idle_Anim_StateName, 0.1f);
+            // if (!_isBuildingUnlocked)
+            // {
+            //     SetAnimCrossFade(Locked_Anim_State_Name, 0.1f);
+            // }
+            // else
+            // {
+            //     SetAnimCrossFade(Idle_Anim_StateName, 0.1f);
+            // }
+
+            if (!_isBuildingUnlocked)
+            {
+                SetAnimCrossFade(Locked_Anim_State_Name, 0.1f, 0);
+            }
+            else
+            {
+                SetAnimCrossFade(Idle_Anim_StateName, 0.1f, 0);
+            }
         }
 
         private void Update()
@@ -84,14 +106,23 @@ namespace MyCampusStory.BuildingSystem
             }
         }
 
-        public void SetAnimCrossFade(string id, float time)
+        public void SetAnimCrossFade(string id, float time, int layer = 0)
         {
-            if (!string.IsNullOrEmpty(id) && _currentAnimState != id)
-            {
-                _buildingAnimator?.CrossFade(id, time);
+            if (_buildingAnimator == null || string.IsNullOrEmpty(id))
+                return;
+
+            // Prevent same-state crossfade per layer
+            if ((layer == 0 && _currentAnimState == id) || (layer == 1 && _currentAnimStateSecondLayer == id))
+                return;
+
+            _buildingAnimator.CrossFade(id, time, layer, 0f); // normalizedTime = 0f starts from beginning
+
+            if (layer == 1)
+                _currentAnimStateSecondLayer = id;
+            else if (layer == 0)
                 _currentAnimState = id;
-            }
         }
+
 
         public void SaveData(GameData data)
         {
@@ -191,7 +222,7 @@ namespace MyCampusStory.BuildingSystem
             if(CharactersObjectInteracting.Count > 1) 
                 return;
 
-            SetAnimCrossFade(Interact_Anim_StateName, 0.1f);
+            SetAnimCrossFade(Interact_Anim_StateName, 0.1f, 1);
         }
 
         public void OnStopInteract(GameObject interactedObject)
@@ -202,7 +233,7 @@ namespace MyCampusStory.BuildingSystem
             if(CharactersObjectInteracting.Count > 0) 
                 return;
 
-            SetAnimCrossFade(StopInteract_Anim_StateName, 0.1f);
+            SetAnimCrossFade(StopInteract_Anim_StateName, 0.1f, 1);
 
             // _buildingAnimator.CrossFade(Idle_Anim_StateName, 0.1f);
         }
@@ -224,23 +255,43 @@ namespace MyCampusStory.BuildingSystem
         #region UpgradeMechanics
         public void TryUpgradeBuilding()
         {
-            if(!IsBuildingUpgradeable())
+            if (!IsBuildingUpgradeable())
             {
                 return;
             }
-            if(!_buildingStatsPerLevelDictionary.ContainsKey(_currentBuildingLevel + 1))
+            if (!_buildingStatsPerLevelDictionary.ContainsKey(_currentBuildingLevel + 1))
             {
                 return;
             }
+            if (!_isBuildingUnlocked)
+            {
+                _isBuildingUnlocked = true;
+                SetAnimCrossFade(Unlocked_Anim_State_Name, 0.1f, 1);
+                SetAnimCrossFade(Idle_Anim_StateName, 0.1f, 0);
+                // return;
+            }
+            else
+            {
+                SetAnimCrossFade(Upgrade_Anim_State_Name, 0.1f, 1);
+            }
+
+            Debug.Log("Upgrade building");
 
             _currentBuildingStat = _buildingStatsPerLevelDictionary[_currentBuildingLevel + 1];
             _currentBuildingLevel++;
+            
         }
 
         public bool IsBuildingUpgradeable()
         {
             // Check if the building is at max level
             if(_currentBuildingLevel >= _buildingDataSO.MaxBuildingLevel)
+            {
+                return false;
+            }
+            
+            var buildingUpgradeRequirements = _currentBuildingStat.BuildingUpgradeRequirements;
+            if(buildingUpgradeRequirements.Length == 0 || buildingUpgradeRequirements == null)
             {
                 return false;
             }
@@ -266,12 +317,13 @@ namespace MyCampusStory.BuildingSystem
         public Dictionary<int, BuildingStat> GetBuildingStatsPerLevelDictionary() => _buildingStatsPerLevelDictionary;
         public BuildingStat GetCurrentBuildingStat() => _currentBuildingStat;
         public int GetCurrentBuildingLevel() => _currentBuildingLevel;
+        public bool IsBuildingMaxLevel() => _currentBuildingLevel >= _buildingDataSO.MaxBuildingLevel;
 
         public static List<Building> GetAllBuildings(GroupData groupData)
         {
             var buildingList = new List<Building>();
 
-            if(_buildingObjectCollection.ContainsKey(groupData))
+            if (_buildingObjectCollection.ContainsKey(groupData))
             {
                 foreach (var building in _buildingObjectCollection[groupData])
                 {

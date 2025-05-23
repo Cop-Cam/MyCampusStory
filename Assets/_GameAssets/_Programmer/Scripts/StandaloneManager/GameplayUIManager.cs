@@ -45,7 +45,7 @@ namespace MyCampusStory.StandaloneManager
         {
             // if (_cnvLowerUI.enabled) return;
 
-            Debug.Log("Open Lower UI");
+            // Debug.Log("Open Lower UI");
             // _cnvLowerUI.enabled = true;
             SetAnimCrossFade(_lowerUIAnimator, ref _currentLowerUIAnimState, "OPEN", 0.1f);
         }
@@ -71,6 +71,7 @@ namespace MyCampusStory.StandaloneManager
         // [SerializeField] private Canvas _cnvSettingMenu;
         public void OpenSettingMenu()
         {
+            SetInputAllowed(false);
             // if (_cnvSettingMenu.enabled) return;
 
             // _cnvSettingMenu.enabled = true;
@@ -79,8 +80,9 @@ namespace MyCampusStory.StandaloneManager
 
         public void CloseSettingMenu()
         {
+            SetInputAllowed(true);
             // if (!_cnvSettingMenu.enabled) return;
-            Debug.Log("Close Setting Menu");
+            // Debug.Log("Close Setting Menu");
             SetAnimCrossFade(_settingMenuAnimator, ref _currentSettingMenuAnimState, "CLOSE", 0.1f);
             // _cnvSettingMenu.enabled = false;
         }
@@ -103,6 +105,11 @@ namespace MyCampusStory.StandaloneManager
                 animator?.CrossFade(id, time);
                 state = id;
             }
+        }
+
+        public void SetInputAllowed(bool value)
+        {
+            GameManager.Instance.InputManager.SetAllowedToInteract(value);
         }
     }
 }

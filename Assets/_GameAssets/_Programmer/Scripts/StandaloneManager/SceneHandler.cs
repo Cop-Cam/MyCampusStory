@@ -2,6 +2,7 @@
 // Author   : "Ananta Miyoru Wijaya"
 //----------------------------------------------------------------------
 
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,7 +24,7 @@ namespace MyCampusStory.StandaloneManager
 
         public void LoadScene(int sceneIndex)
         {
-            SceneManager.LoadScene(sceneIndex);
+            SceneManager.LoadSceneAsync(sceneIndex);
         }
 
         public void ReloadScene()
@@ -44,5 +45,21 @@ namespace MyCampusStory.StandaloneManager
             SceneManager.UnloadSceneAsync(sceneName);
         }
         #endregion
+
+        public void LoadSceneUsingAnimator(string sceneName)
+        {
+            // SceneManager.LoadSceneAsync(sceneName);
+
+            // _sceneTransitionAnimator.CrossFade("LOADSCENE", 0.1f);
+            StartCoroutine(LoadLevelWithTransition(sceneName));
+        }
+
+        IEnumerator LoadLevelWithTransition(string sceneName)
+        {
+            _sceneTransitionAnimator.CrossFade("FADEIN", 0.1f);
+            yield return new WaitForSecondsRealtime(1f);
+            SceneManager.LoadSceneAsync(sceneName);
+            _sceneTransitionAnimator.CrossFade("FADEOUT", 0.1f);
+        }
     }
 }
