@@ -1,9 +1,34 @@
 fileFormatVersion: 2
-guid: ec08677d780069141baee90a21691cd1
+guid: e0a3030d8115a9b45aa990be0d27d48b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ENV_Tree_Leaf
+    second: {fileID: 2100000, guid: 6ce21479cc9ce374db68fdbe2ba73d3b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ENV_Tree_Trunk
+    second: {fileID: 2100000, guid: 900a0e91d0a09d841a7c4921dcc1280f, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ENV_Tree_Leaf_BaseColor
+    second: {fileID: 2800000, guid: a3ed679b1c753be47a6a10ebfe41d943, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ENV_Tree_Trunk_BaseColor
+    second: {fileID: 2800000, guid: 94cad7933e075a84580c92024a3a39cd, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ENV_Tree_Trunk_Normal
+    second: {fileID: 2800000, guid: d2a65a558c66ee342b8be407f81f9e34, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
