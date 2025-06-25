@@ -10,7 +10,7 @@ public class SingletonTests : MonoBehaviour
     private class TestSingleton : Singleton<TestSingleton> { }
 
     [UnityTest]
-    public IEnumerator Singleton_Instance_Should_Not_Be_Null()
+    public IEnumerator B01_SingletonInitialization()
     {
         GameObject obj = new GameObject("TestSingleton");
         TestSingleton instance = obj.AddComponent<TestSingleton>();
@@ -24,7 +24,7 @@ public class SingletonTests : MonoBehaviour
     }
 
     [UnityTest]
-    public IEnumerator Singleton_Should_Destroy_Second_Instance()
+    public IEnumerator B02_SingletonDestroyDuplicate()
     {
         GameObject obj1 = new GameObject("TestSingleton1");
         TestSingleton instance1 = obj1.AddComponent<TestSingleton>();
@@ -44,7 +44,7 @@ public class SingletonTests : MonoBehaviour
     }
 
     [UnityTest]
-    public IEnumerator Singleton_Should_Persist_Across_Scenes()
+    public IEnumerator B03_SingletonPersistAcrossScenes()
     {
         GameObject obj = new GameObject("TestSingleton");
         TestSingleton instance = obj.AddComponent<TestSingleton>();

@@ -142,10 +142,12 @@ namespace MyCampusStory.DataPersistenceSystem
             _dataHandler.SaveToFile(_gameData, _selectedProfileId);
         }
 
+        //berikan boolean mengecek apakah data ready terlebih dahulu sebelum panel main menu active.
+        //data ready baru diload. kalau tidak, akan terjadi null reference.
         public void LoadGame()
         {
             // return right away if data persistence is disabled
-            if (_disableDataPersistence) 
+            if (_disableDataPersistence)
             {
                 return;
             }
@@ -154,13 +156,13 @@ namespace MyCampusStory.DataPersistenceSystem
             _gameData = _dataHandler.LoadFromFile(_selectedProfileId);
 
             // start a new game if the data is null and we're configured to initialize data for debugging purposes
-            if (_gameData == null && _initializeDataIfNull) 
+            if (_gameData == null && _initializeDataIfNull)
             {
                 NewGame();
             }
 
             // if no data can be loaded, don't continue
-            if (_gameData == null) 
+            if (_gameData == null)
             {
                 Debug.Log("No data was found. A New Game needs to be started before data can be loaded.");
                 return;

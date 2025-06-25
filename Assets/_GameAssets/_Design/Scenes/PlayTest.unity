@@ -3668,6 +3668,7 @@ GameObject:
   - component: {fileID: 608860525}
   - component: {fileID: 608860527}
   - component: {fileID: 608860526}
+  - component: {fileID: 608860528}
   m_Layer: 0
   m_Name: vcam_Front
   m_TagString: Untagged
@@ -3703,61 +3704,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b25b786c38be4242bdc0dcab881e8e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCamera: {fileID: 608860527}
+  virtualCamera: {fileID: 0}
   clickableLayerMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   enableHorizontalSwipe: 1
   minSwipeDistance: 2
-  swipeSpeed: 5
-  dampTime: 3
-  inertiaDuration: 3
-  inertiaMultiplier: 10
-  maxInertiaSpeed: 50
-  inertiaCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.2
-      value: 0.8
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.5
-      value: 0.5
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  swipeForce: 15
   leftBoundary: {fileID: 0}
   rightBoundary: {fileID: 0}
+  cameraRigidbody: {fileID: 608860528}
+  maxSpeed: 30
+  boundaryDampingForce: 50
 --- !u!114 &608860527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3797,6 +3755,33 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 1648741662}
+--- !u!54 &608860528
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608860524}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 124
+  m_CollisionDetection: 1
 --- !u!1001 &613324757
 PrefabInstance:
   m_ObjectHideFlags: 0
