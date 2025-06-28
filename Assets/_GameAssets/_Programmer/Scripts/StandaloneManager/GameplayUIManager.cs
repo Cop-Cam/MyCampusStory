@@ -87,16 +87,30 @@ namespace MyCampusStory.StandaloneManager
             // _cnvSettingMenu.enabled = false;
         }
         #endregion
-
-        private void OnEnable()
+        
+        #region Tutorial Menu
+        [Header("Tutorial Menu")]
+        [SerializeField] private string _currentTutorialMenuAnimState;
+        [SerializeField] private Animator _tutorialMenuAnimator;
+        // [SerializeField] private Canvas _cnvSettingMenu;
+        public void OpenTutorialMenu()
         {
-            
+            SetInputAllowed(false);
+            // if (_cnvSettingMenu.enabled) return;
+
+            // _cnvSettingMenu.enabled = true;
+            SetAnimCrossFade(_tutorialMenuAnimator, ref _currentTutorialMenuAnimState, "OPEN", 0.1f);
         }
 
-        private void OnDisable()
+        public void CloseTutorialMenu()
         {
-            
+            SetInputAllowed(true);
+            // if (!_cnvSettingMenu.enabled) return;
+            // Debug.Log("Close Setting Menu");
+            SetAnimCrossFade(_tutorialMenuAnimator, ref _currentTutorialMenuAnimState, "CLOSE", 0.1f);
+            // _cnvSettingMenu.enabled = false;
         }
+        #endregion
 
         public void SetAnimCrossFade(Animator animator, ref string state, string id, float time)
         {
