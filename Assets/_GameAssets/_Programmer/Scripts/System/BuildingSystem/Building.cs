@@ -36,6 +36,7 @@ namespace MyCampusStory.BuildingSystem
 
         [Header("References")]
         [SerializeField] private Animator _buildingAnimator;
+        [SerializeField] private DataCollector dataCollector;
         private Coroutine GenerateResourceCoroutine;
         private Dictionary<int, BuildingStat> _buildingStatsPerLevelDictionary = new Dictionary<int, BuildingStat>();
         private BuildingStat _currentBuildingStat;
@@ -283,6 +284,11 @@ namespace MyCampusStory.BuildingSystem
 
             _currentBuildingStat = _buildingStatsPerLevelDictionary[_currentBuildingLevel + 1];
             _currentBuildingLevel++;
+
+            if (dataCollector != null)
+            {
+                dataCollector.RecordEvent("BuildingUpgraded", $"Prefab={_buildingDataSO.name}\tLevel={_currentBuildingLevel}");
+            }
             
         }
 

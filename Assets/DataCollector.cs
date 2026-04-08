@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -27,12 +28,34 @@ namespace MyCampusStory
         [Tooltip("Filename written to Application.persistentDataPath when saving event data.")]
         public string eventOutputFileName = "event_data.txt";
 
+        [Tooltip("If true, create a separate file for each run.")]
+        public bool useRunSpecificFileNames = true;
+
+        [Tooltip("Use an incremental run number for the file name (run1, run2, ...)")]
+        public bool useIncrementalRunNumber = true;
+
+        [Tooltip("Use a timestamp in the file name instead of a run number.")]
+        public bool useTimestampInFileName = false;
+
+        [Tooltip("Optional description stored at the top of each saved file.")]
+        [TextArea]
+        public string runDescription = "";
+
+        [Tooltip("Prefix for run-specific files.")]
+        public string runFilePrefix = "run";
+
+        private int currentRunNumber;
+        private string currentRunId;
         private float elapsedTime;
         private List<float> timeSamples;
         private List<string> eventLogs;
 
         void Start()
         {
+            currentRunNumber = GetNextRunNumber();
+            currentRunId = GetRunIdentifier();
+            Debug.Log("Persistent data path: " + Application.persistentDataPath);
+            Debug.Log("DataCollector run id: " + currentRunId);
             elapsedTime = 0f;
             timeSamples = new List<float>();
             eventLogs = new List<string>();
@@ -97,9 +120,11 @@ namespace MyCampusStory
 
         private void SaveTimeData()
         {
-            string path = Path.Combine(Application.persistentDataPath, outputFileName);
+            string outputFileNameWithRun = GetRunSpecificFileName(outputFileName);
+            string path = Path.Combine(Application.persistentDataPath, outputFileNameWithRun);
             using (StreamWriter writer = new StreamWriter(path, false))
             {
+                WriteRunHeader(writer, "Time Data");
                 writer.WriteLine("ElapsedTimeSeconds");
                 foreach (float sample in timeSamples)
                 {
@@ -112,9 +137,11 @@ namespace MyCampusStory
 
         private void SaveEventData()
         {
-            string path = Path.Combine(Application.persistentDataPath, eventOutputFileName);
+            string outputFileNameWithRun = GetRunSpecificFileName(eventOutputFileName);
+            string path = Path.Combine(Application.persistentDataPath, outputFileNameWithRun);
             using (StreamWriter writer = new StreamWriter(path, false))
             {
+                WriteRunHeader(writer, "Event Data");
                 writer.WriteLine("Timestamp\tEventName\tDetails");
                 foreach (string logEntry in eventLogs)
                 {
@@ -123,6 +150,58 @@ namespace MyCampusStory
             }
 
             Debug.Log($"Saved event data to: {path}");
+        }
+
+        private string GetRunSpecificFileName(string baseFileName)
+        {
+            if (!useRunSpecificFileNames)
+            {
+                return baseFileName;
+            }
+
+            string nameWithoutExtension = Path.GetFileNameWithoutExtension(baseFileName);
+            string extension = Path.GetExtension(baseFileName);
+            return $"{nameWithoutExtension}_{currentRunId}{extension}";
+        }
+
+        private void WriteRunHeader(StreamWriter writer, string fileType)
+        {
+            writer.WriteLine($"Run: {currentRunId}");
+            writer.WriteLine($"File Type: {fileType}");
+            writer.WriteLine($"Saved At: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
+            if (!string.IsNullOrEmpty(runDescription))
+            {
+                writer.WriteLine($"Description: {runDescription}");
+            }
+            writer.WriteLine();
+        }
+
+        private int GetNextRunNumber()
+        {
+            int nextRun = PlayerPrefs.GetInt("DataCollectorRunNumber", 1);
+            PlayerPrefs.SetInt("DataCollectorRunNumber", nextRun + 1);
+            PlayerPrefs.Save();
+            return nextRun;
+        }
+
+        private string GetRunIdentifier()
+        {
+            if (!useRunSpecificFileNames)
+            {
+                return string.Empty;
+            }
+
+            if (useIncrementalRunNumber)
+            {
+                return $"{runFilePrefix}{currentRunNumber}";
+            }
+
+            if (useTimestampInFileName)
+            {
+                return $"{runFilePrefix}_{DateTime.Now:yyyyMMdd_HHmmss}";
+            }
+
+            return $"{runFilePrefix}{currentRunNumber}";
         }
     }
 }

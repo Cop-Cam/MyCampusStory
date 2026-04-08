@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.19338152, g: 0.0017947563, b: 0.000003584393, a: 1}
+  m_IndirectSpecularColor: {r: 0.1935682, g: 0.0017972293, b: 0.0000035931366, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4136,6 +4136,10 @@ PrefabInstance:
       value: -225.048
       objectReference: {fileID: 0}
     - target: {fileID: 4488470320170090123, guid: b5b56c50271036749842a9c147c2962b, type: 3}
+      propertyPath: dataCollector
+      value: 
+      objectReference: {fileID: 1957937956}
+    - target: {fileID: 4488470320170090123, guid: b5b56c50271036749842a9c147c2962b, type: 3}
       propertyPath: _buildingClickSound
       value: 
       objectReference: {fileID: 8300000, guid: 96a19c4c689eaea49bef8955d700df73, type: 3}
@@ -4850,6 +4854,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f10bd1193295e00478d1747eb4a28d49, type: 2}
+    - target: {fileID: 4488470320170090123, guid: e46a72876361d424a965e38b6f05eff9, type: 3}
+      propertyPath: dataCollector
+      value: 
+      objectReference: {fileID: 1957937956}
     - target: {fileID: 4488470320170090123, guid: e46a72876361d424a965e38b6f05eff9, type: 3}
       propertyPath: _interactPoint
       value: 
@@ -9866,6 +9874,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4488470320170090123, guid: 327fd80fb180a744289f3b041c9901bd, type: 3}
+      propertyPath: dataCollector
+      value: 
+      objectReference: {fileID: 1957937956}
+    - target: {fileID: 4488470320170090123, guid: 327fd80fb180a744289f3b041c9901bd, type: 3}
       propertyPath: _buildingClickSound
       value: 
       objectReference: {fileID: 8300000, guid: 96a19c4c689eaea49bef8955d700df73, type: 3}
@@ -14594,6 +14606,57 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7fc56fb95000bd042ac0ea6ac0eec8cb, type: 3}
   m_PrefabInstance: {fileID: 1954140008}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1957937955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1957937957}
+  - component: {fileID: 1957937956}
+  m_Layer: 0
+  m_Name: DataCollector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1957937956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957937955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 382d60168f4124349843a2670cfde9fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectTimeData: 1
+  saveToFile: 0
+  collectEventData: 1
+  saveEventsToFile: 1
+  logTimeToConsole: 1
+  outputFileName: time_data.txt
+  eventOutputFileName: event_data.txt
+--- !u!4 &1957937957
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957937955}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 71.26131, y: 23.699776, z: 49.73694}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1960759834 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e7dacd5991c7b394c9815e47dd70ebac, type: 3}
@@ -15006,6 +15069,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4488470320170090123, guid: c4e824ec5365c1840b5c7248c0706308, type: 3}
+      propertyPath: dataCollector
+      value: 
+      objectReference: {fileID: 1957937956}
     - target: {fileID: 4488470320170090123, guid: c4e824ec5365c1840b5c7248c0706308, type: 3}
       propertyPath: _interactPoint
       value: 
@@ -16169,3 +16236,4 @@ SceneRoots:
   - {fileID: 382552521}
   - {fileID: 1917227435}
   - {fileID: 242679810}
+  - {fileID: 1957937957}
