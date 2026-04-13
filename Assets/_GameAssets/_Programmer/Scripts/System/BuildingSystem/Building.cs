@@ -282,6 +282,13 @@ namespace MyCampusStory.BuildingSystem
 
             Debug.Log("Upgrade building");
 
+            foreach (var buildingUpgradeRequirement in _currentBuildingStat.BuildingUpgradeRequirements)
+            {
+                LevelManager.Instance.ResourceManager.ModifyResourceAmount(
+                    buildingUpgradeRequirement.ResourceRequired.ResourceId,
+                    -buildingUpgradeRequirement.AmountRequired);
+            }
+
             _currentBuildingStat = _buildingStatsPerLevelDictionary[_currentBuildingLevel + 1];
             _currentBuildingLevel++;
 
