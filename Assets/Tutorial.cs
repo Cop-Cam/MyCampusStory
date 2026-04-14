@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 namespace MyCampusStory
 {
@@ -29,8 +30,11 @@ namespace MyCampusStory
         [Tooltip("Camera used for the tutorial. If empty, uses Camera.main.")]
         public Camera tutorialCamera;
 
-        [Tooltip("UI Text that shows the tutorial instructions.")]
-        public Text tutorialText;
+        [Tooltip("Optional Cinemachine virtual camera used for the tutorial.")]
+        public CinemachineVirtualCamera tutorialVirtualCamera;
+
+        [Tooltip("TextMeshPro text that shows the tutorial instructions.")]
+        public TMP_Text tutorialText;
 
         [Tooltip("Optional container to show/hide while the tutorial is active.")]
         public GameObject tutorialPanel;
@@ -48,12 +52,31 @@ namespace MyCampusStory
         private readonly Dictionary<Renderer, Color[]> originalEmissionColors = new Dictionary<Renderer, Color[]>();
         private readonly HashSet<Renderer> highlightedRenderers = new HashSet<Renderer>();
 
+        private Vector3 originalCameraPosition;
+        private Quaternion originalCameraRotation;
+        private Transform originalVirtualCameraFollow;
+        private Transform originalVirtualCameraLookAt;
+        private Vector3 originalVirtualCameraOffset;
+        private float originalX_Damping;
+        private float originalY_Damping;
+        private float originalZ_Damping;
+        private int originalVirtualCameraPriority;
+        private bool originalVirtualCameraActive;
+
         private void Start()
         {
             if (tutorialCamera == null)
             {
                 tutorialCamera = Camera.main;
             }
+
+            if (tutorialVirtualCamera != null && tutorialCamera == null)
+            {
+                tutorialCamera = Camera.main;
+            }
+
+            SaveOriginalCameraState();
+            ActivateTutorialVirtualCamera();
 
             if (tutorialPanel != null)
             {
@@ -63,11 +86,53 @@ namespace MyCampusStory
             StartCoroutine(RunTutorial());
         }
 
+        private void SaveOriginalCameraState()
+        {
+            if (tutorialCamera != null)
+            {
+                Debug.Log("Current Original Cam Position is " + tutorialCamera.transform.position);
+                originalCameraPosition = tutorialCamera.transform.position;
+                originalCameraRotation = tutorialCamera.transform.rotation;
+            }
+
+            if (tutorialVirtualCamera != null)
+            {
+                originalVirtualCameraPriority = tutorialVirtualCamera.Priority;
+                originalVirtualCameraActive = tutorialVirtualCamera.gameObject.activeSelf;
+                originalVirtualCameraFollow = tutorialVirtualCamera.Follow;
+                originalVirtualCameraLookAt = tutorialVirtualCamera.LookAt;
+
+                var transposer = tutorialVirtualCamera.GetCinemachineComponent<CinemachineTransposer>();
+                if (transposer != null)
+                {
+                    originalVirtualCameraOffset = transposer.m_FollowOffset;
+                    originalX_Damping = transposer.m_XDamping;
+                    originalY_Damping = transposer.m_YDamping;
+                    originalZ_Damping = transposer.m_ZDamping;
+                }
+                else
+                {
+                    originalVirtualCameraOffset = tutorialVirtualCamera.transform.position - (originalVirtualCameraFollow != null ? originalVirtualCameraFollow.position : Vector3.zero);
+                }
+            }
+        }
+
+        private void ActivateTutorialVirtualCamera()
+        {
+            if (tutorialVirtualCamera == null)
+            {
+                return;
+            }
+
+            tutorialVirtualCamera.gameObject.SetActive(true);
+            tutorialVirtualCamera.Priority = originalVirtualCameraPriority + 100;
+        }
+
         private IEnumerator RunTutorial()
         {
-            if (tutorialCamera == null || tutorialText == null)
+            if ((tutorialCamera == null && tutorialVirtualCamera == null) || tutorialText == null)
             {
-                Debug.LogWarning("Tutorial requires a camera and a tutorialText UI Text reference.");
+                Debug.LogWarning("Tutorial requires a camera or Cinemachine virtual camera, and a tutorialText reference.");
                 yield break;
             }
 
@@ -93,11 +158,50 @@ namespace MyCampusStory
                 ClearHighlight(step.highlightRenderer);
             }
 
+            yield return StartCoroutine(RestoreCamera());
             EndTutorial();
         }
 
         private IEnumerator MoveCameraToTarget(Transform target, Vector3 offset, bool lookAt)
         {
+            if (tutorialVirtualCamera != null)
+            {
+                var transposer = tutorialVirtualCamera.GetCinemachineComponent<CinemachineTransposer>();
+                tutorialVirtualCamera.Follow = target;
+                tutorialVirtualCamera.LookAt = lookAt ? target : null;
+
+                if (transposer != null)
+                {
+                    var startOffset = transposer.m_FollowOffset;
+                    float elapsed = 0f;
+                    const float duration = 1f;
+                    while (elapsed < duration)
+                    {
+                        transposer.m_FollowOffset = Vector3.Lerp(startOffset, offset, elapsed / duration);
+                        elapsed += Time.deltaTime;
+                        yield return null;
+                    }
+                    transposer.m_FollowOffset = offset;
+                }
+                else
+                {
+                    Vector3 startPosition = tutorialVirtualCamera.transform.position;
+                    Vector3 desiredPosition_ = target.position + offset;
+                    float elapsed = 0f;
+                    const float duration = 1f;
+                    while (elapsed < duration)
+                    {
+                        tutorialVirtualCamera.transform.position = Vector3.Lerp(startPosition, desiredPosition_, elapsed / duration);
+                        elapsed += Time.deltaTime;
+                        yield return null;
+                    }
+                    tutorialVirtualCamera.transform.position = desiredPosition_;
+                }
+
+                yield return new WaitForSeconds(0.25f);
+                yield break;
+            }
+
             Vector3 desiredPosition = target.position + offset;
             Quaternion desiredRotation = tutorialCamera.transform.rotation;
 
@@ -119,6 +223,64 @@ namespace MyCampusStory
             while (!Input.GetKeyDown(nextStepKey) && !Input.GetMouseButtonDown(0) && Input.touchCount == 0)
             {
                 yield return null;
+            }
+        }
+
+        private IEnumerator RestoreCamera()
+        {
+            if (tutorialVirtualCamera != null)
+            {
+                tutorialVirtualCamera.Follow = originalVirtualCameraFollow;
+                tutorialVirtualCamera.LookAt = originalVirtualCameraLookAt;
+
+                var transposer = tutorialVirtualCamera.GetCinemachineComponent<CinemachineTransposer>();
+                if (transposer != null)
+                {
+                    transposer.m_FollowOffset = originalVirtualCameraOffset;
+                    transposer.m_XDamping = originalX_Damping;
+                    transposer.m_YDamping = originalY_Damping;
+                    transposer.m_ZDamping = originalZ_Damping;
+                }
+
+                tutorialVirtualCamera.Priority = originalVirtualCameraPriority;
+                if (!originalVirtualCameraActive)
+                {
+                    tutorialVirtualCamera.gameObject.SetActive(false);
+                }
+
+                if (tutorialCamera != null)
+                {
+                    float elapsed = 0f;
+                    const float duration = 1f;
+                    Vector3 startPosition = tutorialCamera.transform.position;
+                    Quaternion startRotation = tutorialCamera.transform.rotation;
+                    while (elapsed < duration)
+                    {
+                        tutorialCamera.transform.position = Vector3.Lerp(startPosition, originalCameraPosition, elapsed / duration);
+                        tutorialCamera.transform.rotation = Quaternion.Slerp(startRotation, originalCameraRotation, elapsed / duration);
+                        elapsed += Time.deltaTime;
+                        yield return null;
+                    }
+                    tutorialCamera.transform.SetPositionAndRotation(originalCameraPosition, originalCameraRotation);
+                }
+
+                yield break;
+            }
+
+            if (tutorialCamera != null)
+            {
+                float elapsed = 0f;
+                const float duration = 1f;
+                Vector3 startPosition = tutorialCamera.transform.position;
+                Quaternion startRotation = tutorialCamera.transform.rotation;
+                while (elapsed < duration)
+                {
+                    tutorialCamera.transform.position = Vector3.Lerp(startPosition, originalCameraPosition, elapsed / duration);
+                    tutorialCamera.transform.rotation = Quaternion.Slerp(startRotation, originalCameraRotation, elapsed / duration);
+                    elapsed += Time.deltaTime;
+                    yield return null;
+                }
+                tutorialCamera.transform.SetPositionAndRotation(originalCameraPosition, originalCameraRotation);
             }
         }
 
@@ -211,6 +373,7 @@ namespace MyCampusStory
 
         private void EndTutorial()
         {
+            Debug.Log("Turorial Complete and the Current Cam Position is " + tutorialCamera.transform.position);
             tutorialText.text = string.Empty;
             if (tutorialPanel != null)
             {
