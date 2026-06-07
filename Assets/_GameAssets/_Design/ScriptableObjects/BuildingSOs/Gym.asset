@@ -21,28 +21,28 @@ MonoBehaviour:
       AmountRequired: 100
     ResourceGenerationStats:
     - ResourceGenerated: {fileID: 11400000, guid: 5bf899d1d7c1d524882fad927f02a6e9, type: 2}
-      AmountGenerated: 5
+      AmountGenerated: 10
       GenerationTimeInterval: 1
     - ResourceGenerated: {fileID: 11400000, guid: 2250438361eb77b448b36a9cb54812a2, type: 2}
       AmountGenerated: 5
       GenerationTimeInterval: 1
   - BuildingUpgradeRequirements:
     - ResourceRequired: {fileID: 11400000, guid: 2250438361eb77b448b36a9cb54812a2, type: 2}
-      AmountRequired: 100
+      AmountRequired: 75
     ResourceGenerationStats:
     - ResourceGenerated: {fileID: 11400000, guid: 5bf899d1d7c1d524882fad927f02a6e9, type: 2}
-      AmountGenerated: 10
+      AmountGenerated: 16
       GenerationTimeInterval: 1
     - ResourceGenerated: {fileID: 11400000, guid: 2250438361eb77b448b36a9cb54812a2, type: 2}
-      AmountGenerated: 10
+      AmountGenerated: 13
       GenerationTimeInterval: 1
   - BuildingUpgradeRequirements:
     - ResourceRequired: {fileID: 11400000, guid: 2250438361eb77b448b36a9cb54812a2, type: 2}
-      AmountRequired: 150
+      AmountRequired: 113
     ResourceGenerationStats:
     - ResourceGenerated: {fileID: 11400000, guid: 5bf899d1d7c1d524882fad927f02a6e9, type: 2}
-      AmountGenerated: 15
+      AmountGenerated: 26
       GenerationTimeInterval: 1
     - ResourceGenerated: {fileID: 11400000, guid: 2250438361eb77b448b36a9cb54812a2, type: 2}
-      AmountGenerated: 15
+      AmountGenerated: 21
       GenerationTimeInterval: 1

@@ -15,12 +15,12 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.03773582, g: 0.03773582, b: 0.03773582, a: 1}
+  m_FogColor: {r: 0.63215876, g: 0.5326009, b: 0.26305068, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.24313727, g: 0.3137255, b: 0.87843144, a: 1}
+  m_AmbientSkyColor: {r: 0.7871432, g: 0.73132426, b: 0.64034975, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1935682, g: 0.0017972293, b: 0.0000035931366, a: 1}
+  m_IndirectSpecularColor: {r: 0.6049735, g: 0.8258505, b: 0.7870051, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4143,6 +4143,10 @@ PrefabInstance:
       propertyPath: _buildingClickSound
       value: 
       objectReference: {fileID: 8300000, guid: 96a19c4c689eaea49bef8955d700df73, type: 3}
+    - target: {fileID: 4488470320170090123, guid: b5b56c50271036749842a9c147c2962b, type: 3}
+      propertyPath: _buildingUpgradeSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 445fdaf1597f0ee4b936981797625afc, type: 3}
     - target: {fileID: 5866401072349016190, guid: b5b56c50271036749842a9c147c2962b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -4878,6 +4882,10 @@ PrefabInstance:
       propertyPath: _isBuildingUnlocked
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4488470320170090123, guid: e46a72876361d424a965e38b6f05eff9, type: 3}
+      propertyPath: _buildingUpgradeSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 445fdaf1597f0ee4b936981797625afc, type: 3}
     - target: {fileID: 4777076048913192196, guid: e46a72876361d424a965e38b6f05eff9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -7544,7 +7552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionalLight: {fileID: 1330359279}
   preset: {fileID: 11400000, guid: 90c3c66ae35e3b840be125e2619555e4, type: 2}
-  timeOfDay: 0
+  timeOfDay: 6.6
   dayDurationInSeconds: 60
 --- !u!4 &1063353246
 Transform:
@@ -9890,6 +9898,10 @@ PrefabInstance:
       propertyPath: _isBuildingUnlocked
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4488470320170090123, guid: 327fd80fb180a744289f3b041c9901bd, type: 3}
+      propertyPath: _buildingUpgradeSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 445fdaf1597f0ee4b936981797625afc, type: 3}
     - target: {fileID: 4610331982413322894, guid: 327fd80fb180a744289f3b041c9901bd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -9950,7 +9962,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.53734833, g: 0.53734833, b: 0.53734833, a: 1}
   m_Intensity: 0.25
   m_Range: 10
   m_SpotAngle: 30
@@ -10009,7 +10021,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330359278}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.061628457, y: 0.70441604, z: 0.70441604, w: 0.061628457}
+  m_LocalRotation: {x: 0.006838167, y: 0.99312377, z: -0.078160554, w: 0.08688713}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12537,7 +12549,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d688369665c8d95488bf301e187695d6, type: 2}
+  - {fileID: 2100000, guid: 51867f5f62f3c7b4aaeb6958cd6076cb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12576,7 +12588,7 @@ Transform:
   m_GameObject: {fileID: 1682525774}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 102.4, y: 19.92, z: 7.7}
+  m_LocalPosition: {x: 102.4, y: 19.72, z: 7.7}
   m_LocalScale: {x: 20.497276, y: 6.8866, z: 13.078999}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15108,6 +15120,10 @@ PrefabInstance:
       propertyPath: _isBuildingUnlocked
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4488470320170090123, guid: c4e824ec5365c1840b5c7248c0706308, type: 3}
+      propertyPath: _buildingUpgradeSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 445fdaf1597f0ee4b936981797625afc, type: 3}
     - target: {fileID: 4850312797280970087, guid: c4e824ec5365c1840b5c7248c0706308, type: 3}
       propertyPath: m_Layer
       value: 3

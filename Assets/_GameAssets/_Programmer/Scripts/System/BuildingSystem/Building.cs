@@ -46,6 +46,7 @@ namespace MyCampusStory.BuildingSystem
         
         [Header("Sounds")]
         [SerializeField] private AudioClip _buildingClickSound;
+        [SerializeField] private AudioClip _buildingUpgradeSound;
 
         private static Dictionary<GroupData, Dictionary<string, Building>> _buildingObjectCollection
             = new Dictionary<GroupData, Dictionary<string, Building>>();
@@ -287,6 +288,11 @@ namespace MyCampusStory.BuildingSystem
                 LevelManager.Instance.ResourceManager.ModifyResourceAmount(
                     buildingUpgradeRequirement.ResourceRequired.ResourceId,
                     -buildingUpgradeRequirement.AmountRequired);
+            }
+
+            if (_buildingUpgradeSound != null)
+            {
+                GameManager.Instance.AudioManager.PlaySFX(_buildingUpgradeSound);
             }
 
             _currentBuildingStat = _buildingStatsPerLevelDictionary[_currentBuildingLevel + 1];
