@@ -76,6 +76,25 @@ namespace MyCampusStory
             }
         }
 
+        void OnApplicationPause(bool pauseStatus)
+        {
+            // Save data when app is paused (backgrounded) on mobile devices
+            // This ensures data is saved before OS kills the app
+            if (pauseStatus)
+            {
+                Debug.Log("App paused. Saving data...");
+                if (saveToFile)
+                {
+                    SaveTimeData();
+                }
+
+                if (saveEventsToFile)
+                {
+                    SaveEventData();
+                }
+            }
+        }
+
         void OnApplicationQuit()
         {
             Debug.Log($"Total elapsed play time: {elapsedTime:F2} seconds");
